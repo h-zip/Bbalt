@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="JHNoWifiView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common_no_wifi" translatesAutoresizingMaskIntoConstraints="NO" id="bRD-Mx-bLv">
+                    <rect key="frame" x="112" y="178.5" width="150" height="150"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="bRD-Mx-bLv" secondAttribute="height" multiplier="1:1" id="1wD-2j-Y2s"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="无法获取网络内容" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3a7-gV-gJC">
+                    <rect key="frame" x="20" y="349" width="335" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sIw-VG-HE8">
+                    <rect key="frame" x="112.5" y="387" width="150" height="30"/>
+                    <color key="backgroundColor" red="1" green="0.54060705833888889" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="v2r-kU-DBn"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="点击重试">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="3a7-gV-gJC" firstAttribute="top" secondItem="bRD-Mx-bLv" secondAttribute="bottom" constant="20" id="260-7y-BnP"/>
+                <constraint firstItem="bRD-Mx-bLv" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="4YX-Ld-9Gf"/>
+                <constraint firstItem="bRD-Mx-bLv" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-80" id="5g4-ud-b5u"/>
+                <constraint firstItem="bRD-Mx-bLv" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.4" id="BkT-vS-OGv"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="3a7-gV-gJC" secondAttribute="trailing" constant="20" id="C78-1H-vyr"/>
+                <constraint firstItem="sIw-VG-HE8" firstAttribute="centerX" secondItem="3a7-gV-gJC" secondAttribute="centerX" id="jpH-ph-urr"/>
+                <constraint firstItem="sIw-VG-HE8" firstAttribute="width" secondItem="bRD-Mx-bLv" secondAttribute="width" id="kjj-x1-us7"/>
+                <constraint firstItem="sIw-VG-HE8" firstAttribute="top" secondItem="3a7-gV-gJC" secondAttribute="bottom" constant="20" id="l1I-Sf-JZM"/>
+                <constraint firstItem="3a7-gV-gJC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="n6c-Zd-fsD"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="desLabel" destination="3a7-gV-gJC" id="l1l-IZ-Yr4"/>
+                <outlet property="logoImageView" destination="bRD-Mx-bLv" id="cqD-ZZ-d94"/>
+                <outlet property="retryBtn" destination="sIw-VG-HE8" id="Cdb-vA-Yuy"/>
+            </connections>
+            <point key="canvasLocation" x="-4" y="-203"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="common_no_wifi" width="220" height="204"/>
+    </resources>
+</document>

@@ -1,0 +1,32 @@
+//
+//  Bbalt.pch
+//  Bbalt
+//
+//  Created by bory on 2018/11/7.
+//  Copyright © 2018年 hans. All rights reserved.
+//
+
+#ifndef Bbalt_pch
+#define Bbalt_pch
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <ReactiveObjC/ReactiveObjC.h>
+#import <MJRefresh/MJRefresh.h>
+#import <YYModel/YYModel.h>
+#import "UIView+Frame.h"
+
+#import "JHConstant.h"
+#import "JHParmConstant.h"
+#import "JHUIHeader.h"
+#import "JHHudManager.h"
+#import "JHNaviManager.h"
+#import "JHJPushManager.h"
+#import "JHShareManager.h"
+#import "JHTestRequestService.h"
+#import "JHBaseResultModel.h"
+#import "JHBaseResultHandler.h"
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#endif
+#endif /* Bbalt_pch */

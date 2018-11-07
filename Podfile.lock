@@ -1,0 +1,140 @@
+PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
+  - AlipaySDK-iOS (0.0.1)
+  - Bugly (2.5.0)
+  - HappyDNS (0.3.14)
+  - IQKeyboardManager (6.0.6)
+  - JCore (1.2.0)
+  - JPush (3.0.9):
+    - JCore (~> 1.2.0)
+  - Masonry (1.1.0)
+  - MBProgressHUD (1.1.0)
+  - MJRefresh (3.1.15.3)
+  - Qiniu (7.2.4):
+    - HappyDNS (~> 0.3)
+  - R.objc (0.7.1)
+  - ReactiveObjC (3.1.0)
+  - SDWebImage (4.4.1):
+    - SDWebImage/Core (= 4.4.1)
+  - SDWebImage/Core (4.4.1)
+  - SVProgressHUD (2.2.5)
+  - UMCCommon (1.5.2)
+  - UMCShare/Core (6.9.3):
+    - UMCCommon
+  - UMCShare/Social/AlipayShare (6.9.3):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/Social/QQ (6.9.3):
+    - UMCCommon
+    - UMCShare/Core
+    - UMCShare/Social/ReducedQQ
+  - UMCShare/Social/ReducedQQ (6.9.3):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/Social/ReducedSina (6.9.3):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/Social/ReducedWeChat (6.9.3):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/Social/Sina (6.9.3):
+    - UMCCommon
+    - UMCShare/Core
+    - UMCShare/Social/ReducedSina
+  - UMCShare/Social/TencentWeibo (6.9.3):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/Social/WeChat (6.9.3):
+    - UMCCommon
+    - UMCShare/Core
+    - UMCShare/Social/ReducedWeChat
+  - UMCShare/UI (6.9.3):
+    - UMCCommon
+    - UMCShare/Core
+  - XXNibBridge (2.3.1)
+  - YYModel (1.0.4)
+
+DEPENDENCIES:
+  - AFNetworking
+  - AlipaySDK-iOS
+  - Bugly
+  - IQKeyboardManager
+  - JPush
+  - Masonry
+  - MBProgressHUD
+  - MJRefresh
+  - Qiniu
+  - R.objc
+  - ReactiveObjC
+  - SDWebImage
+  - SVProgressHUD
+  - UMCCommon
+  - UMCShare/Social/AlipayShare
+  - UMCShare/Social/QQ
+  - UMCShare/Social/Sina
+  - UMCShare/Social/TencentWeibo
+  - UMCShare/Social/WeChat
+  - UMCShare/UI
+  - XXNibBridge
+  - YYModel
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - AlipaySDK-iOS
+    - Bugly
+    - HappyDNS
+    - IQKeyboardManager
+    - JCore
+    - JPush
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - Qiniu
+    - R.objc
+    - ReactiveObjC
+    - SDWebImage
+    - SVProgressHUD
+    - UMCCommon
+    - UMCShare
+    - XXNibBridge
+    - YYModel
+
+SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  AlipaySDK-iOS: 144af370f7665f2d311b5528e2c5d9a6738bf6fd
+  Bugly: 3ca9f255c01025582df26f9222893b383c7e4b4e
+  HappyDNS: dc6a164ee81979093123c241c6353bcf0218add6
+  IQKeyboardManager: 6b4ecd3e59cf55a26133d802d4678721d7f88499
+  JCore: b52e3dd73625eec70afd1244bb9c41038aa06087
+  JPush: 48041e8c5ad2ef9b48709eb0888af9640b36e9b0
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
+  MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
+  Qiniu: 65384bca1cdb0480a68d9b9b8f54db53418c0355
+  R.objc: 2b1a8a1f10c8977e9ac5b6f771b2ef3b651f8bd3
+  ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
+  SDWebImage: 47e9b5b925cbce75946c23f0c42dd19464189af4
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  UMCCommon: 4392868ac47ff1b101663106bb114ba616fabbad
+  UMCShare: 023886b10d11119331c9c46d8e8a0c31fe67c23e
+  XXNibBridge: addb780e6db076eb2c61716aa60b176a6799b80f
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
+
+PODFILE CHECKSUM: 989637dd0f9f9807f05c137c90c65e53782e7d18
+
+COCOAPODS: 1.5.3

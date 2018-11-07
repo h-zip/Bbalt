@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="JHNoDataView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common_no_data" translatesAutoresizingMaskIntoConstraints="NO" id="5Us-ws-tYO">
+                    <rect key="frame" x="112.5" y="178.5" width="150" height="150"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="5Us-ws-tYO" secondAttribute="height" multiplier="1:1" id="9z6-4G-hCQ"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂时没有数据" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBx-SF-pgL">
+                    <rect key="frame" x="20" y="338.5" width="335" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="IBx-SF-pgL" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="0nS-RI-bbu"/>
+                <constraint firstItem="IBx-SF-pgL" firstAttribute="top" secondItem="5Us-ws-tYO" secondAttribute="bottom" constant="10" id="1D6-VF-JSa"/>
+                <constraint firstItem="IBx-SF-pgL" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="249-Ej-cx3"/>
+                <constraint firstItem="5Us-ws-tYO" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-80" id="P3M-dK-SgE"/>
+                <constraint firstItem="5Us-ws-tYO" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="PNN-N0-FvC"/>
+                <constraint firstItem="5Us-ws-tYO" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Q6n-As-3NS"/>
+                <constraint firstItem="5Us-ws-tYO" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.4" id="R3b-Id-fpu"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="IBx-SF-pgL" secondAttribute="trailing" constant="20" id="q1V-zg-Zcb"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="desLabel" destination="IBx-SF-pgL" id="nTz-BY-Bri"/>
+                <outlet property="logoImageView" destination="5Us-ws-tYO" id="f1Y-iS-gNv"/>
+                <outlet property="yCenterConst" destination="P3M-dK-SgE" id="rUt-3O-38e"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="common_no_data" width="217" height="175"/>
+    </resources>
+</document>

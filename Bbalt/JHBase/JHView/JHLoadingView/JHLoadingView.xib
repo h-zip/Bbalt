@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="cMY-za-Ms0" customClass="JHLoadingView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common_loading_1" translatesAutoresizingMaskIntoConstraints="NO" id="J7v-3L-Kav">
+                    <rect key="frame" x="112.5" y="178.5" width="150" height="150"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="J7v-3L-Kav" secondAttribute="height" multiplier="1:1" id="Xoe-3n-SP3"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="拼命加载数据中..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZg-4g-Jfh">
+                    <rect key="frame" x="127.5" y="338.5" width="120" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="xZg-4g-Jfh" firstAttribute="top" secondItem="J7v-3L-Kav" secondAttribute="bottom" constant="10" id="9Wj-4F-H0D"/>
+                <constraint firstItem="J7v-3L-Kav" firstAttribute="centerX" secondItem="cMY-za-Ms0" secondAttribute="centerX" id="CjD-g8-UQD"/>
+                <constraint firstItem="J7v-3L-Kav" firstAttribute="width" secondItem="cMY-za-Ms0" secondAttribute="width" multiplier="0.4" id="Qz1-DH-A14"/>
+                <constraint firstItem="xZg-4g-Jfh" firstAttribute="centerX" secondItem="J7v-3L-Kav" secondAttribute="centerX" id="bCH-7P-0lK"/>
+                <constraint firstItem="J7v-3L-Kav" firstAttribute="centerX" secondItem="cMY-za-Ms0" secondAttribute="centerX" id="cgS-lL-F2W"/>
+                <constraint firstItem="J7v-3L-Kav" firstAttribute="centerY" secondItem="cMY-za-Ms0" secondAttribute="centerY" constant="-80" id="iPh-WY-hDP"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="BPf-2Z-fmN"/>
+            <connections>
+                <outlet property="desLabel" destination="xZg-4g-Jfh" id="Vr7-b0-cVh"/>
+                <outlet property="logoImageView" destination="J7v-3L-Kav" id="INu-Te-JSZ"/>
+                <outlet property="yCenterConst" destination="iPh-WY-hDP" id="D4g-aW-vj0"/>
+            </connections>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="common_loading_1" width="209" height="169"/>
+    </resources>
+</document>
