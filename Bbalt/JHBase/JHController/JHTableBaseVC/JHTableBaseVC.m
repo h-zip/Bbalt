@@ -144,10 +144,25 @@
     //need override
 }
 -(void)initRefreshHeader{
-    //need override
+    @WeakObj(self);
+    MJRefreshNormalHeader *mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        @StrongObj(self);
+        [self getData:GetDataPullDown];
+        
+    }];
+    mj_header.lastUpdatedTimeLabel.hidden = YES;
+    
+    self.mTableView.mj_header = mj_header;
+    
 }
 -(void)initRefreshFooter{
-    //need override
+    @WeakObj(self);
+    MJRefreshAutoNormalFooter *mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        @StrongObj(self);
+        [self getData:GetDataPullUp];
+        
+    }];
+    self.mTableView.mj_footer = mj_footer;
 }
 -(void)reloadUI{
     [self.mTableView reloadData];

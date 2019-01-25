@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "JHBaseNaviC.h"
 #import "JHLoginVC.h"
+#import "TestVC1.h"
 @interface JHNaviManager : NSObject
 @property(nonatomic,strong)UINavigationController *loginNavi;
 @property(nonatomic,strong)UINavigationController *navi1;

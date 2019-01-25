@@ -55,7 +55,7 @@
     }else if (type == GetDataPullUp){
         return;
     }else{
-        self.getdataStatus = GetDataLoading;
+        return;
     }
     
     NSMutableDictionary *dic = [@{}mutableCopy];
@@ -64,7 +64,7 @@
         JHBaseResultModel *model = [JHBaseResultModel modelWithJSON:response];
         [self.mTableView.mj_header endRefreshing];
         if ([JHBaseResultHandler shouldGotoSuccessCallBackBasedOnBaseResult:model]) {
-            self.dataModel = [JHBaseModel modelWithJSON:model.result];
+            self.dataModel = [[self.dataModel class] modelWithJSON:model.result];
             if (self.dataModel) {
                 self.getdataStatus = GetDataSuccess;
                 [self reloadUI];

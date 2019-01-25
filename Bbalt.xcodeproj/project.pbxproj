@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		882C30B521EC9591009E4436 /* TestVC1.m in Sources */ = {isa = PBXBuildFile; fileRef = 882C30B321EC9591009E4436 /* TestVC1.m */; };
+		882C30B621EC9591009E4436 /* TestVC1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 882C30B421EC9591009E4436 /* TestVC1.xib */; };
+		882C30BC21F592FD009E4436 /* JHGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 882C30BB21F592FD009E4436 /* JHGlobal.m */; };
+		88B620ED21FAF0DC00474022 /* BaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B620EC21FAF0DC00474022 /* BaseService.m */; };
+		88B620F121FAF90B00474022 /* TestVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B620F021FAF90B00474022 /* TestVC2.m */; };
 		88D9F932219289A000ABFD15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88D9F931219289A000ABFD15 /* Assets.xcassets */; };
 		88D9F938219289A000ABFD15 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D9F937219289A000ABFD15 /* main.m */; };
 		88D9F942219289A000ABFD15 /* BbaltTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D9F941219289A000ABFD15 /* BbaltTests.m */; };
@@ -108,6 +113,19 @@
 
 /* Begin PBXFileReference section */
 		2C39AE75A86478A17C07ACB2 /* Pods-Bbalt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bbalt.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bbalt/Pods-Bbalt.release.xcconfig"; sourceTree = "<group>"; };
+		882C30B021EC948C009E4436 /* Bbalt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bbalt.entitlements; sourceTree = "<group>"; };
+		882C30B221EC9591009E4436 /* TestVC1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestVC1.h; sourceTree = "<group>"; };
+		882C30B321EC9591009E4436 /* TestVC1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestVC1.m; sourceTree = "<group>"; };
+		882C30B421EC9591009E4436 /* TestVC1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestVC1.xib; sourceTree = "<group>"; };
+		882C30B821EF119A009E4436 /* BbaltConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BbaltConstant.h; sourceTree = "<group>"; };
+		882C30BA21F592FD009E4436 /* JHGlobal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHGlobal.h; sourceTree = "<group>"; };
+		882C30BB21F592FD009E4436 /* JHGlobal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHGlobal.m; sourceTree = "<group>"; };
+		882C30BD21F5AB9E009E4436 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		882C30BE21F5B1FE009E4436 /* README2.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README2.md; sourceTree = "<group>"; };
+		88B620EB21FAF0DC00474022 /* BaseService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseService.h; sourceTree = "<group>"; };
+		88B620EC21FAF0DC00474022 /* BaseService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseService.m; sourceTree = "<group>"; };
+		88B620EF21FAF90B00474022 /* TestVC2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestVC2.h; sourceTree = "<group>"; };
+		88B620F021FAF90B00474022 /* TestVC2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestVC2.m; sourceTree = "<group>"; };
 		88D9F9252192899D00ABFD15 /* Bbalt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bbalt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88D9F931219289A000ABFD15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88D9F936219289A000ABFD15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -288,6 +306,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		882C30B121EC9578009E4436 /* TestVC1 */ = {
+			isa = PBXGroup;
+			children = (
+				882C30B221EC9591009E4436 /* TestVC1.h */,
+				882C30B321EC9591009E4436 /* TestVC1.m */,
+				882C30B421EC9591009E4436 /* TestVC1.xib */,
+			);
+			path = TestVC1;
+			sourceTree = "<group>";
+		};
+		882C30B721EF115A009E4436 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				882C30B821EF119A009E4436 /* BbaltConstant.h */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		882C30B921F5928E009E4436 /* JHGlobal */ = {
+			isa = PBXGroup;
+			children = (
+				882C30BA21F592FD009E4436 /* JHGlobal.h */,
+				882C30BB21F592FD009E4436 /* JHGlobal.m */,
+				882C30BD21F5AB9E009E4436 /* README.md */,
+				882C30BE21F5B1FE009E4436 /* README2.md */,
+			);
+			path = JHGlobal;
+			sourceTree = "<group>";
+		};
+		88B620E721FAED2100474022 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				88B620EB21FAF0DC00474022 /* BaseService.h */,
+				88B620EC21FAF0DC00474022 /* BaseService.m */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		88B620EE21FAF8B200474022 /* TestVC2 */ = {
+			isa = PBXGroup;
+			children = (
+				88B620EF21FAF90B00474022 /* TestVC2.h */,
+				88B620F021FAF90B00474022 /* TestVC2.m */,
+			);
+			path = TestVC2;
+			sourceTree = "<group>";
+		};
 		88D9F91C2192899D00ABFD15 = {
 			isa = PBXGroup;
 			children = (
@@ -313,10 +378,13 @@
 		88D9F9272192899D00ABFD15 /* Bbalt */ = {
 			isa = PBXGroup;
 			children = (
+				882C30B021EC948C009E4436 /* Bbalt.entitlements */,
 				88D9FA0F2192B26200ABFD15 /* JHBase */,
+				88B620E721FAED2100474022 /* Service */,
 				88D9FA082192AE8500ABFD15 /* Model */,
 				88D9F9E02192AC9300ABFD15 /* View */,
 				88D9FA012192AE8500ABFD15 /* Controller */,
+				882C30B721EF115A009E4436 /* Constant */,
 				88D9F9802192954000ABFD15 /* Pch */,
 				88D9F97A219293F900ABFD15 /* Localizable */,
 				88D9F9692192901400ABFD15 /* AppDelegate */,
@@ -382,6 +450,8 @@
 		88D9FA012192AE8500ABFD15 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				88B620EE21FAF8B200474022 /* TestVC2 */,
+				882C30B121EC9578009E4436 /* TestVC1 */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -396,6 +466,7 @@
 		88D9FA0F2192B26200ABFD15 /* JHBase */ = {
 			isa = PBXGroup;
 			children = (
+				882C30B921F5928E009E4436 /* JHGlobal */,
 				88D9FB2B2192C92600ABFD15 /* R */,
 				88D9FAF52192C0AA00ABFD15 /* JHCategory */,
 				88D9FADF2192C00C00ABFD15 /* JHRequestService */,
@@ -1149,6 +1220,11 @@
 				TargetAttributes = {
 					88D9F9242192899D00ABFD15 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					88D9F93C219289A000ABFD15 = {
 						CreatedOnToolsVersion = 10.0;
@@ -1188,6 +1264,7 @@
 			files = (
 				88D9FAC82192BDBB00ABFD15 /* JHTableViewCell.xib in Resources */,
 				88D9FA8A2192B26200ABFD15 /* JHPickerVC.xib in Resources */,
+				882C30B621EC9591009E4436 /* TestVC1.xib in Resources */,
 				88D9FA792192B26200ABFD15 /* JHRegistAVC.xib in Resources */,
 				88D9F96121928E6C00ABFD15 /* Main.storyboard in Resources */,
 				88D9FA8C2192B26200ABFD15 /* JHTableBaseVC.xib in Resources */,
@@ -1329,6 +1406,7 @@
 			files = (
 				88D9FA882192B26200ABFD15 /* JPushRegistrationModel.m in Sources */,
 				88D9FA8D2192B26200ABFD15 /* JHTableBaseVC.m in Sources */,
+				88B620ED21FAF0DC00474022 /* BaseService.m in Sources */,
 				88D9FAD12192BDBB00ABFD15 /* JHNoDataView.m in Sources */,
 				88D9FB212192C0AA00ABFD15 /* NSDictionary+Description.m in Sources */,
 				88D9FA8E2192B26200ABFD15 /* JHBaseTabBarC.m in Sources */,
@@ -1338,8 +1416,10 @@
 				88D9FA7B2192B26200ABFD15 /* JHLoginVC.m in Sources */,
 				88D9FAD02192BDBB00ABFD15 /* JHLoadingView.m in Sources */,
 				88D9FA972192B26200ABFD15 /* JHTableDetailVC.m in Sources */,
+				882C30B521EC9591009E4436 /* TestVC1.m in Sources */,
 				88D9FA8F2192B26200ABFD15 /* JHLaunchVC.m in Sources */,
 				88D9FB2E2192C93800ABFD15 /* R.m in Sources */,
+				88B620F121FAF90B00474022 /* TestVC2.m in Sources */,
 				88D9FACC2192BDBB00ABFD15 /* JHTableView.m in Sources */,
 				88D9FB232192C0AA00ABFD15 /* UIColor+Hex.m in Sources */,
 				88D9FB262192C0AA00ABFD15 /* NSArray+Description.m in Sources */,
@@ -1380,6 +1460,7 @@
 				88D9FA842192B26200ABFD15 /* IMTokenModel.m in Sources */,
 				88D9FA832192B26200ABFD15 /* TokenModel.m in Sources */,
 				88D9F9742192911B00ABFD15 /* AppDelegate.m in Sources */,
+				882C30BC21F592FD009E4436 /* JHGlobal.m in Sources */,
 				88D9FA7C2192B26200ABFD15 /* JHDebugManager.m in Sources */,
 				88D9FA922192B26200ABFD15 /* JHTableListVC.m in Sources */,
 				88D9FB1D2192C0AA00ABFD15 /* UIResponder+FirstResponder.m in Sources */,
@@ -1569,6 +1650,7 @@
 			baseConfigurationReference = 94B5E557DDDD7CC968B7EB13 /* Pods-Bbalt.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Bbalt/Bbalt.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 82G3P76ESX;
@@ -1595,6 +1677,7 @@
 			baseConfigurationReference = 2C39AE75A86478A17C07ACB2 /* Pods-Bbalt.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Bbalt/Bbalt.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 82G3P76ESX;

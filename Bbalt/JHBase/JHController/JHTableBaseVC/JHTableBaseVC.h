@@ -26,8 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,copy)SectionFooterBlock sectionFooterBlock;
 @property(nonatomic,copy)RowSelectBlock rowSelectBlock;
 
-@property(nonatomic,copy)TableHeaderBlock tableHeaderBlock;
-@property(nonatomic,copy)TableFooterBlock tableFooterBlock;
+//@property(nonatomic,copy)TableHeaderBlock tableHeaderBlock;
+//@property(nonatomic,copy)TableFooterBlock tableFooterBlock;
 
 @property(nonatomic,strong)JHTableView *mTableView;
 @property(nonatomic,strong)JHLoadingView *loadingView;

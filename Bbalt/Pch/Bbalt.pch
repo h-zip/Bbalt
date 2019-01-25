@@ -16,8 +16,11 @@
 #import <YYModel/YYModel.h>
 #import "UIView+Frame.h"
 
+#import "R.h"
 #import "JHConstant.h"
 #import "JHParmConstant.h"
+#import "BbaltConstant.h"
+#import "JHGlobal.h"
 #import "JHUIHeader.h"
 #import "JHHudManager.h"
 #import "JHNaviManager.h"

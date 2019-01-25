@@ -13,7 +13,7 @@ extern NSString* requestHost;
 #define CombileUrl(url) [NSString stringWithFormat:@"%@%@",requestHost,url]
 #define CombileUrlWithArgs(apiUrl,arg...) [NSString stringWithFormat:CombileUrl(apiUrl),arg]
 
-#define DevelopHost @"http://106.14.18.199:28001"
+#define DevelopHost @"http://192.168.0.122:3000"
 #define ProductHost @"http://appapitest.yinchtv.com"
 
 #endif /* JHRequestConstant_h */

@@ -2,7 +2,7 @@
 
 
 @implementation RLocalizableStrings
-- (NSString*)_100d0cc { return NSLocalizedStringFromTable(@"_100d0cc", @"Localizable", nil); }
+- (NSString*)_1Red0 { return NSLocalizedStringFromTable(@"_1_red_0", @"Localizable", nil); }
 - (NSString*)_2cs { return NSLocalizedStringFromTable(@"_2cs", @"Localizable", nil); }
 @end
 

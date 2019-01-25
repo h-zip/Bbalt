@@ -21,12 +21,12 @@ static NSSet* _cerSet = nil;
 }
 +(NSDictionary*)requestHeaderDic{
     NSMutableDictionary* headerDic = [@{
-                                        @"AppId":@"",
-                                        @"AppSecret":@"",
-                                        @"AppToken":[JHUserManager shareInstance].appTokenModel.AppToken,
-                                        @"Token":[JHUserManager shareInstance].tokenModel.Token,
-                                        @"AppVersion":[NSString stringWithFormat:@"%@.%@",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"],[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]],
-                                        @"AppType":@"1"
+//                                        @"AppId":@"",
+//                                        @"AppSecret":@"",
+//                                        @"AppToken":[JHUserManager shareInstance].appTokenModel.AppToken,
+//                                        @"Token":[JHUserManager shareInstance].tokenModel.Token,
+//                                        @"AppVersion":[NSString stringWithFormat:@"%@.%@",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"],[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]],
+//                                        @"AppType":@"1"
                                         
                                         }mutableCopy];
     return [headerDic copy];
@@ -71,7 +71,7 @@ static NSSet* _cerSet = nil;
     accessCallback();
 }
 +(void)postWithURL:(NSString *)url Dic:(NSDictionary *)dic Ret:(TestRequestBlock)ret{
-    if ([[AFNetworkReachabilityManager sharedManager]isReachable]) {
+    if (1) {
         [self checkAppTokenAvailableWithCallback:^{
             [self checkUserTokenAvailableWithCallback:^{
                 NSString *turl = CombileUrl(url);

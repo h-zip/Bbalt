@@ -45,24 +45,12 @@ DEFER_STRINGIFY(__FILE__) " line " DEFER_STRINGIFY(__LINE__)
 // 最终使用下面的宏
 #define TODO(MSG) KEYWORDIFY PRAGMA_MESSAGE(FORMATTED_MESSAGE(MSG))
 
-//Font
-#define SystemFont(size,weight) [UIFont systemFontOfSize:size weight:weight]
-#define CustomFont(name,size) [UIFont fontWithName:name size:size]
-
-//Color
-#define HexColor(color) [UIColor colorWithHexString:color]
-#define RColor(color) [[R string] localizable].color
-#define RHexColor(RHexStr) HexColor(RColor(RHexStr))
-
 //Image
+#define RImage(name) [[R image]name]
 
-
-//Attributes
-#define StringAttributes(color,font) @{NSForegroundColorAttributeName: color, NSFontAttributeName: font}
+//String
+#define RString(string) [[[R string]localizable]string]
 
 //MutableString
-#define MutableString(string,attributes) [[NSMutableAttributedString alloc]initWithString:text]setAttributes:attributes range:NSMakeRange(0,string.length)]
-
-//R
-#define R_S_L R.string.localizable
+#define MutableString(string) [NSMutableAttributedString alloc]initWithString:string]
 #endif /* JHConstant_h */

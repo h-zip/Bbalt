@@ -2,11 +2,11 @@
 
 @interface RLocalizableStrings: NSObject
 /**
-key: "_100d0cc"
+key: "_1_red_0"
 
 en: "#00D0CC"
 */
-- (NSString*)_100d0cc;
+- (NSString*)_1Red0;
 /**
 key: "_2cs"
 
