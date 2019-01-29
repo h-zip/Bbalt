@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="JHSearchTFView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common_search_gray" translatesAutoresizingMaskIntoConstraints="NO" id="zjA-jV-ksg">
+                    <rect key="frame" x="0.0" y="10" width="29" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="zjA-jV-ksg" secondAttribute="height" multiplier="1:1" id="fNG-K5-pNn"/>
+                    </constraints>
+                </imageView>
+                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UOu-Au-YuT">
+                    <rect key="frame" x="0.0" y="10" width="375" height="29"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入内容" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lf3-Qv-J94">
+                    <rect key="frame" x="29" y="10" width="346" height="29"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Lf3-Qv-J94" firstAttribute="leading" secondItem="zjA-jV-ksg" secondAttribute="trailing" id="6Ve-1B-ond"/>
+                <constraint firstItem="zjA-jV-ksg" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="9ez-TF-i72"/>
+                <constraint firstItem="zjA-jV-ksg" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="BAv-3e-euC"/>
+                <constraint firstItem="UOu-Au-YuT" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="M9X-Ay-QtR"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="zjA-jV-ksg" secondAttribute="bottom" constant="5" id="QBX-b1-IFG"/>
+                <constraint firstItem="UOu-Au-YuT" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="RHz-xN-rBl"/>
+                <constraint firstItem="Lf3-Qv-J94" firstAttribute="leading" secondItem="zjA-jV-ksg" secondAttribute="trailing" id="ULF-BX-82u"/>
+                <constraint firstItem="Lf3-Qv-J94" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="UVU-cp-lWE"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="UOu-Au-YuT" secondAttribute="bottom" constant="5" id="Wd5-xP-28u"/>
+                <constraint firstItem="UOu-Au-YuT" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="WeT-ha-FVc"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Lf3-Qv-J94" secondAttribute="trailing" id="d9o-QU-pWh"/>
+                <constraint firstItem="zjA-jV-ksg" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="f4q-Zm-q0c"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Lf3-Qv-J94" secondAttribute="bottom" constant="5" id="xds-du-wed"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="bgView" destination="UOu-Au-YuT" id="a6L-iz-l5c"/>
+                <outlet property="leftImageView" destination="zjA-jV-ksg" id="v65-x9-SS9"/>
+                <outlet property="searchTF" destination="Lf3-Qv-J94" id="rFO-Fb-gvZ"/>
+            </connections>
+            <point key="canvasLocation" x="-36" y="66.566716641679164"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="common_search_gray" width="12" height="12"/>
+    </resources>
+</document>

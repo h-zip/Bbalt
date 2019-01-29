@@ -29,6 +29,7 @@
 @property (nonatomic, strong) UIImage* commonNoData;
 @property (nonatomic, strong) UIImage* commonLoading2;
 @property (nonatomic, strong) UIImage* commonNoWifi;
+@property (nonatomic, strong) UIImage* commonSearchGray;
 @property (nonatomic, strong) UIImage* commonLoading1;
 @end
 
@@ -36,6 +37,7 @@
 - (UIImage*)commonNoData { return [UIImage imageNamed:@"common_no_data"]; }
 - (UIImage*)commonLoading2 { return [UIImage imageNamed:@"common_loading_2"]; }
 - (UIImage*)commonNoWifi { return [UIImage imageNamed:@"common_no_wifi"]; }
+- (UIImage*)commonSearchGray { return [UIImage imageNamed:@"common_search_gray"]; }
 - (UIImage*)commonLoading1 { return [UIImage imageNamed:@"common_loading_1"]; }
 @end
 

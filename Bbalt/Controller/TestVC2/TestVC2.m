@@ -8,7 +8,8 @@
 
 #import "TestVC2.h"
 #import "Test2Cell.h"
-#import <SDWebImage/UIImageView+WebCache.h>
+#import "JHSearchBtnView.h"
+#import "JHSearchVC.h"
 @interface TestVC2 ()
 @property(nonatomic,strong)NSArray *cellArr;
 @property(nonatomic,strong)NSArray *headerArr;
@@ -101,6 +102,7 @@
 #pragma mark - ------------------LifeCycle------------------
 -(void)viewDidLoad {
     [super viewDidLoad];
+    [self configNavi];
 }
 -(void)dealloc{
 }
@@ -126,6 +128,22 @@
 #pragma mark - ------------------Public Methods------------------
 
 #pragma mark - ------------------Private Methods------------------
+-(void)configNavi{
+    @WeakObj(self);
+    JHSearchBtnView *view = [[NSBundle mainBundle]loadNibNamed:@"JHSearchBtnView" owner:nil options:nil][0];
+    view.frame = (CGRect){50,kTopHeight - 44,kSCREEN_W-100,44};
+    view.btnTapBlock = ^(UIButton *sender) {
+        @StrongObj(self);
+        JHSearchVC *vc = [[JHSearchVC alloc]init];
+        vc.cancelBlock = ^(UIButton *sender) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        };
+        [self presentViewController:vc animated:YES completion:^{
+            [vc toggleTF];
+        }];
+    };
+    [self.customNavi addSubview:view];
+}
 -(void)initTableView{
     @WeakObj(self);
     self.tableViewStyle = UITableViewStyleGrouped;

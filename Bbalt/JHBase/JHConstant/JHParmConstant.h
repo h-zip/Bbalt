@@ -25,6 +25,8 @@ typedef UIView* (^TableFooterBlock)(void);
 
 typedef void(^RowSelectBlock)(UITableView *tableView,NSIndexPath *indexPath);
 
+typedef void(^BtnTapBlock)(UIButton *sender);
+
 #define PageIndex @"PageIndex"
 #define PageSize @"PageSize"
 

@@ -25,6 +25,7 @@ en: "test"
 - (UIImage*)commonNoData;
 - (UIImage*)commonLoading2;
 - (UIImage*)commonNoWifi;
+- (UIImage*)commonSearchGray;
 - (UIImage*)commonLoading1;
 @end
 
