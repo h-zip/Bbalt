@@ -104,18 +104,20 @@
         _mTableView.delegate = self;
         _mTableView.dataSource = self;
         if (@available(iOS 11.0, *)) {
-            self.mTableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+            _mTableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         }
-        self.mTableView.estimatedRowHeight = 0;
-        self.mTableView.estimatedSectionFooterHeight = 0;
-        self.mTableView.estimatedSectionHeaderHeight = 0;
+       _mTableView.estimatedRowHeight = 0;
+        _mTableView.estimatedSectionFooterHeight = 0;
+        _mTableView.estimatedSectionHeaderHeight = 0;
         _mTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _mTableView.backgroundColor = [UIColor whiteColor];
     }
     return _mTableView;
 }
 #pragma mark - LifeCycle
 -(void)viewDidLoad {
     [super viewDidLoad];
+    [self initTableView];
     [self.view addSubview:self.mTableView];
 }
 -(void)dealloc{
@@ -141,7 +143,9 @@
 
 #pragma mark - Public Methods
 -(void)getData:(GetDataType)type{
-    //need override
+}
+-(void)initTableView{
+    
 }
 -(void)initRefreshHeader{
     @WeakObj(self);
@@ -212,7 +216,7 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     CGFloat height = 0;
-    if (self.sectionHeaderBlock) {
+    if (self.sectionHeaderHeightBlock) {
         height = self.sectionHeaderHeightBlock(tableView, section);
     }
     return height;
@@ -220,7 +224,7 @@
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView * header = nil;
     if (self.sectionHeaderBlock) {
-        header = self.sectionFooterBlock(tableView, section);
+        header = self.sectionHeaderBlock(tableView, section);
     }
     return header;
 }

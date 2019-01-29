@@ -26,6 +26,10 @@
 }
 
 -(void)getData:(GetDataType)type{
+    [super getData:type];
+    if (!self.url || !self.dic) {
+        return;
+    }
     if (![[AFNetworkReachabilityManager sharedManager]isReachable]) {
         self.getdataStatus = GetDataError;
         return;

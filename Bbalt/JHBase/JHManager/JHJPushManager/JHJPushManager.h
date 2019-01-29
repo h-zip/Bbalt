@@ -14,7 +14,7 @@
 #import <UserNotifications/UserNotifications.h>
 #endif
 @interface JHJPushManager : NSObject<JPUSHRegisterDelegate>
-+(instancetype)shareInstance;
++(instancetype)share;
 @property(nonatomic,strong)NSDictionary *userInfo;
 @property(nonatomic,assign)BOOL isLaunch;
 -(void)configJPush:(NSDictionary*)launchOptions;

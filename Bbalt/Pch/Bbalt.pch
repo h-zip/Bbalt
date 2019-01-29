@@ -26,6 +26,7 @@
 #import "JHNaviManager.h"
 #import "JHJPushManager.h"
 #import "JHShareManager.h"
+#import "JHWebImageManager.h"
 #import "JHTestRequestService.h"
 #import "JHBaseResultModel.h"
 #import "JHBaseResultHandler.h"

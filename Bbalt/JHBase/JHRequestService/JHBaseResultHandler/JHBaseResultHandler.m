@@ -89,7 +89,7 @@
         
     }
     //        if([baseResultModel.code isEqualToString:@"unauthorized"]){
-    //            [[JHUserManager shareInstance]logout];
+    //            [[JHUserManager share]logout];
     //            XxyAppDelegateInstance.window.rootViewController = [[StoryBoardManager shareInstance] getViewController:@"LoginNavi" FromSB:@"LoginAndChangePWD"];
     //            [JHHudManager showInfoWithStatus:@"用户过期,请重新登录"];
     //        }else{

@@ -17,9 +17,11 @@
 //单例
 #define AppDelegateInstance [UIApplication sharedApplication].delegate
 #define JHNaviManagerInstance [JHNaviManager share]
-#define JHJPushManagerInstance [JHJPushManager shareInstance]
+#define JHJPushManagerInstance [JHJPushManager share]
 #define JHShareManagerInstance [JHShareManager share]
-#define JHUserManagerInstance [JHUserManager shareInstance]
+#define JHUserManagerInstance [JHUserManager share]
+#define JHWebImageManagerInstance [JHWebImageManager share]
+#define JHDecimalManagerInstance [JHDecimalManager share]
 
 //尺寸
 #define kSCREEN_H    [[UIScreen mainScreen] bounds].size.height

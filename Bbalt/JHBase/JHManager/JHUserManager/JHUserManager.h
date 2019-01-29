@@ -14,7 +14,7 @@
 #import "IMTokenModel.h"
 #import "JPushRegistrationModel.h"
 @interface JHUserManager : NSObject
-+(instancetype)shareInstance;
++(instancetype)share;
 @property(nonatomic,strong)NSData* deviceToken;
 @property(nonatomic,strong)AppTokenModel *appTokenModel;
 @property(nonatomic,strong)TokenModel *tokenModel;

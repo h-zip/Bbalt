@@ -54,6 +54,7 @@
     hud.mode = MBProgressHUDModeText;
     hud.label.text = message;
     hud.label.textColor = [UIColor whiteColor];
+    hud.label.numberOfLines = 0;
     hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
     hud.bezelView.backgroundColor = [[UIColor blackColor]colorWithAlphaComponent:0.7];
 }

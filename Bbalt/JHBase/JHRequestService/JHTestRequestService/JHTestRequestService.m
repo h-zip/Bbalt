@@ -23,8 +23,8 @@ static NSSet* _cerSet = nil;
     NSMutableDictionary* headerDic = [@{
 //                                        @"AppId":@"",
 //                                        @"AppSecret":@"",
-//                                        @"AppToken":[JHUserManager shareInstance].appTokenModel.AppToken,
-//                                        @"Token":[JHUserManager shareInstance].tokenModel.Token,
+//                                        @"AppToken":[JHUserManager share].appTokenModel.AppToken,
+//                                        @"Token":[JHUserManager share].tokenModel.Token,
 //                                        @"AppVersion":[NSString stringWithFormat:@"%@.%@",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"],[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]],
 //                                        @"AppType":@"1"
                                         
@@ -37,12 +37,12 @@ static NSSet* _cerSet = nil;
     return bodyDic;
 }
 +(void)checkAppTokenAvailableWithCallback:(VoidBlock)accessCallback Group:(dispatch_group_t)group{
-//    if ([[JHUserManager shareInstance] needAuthHandle]) {
+//    if ([[JHUserManager share] needAuthHandle]) {
 //        [self postWithURL:@"" Dic:@{} Ret:^(BOOL success, id response) {
 //            JHBaseResultModel *model = [JHBaseResultModel modelWithJSON:response];
 //            NSLog(@"====================%@",model);
 //            if ([JHBaseResultHandler shouldGotoSuccessCallBackBasedOnBaseResult:model]) {
-//                [JHUserManager shareInstance].appTokenModel = [AppTokenModel modelWithJSON:model.R];
+//                [JHUserManager share].appTokenModel = [AppTokenModel modelWithJSON:model.R];
 //                accessCallback();
 //            }else{
 //
@@ -54,12 +54,12 @@ static NSSet* _cerSet = nil;
     accessCallback();
 }
 +(void)checkUserTokenAvailableWithCallback:(VoidBlock)accessCallback Group:(dispatch_group_t)group{
-//    if ([[JHUserManager shareInstance] needRefeshTokenHandle]) {
+//    if ([[JHUserManager share] needRefeshTokenHandle]) {
 //        [self postWithURL:@"" Dic:@{} Ret:^(BOOL success, id response) {
 //            JHBaseResultModel *model = [JHBaseResultModel modelWithJSON:response];
 //            NSLog(@"====================%@",model);
 //            if ([JHBaseResultHandler shouldGotoSuccessCallBackBasedOnBaseResult:model]) {
-//                [JHUserManager shareInstance].tokenModel = [TokenModel modelWithJSON:model.R];
+//                [JHUserManager share].tokenModel = [TokenModel modelWithJSON:model.R];
 //                accessCallback();
 //            }else{
 //

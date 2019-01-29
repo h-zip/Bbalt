@@ -12,6 +12,10 @@
 		882C30BC21F592FD009E4436 /* JHGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 882C30BB21F592FD009E4436 /* JHGlobal.m */; };
 		88B620ED21FAF0DC00474022 /* BaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B620EC21FAF0DC00474022 /* BaseService.m */; };
 		88B620F121FAF90B00474022 /* TestVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B620F021FAF90B00474022 /* TestVC2.m */; };
+		88B620F521FEAF6700474022 /* Test2Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B620F321FEAF6700474022 /* Test2Cell.m */; };
+		88B620F621FEAF6700474022 /* Test2Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88B620F421FEAF6700474022 /* Test2Cell.xib */; };
+		88B620FA21FF060700474022 /* JHWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B620F921FF060700474022 /* JHWebImageManager.m */; };
+		88B620FE21FFF36800474022 /* JHDecimalManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B620FD21FFF36800474022 /* JHDecimalManager.m */; };
 		88D9F932219289A000ABFD15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88D9F931219289A000ABFD15 /* Assets.xcassets */; };
 		88D9F938219289A000ABFD15 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D9F937219289A000ABFD15 /* main.m */; };
 		88D9F942219289A000ABFD15 /* BbaltTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D9F941219289A000ABFD15 /* BbaltTests.m */; };
@@ -126,6 +130,13 @@
 		88B620EC21FAF0DC00474022 /* BaseService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseService.m; sourceTree = "<group>"; };
 		88B620EF21FAF90B00474022 /* TestVC2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestVC2.h; sourceTree = "<group>"; };
 		88B620F021FAF90B00474022 /* TestVC2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestVC2.m; sourceTree = "<group>"; };
+		88B620F221FEAF6700474022 /* Test2Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test2Cell.h; sourceTree = "<group>"; };
+		88B620F321FEAF6700474022 /* Test2Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test2Cell.m; sourceTree = "<group>"; };
+		88B620F421FEAF6700474022 /* Test2Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Test2Cell.xib; sourceTree = "<group>"; };
+		88B620F821FF060700474022 /* JHWebImageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHWebImageManager.h; sourceTree = "<group>"; };
+		88B620F921FF060700474022 /* JHWebImageManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHWebImageManager.m; sourceTree = "<group>"; };
+		88B620FC21FFF36800474022 /* JHDecimalManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHDecimalManager.h; sourceTree = "<group>"; };
+		88B620FD21FFF36800474022 /* JHDecimalManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHDecimalManager.m; sourceTree = "<group>"; };
 		88D9F9252192899D00ABFD15 /* Bbalt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bbalt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88D9F931219289A000ABFD15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88D9F936219289A000ABFD15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -349,8 +360,29 @@
 			children = (
 				88B620EF21FAF90B00474022 /* TestVC2.h */,
 				88B620F021FAF90B00474022 /* TestVC2.m */,
+				88B620F221FEAF6700474022 /* Test2Cell.h */,
+				88B620F321FEAF6700474022 /* Test2Cell.m */,
+				88B620F421FEAF6700474022 /* Test2Cell.xib */,
 			);
 			path = TestVC2;
+			sourceTree = "<group>";
+		};
+		88B620F721FF05C200474022 /* JHWebImageManager */ = {
+			isa = PBXGroup;
+			children = (
+				88B620F821FF060700474022 /* JHWebImageManager.h */,
+				88B620F921FF060700474022 /* JHWebImageManager.m */,
+			);
+			path = JHWebImageManager;
+			sourceTree = "<group>";
+		};
+		88B620FB21FFF34B00474022 /* JHDecimalManager */ = {
+			isa = PBXGroup;
+			children = (
+				88B620FC21FFF36800474022 /* JHDecimalManager.h */,
+				88B620FD21FFF36800474022 /* JHDecimalManager.m */,
+			);
+			path = JHDecimalManager;
 			sourceTree = "<group>";
 		};
 		88D9F91C2192899D00ABFD15 = {
@@ -524,6 +556,8 @@
 		88D9FA1D2192B26200ABFD15 /* JHManager */ = {
 			isa = PBXGroup;
 			children = (
+				88B620FB21FFF34B00474022 /* JHDecimalManager */,
+				88B620F721FF05C200474022 /* JHWebImageManager */,
 				88D9FA1E2192B26200ABFD15 /* JHDebugManager */,
 				88D9FA212192B26200ABFD15 /* JHNaviManager */,
 				88D9FA242192B26200ABFD15 /* JHJPushManager */,
@@ -594,11 +628,11 @@
 			isa = PBXGroup;
 			children = (
 				88D9FA312192B26200ABFD15 /* JHUserManager.h */,
+				88D9FA3E2192B26200ABFD15 /* JHUserManager.m */,
 				88D9FA322192B26200ABFD15 /* AppTokenModel */,
 				88D9FA352192B26200ABFD15 /* TokenModel */,
 				88D9FA382192B26200ABFD15 /* IMTokenModel */,
 				88D9FA3B2192B26200ABFD15 /* QNTokenModel */,
-				88D9FA3E2192B26200ABFD15 /* JHUserManager.m */,
 				88D9FA3F2192B26200ABFD15 /* TokenInfoModel */,
 				88D9FA422192B26200ABFD15 /* JPushRegistrationModel */,
 			);
@@ -1262,6 +1296,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88B620F621FEAF6700474022 /* Test2Cell.xib in Resources */,
 				88D9FAC82192BDBB00ABFD15 /* JHTableViewCell.xib in Resources */,
 				88D9FA8A2192B26200ABFD15 /* JHPickerVC.xib in Resources */,
 				882C30B621EC9591009E4436 /* TestVC1.xib in Resources */,
@@ -1460,10 +1495,13 @@
 				88D9FA842192B26200ABFD15 /* IMTokenModel.m in Sources */,
 				88D9FA832192B26200ABFD15 /* TokenModel.m in Sources */,
 				88D9F9742192911B00ABFD15 /* AppDelegate.m in Sources */,
+				88B620FA21FF060700474022 /* JHWebImageManager.m in Sources */,
 				882C30BC21F592FD009E4436 /* JHGlobal.m in Sources */,
 				88D9FA7C2192B26200ABFD15 /* JHDebugManager.m in Sources */,
 				88D9FA922192B26200ABFD15 /* JHTableListVC.m in Sources */,
+				88B620FE21FFF36800474022 /* JHDecimalManager.m in Sources */,
 				88D9FB1D2192C0AA00ABFD15 /* UIResponder+FirstResponder.m in Sources */,
+				88B620F521FEAF6700474022 /* Test2Cell.m in Sources */,
 				88D9FA952192B26200ABFD15 /* JHBaseNaviC.m in Sources */,
 				88D9FA7F2192B26200ABFD15 /* JHShareManager.m in Sources */,
 				88D9FB272192C0AA00ABFD15 /* NSDate+Category.m in Sources */,

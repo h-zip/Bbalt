@@ -59,10 +59,10 @@
     }
 }
 -(void)checkTokenExpireTime{
-    //DLog(@"%@",[JHUserManager shareInstance].accessTokenInfo);
-    //DLog(@"%@",[JHUserManager shareInstance].refreshTokenInfo);
+    //DLog(@"%@",[JHUserManager share].accessTokenInfo);
+    //DLog(@"%@",[JHUserManager share].refreshTokenInfo);
     //NSTimeInterval now = [[NSDate new] timeIntervalSince1970];
-    //currentTime = [JHUserManager shareInstance].refreshTokenInfo.exp+1;
+    //currentTime = [JHUserManager share].refreshTokenInfo.exp+1;
     
     if (!self.tokenModel) {
         self.needRelogin = YES;
@@ -177,7 +177,7 @@
         [self deleteImTokenPlist];
     }
 }
-+(instancetype)shareInstance{
++(instancetype)share{
     static JHUserManager *_JHUserManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{

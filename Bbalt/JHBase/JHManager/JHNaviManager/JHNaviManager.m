@@ -22,7 +22,7 @@
 //        self.loginNavi = [[JHBaseNaviC alloc]initWithRootViewController:[JHLoginVC initFromXIB]];
 //        @TODO("navi");
         
-        self.navi1 = [[JHBaseNaviC alloc]initWithRootViewController:[TestVC1 new]];
+        self.navi1 = [[JHBaseNaviC alloc]initWithRootViewController:[TestVC2 new]];
 //
 //        self.navi2 = [[JHBaseNaviC alloc]init];
 //        self.navi3 = [[JHBaseNaviC alloc]init];

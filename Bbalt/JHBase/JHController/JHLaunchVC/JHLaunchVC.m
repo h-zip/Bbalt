@@ -20,12 +20,12 @@
     // Do any additional setup after loading the view from its nib.
 }
 -(void)route{
-    if ([[JHUserManager shareInstance]firstEnter]) {
+    if ([[JHUserManager share]firstEnter]) {
         AppDelegateInstance.window.rootViewController = [[JHGuidePageVC alloc]init];
         
     }else{
         
-        if ([[JHUserManager shareInstance]needLoginHandle]) {
+        if ([[JHUserManager share]needLoginHandle]) {
             
             AppDelegateInstance.window.rootViewController = JHNaviManagerInstance.loginNavi;
         }else{

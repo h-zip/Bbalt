@@ -30,7 +30,7 @@
 #define platformDeleteStoreByPush @"platformDeleteStoreByPush"
 
 @implementation JHJPushManager
-+(instancetype)shareInstance{
++(instancetype)share{
     static JHJPushManager *_jpManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -79,7 +79,7 @@
         if (registrationID&&![registrationID isEqualToString:@""]) {
             JPushRegistrationModel *pushModel = [[JPushRegistrationModel alloc]init];
             pushModel.RegistrationID = registrationID;
-            [JHUserManager shareInstance].jPushRegistrationModel = pushModel;
+            [JHUserManager share].jPushRegistrationModel = pushModel;
         }
     }];
 }
