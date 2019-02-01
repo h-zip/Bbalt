@@ -42,12 +42,15 @@ NS_ASSUME_NONNULL_BEGIN
 /** PingFang-ss-semibold-#00d0cc-alpha 1 */
 @property(nonatomic,strong)NSDictionary *pingfang_red_light_0;
 @end
-
+@interface JHSafeArea: NSObject
+@property(nonatomic,assign)UIEdgeInsets insets;
+@end
 @interface JHGlobal : NSObject
 +(instancetype)share;
 @property(nonatomic,strong)JHFontSize *fontsizes;
 @property(nonatomic,strong)JHColor *colors;
 @property(nonatomic,strong)JHFont *fonts;
 @property(nonatomic,strong)JHAttributes *attributes;
+@property(nonatomic,strong)JHSafeArea *safeareas;
 @end
 NS_ASSUME_NONNULL_END

@@ -56,6 +56,13 @@
     [self configSubviews];
     // Do any additional setup after loading the view from its nib.
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+}
+-(void)dealloc{
+    
+}
 - (NSInteger)getSumOfDaysInYear:(NSString* )year Month:(NSString* )month{
     NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
     
@@ -131,7 +138,8 @@
     int day = [[NSDate currentDay]intValue];
     int hour = [[NSDate currentHour]intValue];
     int min = [[NSDate currentMin]intValue];
-    _returnArr = [@[@(0),@(month-1),@(day-1),@(hour),@(min)]mutableCopy];
+    int second = [[NSDate currentSecond]intValue];
+    _returnArr = [@[@(0),@(month-1),@(day-1),@(hour),@(min),@(second)]mutableCopy];
 }
 -(void)initCity:(NSArray*)cityArr{
     self.cityArr = [cityArr mutableCopy];
@@ -185,10 +193,10 @@
         NSString *m = @"";
         if (component == 0) {
             y = self.arr0[row];
-            m = self.arr1[1][[self.returnArr[1]integerValue]];
+            m = self.arr1[[self.returnArr[1]integerValue]];
         }else{
-            y = self.arr0[0][[self.returnArr[0]integerValue]];
-            m = self.arr1[1][row];
+            y = self.arr0[[self.returnArr[0]integerValue]];
+            m = self.arr1[row];
         }
         NSString *year = [y substringToIndex:y.length-1];
         NSString *month = [m substringToIndex:m.length-1];
@@ -201,7 +209,7 @@
             }
             
         }
-        self.dataArr = @[self.arr0,self.arr1,dArr];
+        self.dataArr = @[self.arr0,self.arr1,dArr,self.arr3,self.arr4,self.arr5];
         self.arr2 = dArr;
         [self.picker reloadComponent:2];
         [self.picker selectRow:0 inComponent:2 animated:YES];
@@ -255,7 +263,7 @@
     [[self.completeBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(__kindof UIControl * _Nullable x) {
         @StrongObj(self);
         if (self.completeSelectBlock) {
-            self.completeSelectBlock(x, self.returnArr);
+            self.completeSelectBlock(x, self.returnArr, self.desLabel.text);
         }
     }];
     
@@ -273,8 +281,8 @@
     if (self.cancelSelectBlock) {
         self.cancelSelectBlock();
     }
-    [self.view removeFromSuperview];
-    [self removeFromParentViewController];
+//    [self.view removeFromSuperview];
+//    [self removeFromParentViewController];
 }
 -(void)configTitle{
     NSString * title = @"";

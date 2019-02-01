@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Test2Cell : JHTableViewCell
+@interface Test2Cell : JHTableViewCell<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *mTF;
 
 @end

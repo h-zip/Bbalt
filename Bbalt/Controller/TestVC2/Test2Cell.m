@@ -12,6 +12,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.mTF.delegate = self;
     // Initialization code
 }
 
@@ -20,5 +21,7 @@
 
     // Configure the view for the selected state
 }
-
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    return NO;
+}
 @end

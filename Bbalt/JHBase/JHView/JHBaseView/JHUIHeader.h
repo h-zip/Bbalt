@@ -15,4 +15,5 @@
 #import "JHScrollView.h"
 #import "JHPageControl.h"
 #import "JHImageView.h"
+#import "JHTextView.h"
 #endif /* JHUIHeader_h */

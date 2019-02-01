@@ -86,6 +86,17 @@
              };
 }
 @end
+@interface JHSafeArea ()
+@end
+@implementation JHSafeArea
+-(UIEdgeInsets)insets {
+    if (@available(iOS 11.0, *)) {
+        return UIApplication.sharedApplication.keyWindow.safeAreaInsets;
+    } else {
+        return UIEdgeInsetsZero;
+    }
+}
+@end
 @implementation JHGlobal
 +(instancetype)share{
     static JHGlobal *_JHGlobal = nil;
@@ -96,6 +107,7 @@
         _JHGlobal.colors = [JHColor new];
         _JHGlobal.fonts = [JHFont new];
         _JHGlobal.attributes = [JHAttributes new];
+        _JHGlobal.safeareas = [JHSafeArea new];
     });
     return _JHGlobal;
 }

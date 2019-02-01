@@ -10,6 +10,8 @@
 #import "Test2Cell.h"
 #import "JHSearchBtnView.h"
 #import "JHSearchVC.h"
+#import "JHPickerVC.h"
+#import "JHInputView.h"
 @interface TestVC2 ()
 @property(nonatomic,strong)NSArray *cellArr;
 @property(nonatomic,strong)NSArray *headerArr;
@@ -19,6 +21,8 @@
 @property(nonatomic,assign)BOOL b0;
 @property(nonatomic,assign)BOOL b1;
 @property(nonatomic,assign)BOOL b2;
+@property(nonatomic,strong)JHPickerVC *picker;
+@property(nonatomic,strong)JHInputView *tView;
 @end
 
 @implementation TestVC2
@@ -36,6 +40,22 @@
             self.str0 = x;
 //            [self performSelector:NSSelectorFromString(@"setStr1:") withObject:x];
         }];
+        self.picker = [[JHPickerVC alloc]initWithNibName:@"JHPickerVC" bundle:nil];
+        self.picker.type = JHPickerTypeYMDHMS;
+        [self.picker initYMDHMS];
+        self.picker.cancelSelectBlock = ^{
+            [cell0.mTF resignFirstResponder];
+        };
+        self.picker.completeSelectBlock = ^(UIButton *sender, NSMutableArray *arr, NSString *text) {
+            @StrongObj(self);
+            self.str0 = text;
+            [cell0.mTF resignFirstResponder];
+            NSLog(@"%@",text);
+        };
+//        [self addChildViewController:self.picker];
+        cell0.mTF.inputView = self.picker.view;
+        cell0.mTF.inputAccessoryView = [UIView new];
+        
         Test2Cell *cell1 = [[NSBundle mainBundle]loadNibNamed:@"Test2Cell" owner:nil options:nil][0];
         RAC(cell1,hidden) = RACObserve(self, b1);
         RAC(cell1.mTF,text) = RACObserve(self, str1);
@@ -99,6 +119,20 @@
     }
     return _headerArr;
 }
+-(UIView*)tView{
+    if (!_tView) {
+        _tView = [[NSBundle mainBundle]loadNibNamed:@"JHInputView" owner:nil options:nil][0];
+        _tView.hidden = YES;
+        [self.view addSubview:_tView];
+        NSLayoutConstraint *top = JH_Layout(_tView, JH_Top, JH_SafeArea(self.view), JH_Top, 0);
+        NSLayoutConstraint *leading = JH_Layout(_tView, JH_Leading, JH_SafeArea(self.view), JH_Leading, 0);
+        NSLayoutConstraint *trailing = JH_Layout(_tView, JH_Trailing, JH_SafeArea(self.view), JH_Trailing, 0);
+        NSLayoutConstraint *bottom = JH_Layout(_tView, JH_Bottom, JH_SafeArea(self.view), JH_Bottom, 0);
+        NSArray *arr = @[top,leading,trailing,bottom];
+        JH_AddLayouts(self.view, arr);
+    }
+    return _tView;
+}
 #pragma mark - ------------------LifeCycle------------------
 -(void)viewDidLoad {
     [super viewDidLoad];
@@ -108,25 +142,54 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onKeyboardShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onKeyboardHide:) name:UIKeyboardWillHideNotification object:nil];
 }
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+    self.mTableView.backgroundColor = [UIColor yellowColor];
 }
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
 }
 -(void)viewWillLayoutSubviews{
-    [super viewWillLayoutSubviews];
+//    [super viewWillLayoutSubviews];
 }
 -(void)viewDidLayoutSubviews{
-    [super viewDidLayoutSubviews];
+//    [super viewDidLayoutSubviews];
 }
 
 #pragma mark - ------------------Public Methods------------------
-
+-(void)onKeyboardShow:(NSNotification*)notification{
+    NSDictionary *userInfo = [notification userInfo];
+    //DLog(@"%@",userInfo);
+    NSValue *value = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGFloat keyBoardHeight = value.CGRectValue.size.height;
+    NSNumber *duration = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+    NSNumber *curve = [userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey];
+    [self.tView setHeight:(kSCREEN_H - kTopHeight - keyBoardHeight)];
+//    [UIView animateWithDuration:[duration doubleValue] delay:0 options:[curve integerValue] animations:^{
+////        self.view.frame = (CGRect){0,0-keyBoardHeight,self.view.frame.size.width,self.view.frame.size.height};
+//    } completion:^(BOOL finished) {
+////        keyboardIsShow = YES;
+//    }];
+}
+-(void)onKeyboardHide:(NSNotification*)notification{
+//    NSDictionary *userInfo = [notification userInfo];
+//    //DLog(@"%@",userInfo);
+//    NSNumber *duration = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+//    NSNumber *curve = [userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey];
+//    [UIView animateWithDuration:[duration doubleValue] delay:0 options:[curve integerValue] animations:^{
+////        self.view.frame = (CGRect){0,0,self.view.frame.size.width,self.view.frame.size.height};
+//    } completion:^(BOOL finished) {
+////        keyboardIsShow = NO;
+//    }];
+}
 #pragma mark - ------------------Private Methods------------------
 -(void)configNavi{
     @WeakObj(self);
@@ -178,12 +241,14 @@
     };
     self.rowSelectBlock = ^(UITableView *tableView, NSIndexPath *indexPath) {
         @StrongObj(self);
+        [self.tView.mTV becomeFirstResponder];
+        self.tView.hidden = NO;
 //        self.str1 = @"12333";
 //        self.b0 = !self.b0;
 //        [self.mTableView reloadData];
 //        NSLog(@"%@",self.str1);
-        [JHHudManager mb_showWithMessage:@"123232323232123232323232123232323232123232323232123232323232123232323232123232323232" Superview:self.view];
-        [JHHudManager mb_dismissWithDelay:2.f Superview:self.view];
+//        [JHHudManager mb_showWithMessage:@"123232323232123232323232123232323232123232323232123232323232123232323232123232323232" Superview:self.view];
+//        [JHHudManager mb_dismissWithDelay:2.f Superview:self.view];
     };
     self.sectionHeaderHeightBlock = ^CGFloat(UITableView *tableView, NSInteger section) {
         return 20.f;

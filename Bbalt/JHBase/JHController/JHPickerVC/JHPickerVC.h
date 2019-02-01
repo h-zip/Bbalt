@@ -16,7 +16,7 @@ typedef NS_ENUM(NSInteger,JHPickerType){
     JHPickerTypeYMDHMS
 };
 typedef void (^TitleSelectBlock)(UIPickerView *picker,NSInteger row,NSInteger component);
-typedef void (^CompleteSelectBlock)(UIButton *sender,NSMutableArray *arr);
+typedef void (^CompleteSelectBlock)(UIButton *sender,NSMutableArray *arr, NSString *text);
 typedef void (^CancelSelectBlock)(void);
 @interface JHPickerVC : UIViewController
 @property (weak, nonatomic) IBOutlet UIButton *bgBtn;
