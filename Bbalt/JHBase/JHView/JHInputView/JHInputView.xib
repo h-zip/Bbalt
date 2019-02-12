@@ -6,16 +6,20 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="JHInputView">
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="JHInputView">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iBv-Ax-uqS">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FI8-Ov-ebN">
                     <rect key="frame" x="0.0" y="567" width="375" height="100"/>
                     <subviews>
@@ -39,16 +43,19 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="iBv-Ax-uqS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Ij4-DS-z9Q"/>
+                <constraint firstAttribute="trailing" secondItem="iBv-Ax-uqS" secondAttribute="trailing" id="S3b-SX-8GD"/>
                 <constraint firstItem="FI8-Ov-ebN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="WcN-eq-xdV"/>
                 <constraint firstAttribute="trailing" secondItem="FI8-Ov-ebN" secondAttribute="trailing" id="cpb-qn-Q3p"/>
+                <constraint firstItem="iBv-Ax-uqS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="kId-tu-GHB"/>
+                <constraint firstAttribute="bottom" secondItem="iBv-Ax-uqS" secondAttribute="bottom" id="nfH-BU-LSt"/>
                 <constraint firstAttribute="bottom" secondItem="FI8-Ov-ebN" secondAttribute="bottom" id="zX9-Ya-cVJ"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="LEk-YY-A1p"/>
             <connections>
                 <outlet property="bgView" destination="FI8-Ov-ebN" id="xev-i4-XPf"/>
                 <outlet property="mTV" destination="CKT-Bm-CeG" id="dpv-cO-0zz"/>
             </connections>
-            <point key="canvasLocation" x="8.8000000000000007" y="90.404797601199405"/>
+            <point key="canvasLocation" x="-742" y="226"/>
         </view>
     </objects>
 </document>

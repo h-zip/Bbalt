@@ -23,6 +23,7 @@
 @property(nonatomic,assign)BOOL b2;
 @property(nonatomic,strong)JHPickerVC *picker;
 @property(nonatomic,strong)JHInputView *tView;
+@property(nonatomic,strong)NSLayoutConstraint *height;
 @end
 
 @implementation TestVC2
@@ -72,13 +73,16 @@
             self.str2 = x;
             //            [self performSelector:NSSelectorFromString(@"setStr1:") withObject:x];
         }];
-        _cellArr = @[cell0,cell1,cell2];
-        RAC(self.mTableView,backgroundColor) = [[RACSignal combineLatest:@[RACObserve(self, str0),RACObserve(self, str1),RACObserve(self, str2)] reduce:^id (NSString *str1,NSString *str2,NSString *str3){
-            return @(str1.length && str2.length && str3.length);
-        }]map:^id _Nullable(id  _Nullable value) {
-            BOOL b = [value boolValue];
-            return b ? [UIColor greenColor] : [UIColor whiteColor];
-        }];
+        Test2Cell *cell3 = [[NSBundle mainBundle]loadNibNamed:@"Test2Cell" owner:nil options:nil][0];
+        Test2Cell *cell4 = [[NSBundle mainBundle]loadNibNamed:@"Test2Cell" owner:nil options:nil][0];
+        Test2Cell *cell5 = [[NSBundle mainBundle]loadNibNamed:@"Test2Cell" owner:nil options:nil][0];
+        _cellArr = @[cell0,cell1,cell2,cell3,cell4,cell5];
+//        RAC(self.mTableView,backgroundColor) = [[RACSignal combineLatest:@[RACObserve(self, str0),RACObserve(self, str1),RACObserve(self, str2)] reduce:^id (NSString *str1,NSString *str2,NSString *str3){
+//            return @(str1.length && str2.length && str3.length);
+//        }]map:^id _Nullable(id  _Nullable value) {
+//            BOOL b = [value boolValue];
+//            return b ? [UIColor greenColor] : [UIColor whiteColor];
+//        }];
     }
     return _cellArr;
 }
@@ -115,21 +119,31 @@
         }];
         v2.userInteractionEnabled = YES;
         [v2 addGestureRecognizer:gr2];
-        _headerArr = @[v0,v1,v2];
+        UIView *v3 = [[UIView alloc]initWithFrame:(CGRect){0,0,kSCREEN_W,20}];
+        v0.backgroundColor = [UIColor brownColor];
+        UIView *v4 = [[UIView alloc]initWithFrame:(CGRect){0,0,kSCREEN_W,20}];
+        v0.backgroundColor = [UIColor brownColor];
+        UIView *v5 = [[UIView alloc]initWithFrame:(CGRect){0,0,kSCREEN_W,20}];
+        v0.backgroundColor = [UIColor brownColor];
+        _headerArr = @[v0,v1,v2,v3,v4,v5];
     }
     return _headerArr;
 }
 -(UIView*)tView{
     if (!_tView) {
         _tView = [[NSBundle mainBundle]loadNibNamed:@"JHInputView" owner:nil options:nil][0];
-        _tView.hidden = YES;
+        _tView.hidden = NO;
+        _tView.frame = (CGRect){0,kTopHeight,kSCREEN_W,kSCREEN_H - 379 - kTopHeight -34};
+//        _tView.translatesAutoresizingMaskIntoConstraints = NO;
         [self.view addSubview:_tView];
-        NSLayoutConstraint *top = JH_Layout(_tView, JH_Top, JH_SafeArea(self.view), JH_Top, 0);
-        NSLayoutConstraint *leading = JH_Layout(_tView, JH_Leading, JH_SafeArea(self.view), JH_Leading, 0);
-        NSLayoutConstraint *trailing = JH_Layout(_tView, JH_Trailing, JH_SafeArea(self.view), JH_Trailing, 0);
-        NSLayoutConstraint *bottom = JH_Layout(_tView, JH_Bottom, JH_SafeArea(self.view), JH_Bottom, 0);
-        NSArray *arr = @[top,leading,trailing,bottom];
-        JH_AddLayouts(self.view, arr);
+//        NSLayoutConstraint *top = JH_Layout(_tView, JH_Top, self.view, JH_Top, 0);
+//        NSLayoutConstraint *leading = JH_Layout(_tView, JH_Leading, JH_SafeArea(self.view), JH_Leading, 0);
+//        NSLayoutConstraint *trailing = JH_Layout(_tView, JH_Trailing, JH_SafeArea(self.view), JH_Trailing, 0);
+////        NSLayoutConstraint *bottom = JH_Layout(_tView, JH_Bottom, self.view, JH_Bottom, 0);
+//        NSLayoutConstraint *height = JH_Layout(_tView, JH_Height, nil, JH_NotAnAttribute, kSCREEN_H - 379);
+//        NSArray *arr = @[top,leading,trailing,height];
+//        self.height = height;
+//        JH_AddLayouts(self.view, arr);
     }
     return _tView;
 }
@@ -137,6 +151,7 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     [self configNavi];
+    self.tView.backgroundColor = [UIColor redColor];
 }
 -(void)dealloc{
 }
@@ -166,16 +181,17 @@
 
 #pragma mark - ------------------Public Methods------------------
 -(void)onKeyboardShow:(NSNotification*)notification{
-    NSDictionary *userInfo = [notification userInfo];
-    //DLog(@"%@",userInfo);
-    NSValue *value = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
-    CGFloat keyBoardHeight = value.CGRectValue.size.height;
-    NSNumber *duration = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
-    NSNumber *curve = [userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey];
-    [self.tView setHeight:(kSCREEN_H - kTopHeight - keyBoardHeight)];
+//    NSDictionary *userInfo = [notification userInfo];
+//    //DLog(@"%@",userInfo);
+//    NSValue *value = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+//    CGFloat keyBoardHeight = value.CGRectValue.size.height;
+//    NSNumber *duration = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+//    NSNumber *curve = [userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey];
+////    [self.tView setHeight:(kSCREEN_H - kTopHeight - keyBoardHeight)];
 //    [UIView animateWithDuration:[duration doubleValue] delay:0 options:[curve integerValue] animations:^{
 ////        self.view.frame = (CGRect){0,0-keyBoardHeight,self.view.frame.size.width,self.view.frame.size.height};
 //    } completion:^(BOOL finished) {
+//         self.height.constant = -keyBoardHeight;
 ////        keyboardIsShow = YES;
 //    }];
 }
@@ -211,7 +227,7 @@
     @WeakObj(self);
     self.tableViewStyle = UITableViewStyleGrouped;
     self.sectionNumBlock = ^NSInteger(UITableView *tableView) {
-        return 3;
+        return 5;
     };
     self.rowNumBlock = ^NSInteger(UITableView *tableView, NSInteger section) {
         return 1;
@@ -232,7 +248,7 @@
             default:
                 break;
         }
-        return b ? 0 : 40.f;
+        return b ? 0 : 100.f;
     };
     self.cellBlock = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
         @StrongObj(self);
@@ -242,7 +258,7 @@
     self.rowSelectBlock = ^(UITableView *tableView, NSIndexPath *indexPath) {
         @StrongObj(self);
         [self.tView.mTV becomeFirstResponder];
-        self.tView.hidden = NO;
+//        self.tView.hidden = NO;
 //        self.str1 = @"12333";
 //        self.b0 = !self.b0;
 //        [self.mTableView reloadData];
@@ -251,7 +267,7 @@
 //        [JHHudManager mb_dismissWithDelay:2.f Superview:self.view];
     };
     self.sectionHeaderHeightBlock = ^CGFloat(UITableView *tableView, NSInteger section) {
-        return 20.f;
+        return 200.f;
     };
     self.sectionHeaderBlock = ^UIView *(UITableView *tableView, NSInteger section) {
         @StrongObj(self);
@@ -259,7 +275,7 @@
         return view;
     };
     self.sectionFooterHeightBlock = ^CGFloat(UITableView *tableView, NSInteger section) {
-        return section ? CGFLOAT_MIN : 20.f;
+        return section ? CGFLOAT_MIN : 200.f;
     };
     self.sectionFooterBlock = ^UIView *(UITableView *tableView, NSInteger section) {
 //        @StrongObj(self);

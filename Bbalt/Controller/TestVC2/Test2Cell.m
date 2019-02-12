@@ -13,6 +13,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.mTF.delegate = self;
+    self.mTF.inputAccessoryView = [UIView new];
     // Initialization code
 }
 

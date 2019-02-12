@@ -9,6 +9,12 @@
 #import "JHInputView.h"
 
 @implementation JHInputView
+-(void)awakeFromNib{
+    [super awakeFromNib];
+    if (@available(iOS 11.0, *)) {
+        self.mTV.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
+}
 - (IBAction)bgTap:(UIButton *)sender {
     [self.mTV resignFirstResponder];
     self.hidden = YES;

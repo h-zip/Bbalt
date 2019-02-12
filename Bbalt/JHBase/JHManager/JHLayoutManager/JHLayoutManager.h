@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 #define JH_CenterX NSLayoutAttributeCenterX
 #define JH_CenterY NSLayoutAttributeCenterY
 #define JH_Baseline NSLayoutAttributeLastBaseline
+#define JH_NotAnAttribute NSLayoutAttributeNotAnAttribute
 
 #define JH_SafeArea(view) [[JHLayoutManager share] safeArea:view]
 
