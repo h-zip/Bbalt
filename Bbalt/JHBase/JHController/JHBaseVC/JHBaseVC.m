@@ -13,118 +13,43 @@
 @end
 
 @implementation JHBaseVC
-
-
--(void)hideNavigationBar{
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-}
--(void)appearNavigationBar{
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
-}
--(void)configNavigationBarAlpba:(float)alpha{
-//    if (![self.navigationController.class isSubclassOfClass:[JHBaseNaviC class]]) {
-//        return;
-//    }
-//    JHBaseNaviC* navi = (JHBaseNaviC*)self.navigationController;
-//    [navi configNavigationBarAlpha:alpha];
-    //[[[self.navigationController.navigationBar subviews] objectAtIndex:0] setAlpha:alpha];
-    // 导航栏背景透明度设置
-    UIView *barBackgroundView = [[self.navigationController.navigationBar subviews] objectAtIndex:0];// _UIBarBackground
-    UIImageView *backgroundImageView = [[barBackgroundView subviews] objectAtIndex:0];// UIImageView
-    if (self.navigationController.navigationBar.isTranslucent) {
-        if (backgroundImageView != nil && backgroundImageView.image != nil) {
-            barBackgroundView.alpha = alpha;
-        } else {
-            UIView *backgroundEffectView = [[barBackgroundView subviews] objectAtIndex:1];// UIVisualEffectView
-            if (backgroundEffectView != nil) {
-                backgroundEffectView.alpha = alpha;
-            }
-        }
-    } else {
-        barBackgroundView.alpha = alpha;
+-(UIButton*)cancelEditBtn{
+    if (!_cancelEditBtn) {
+        _cancelEditBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        _cancelEditBtn.backgroundColor = [[UIColor blackColor]colorWithAlphaComponent:0.1];
+        _cancelEditBtn.hidden = YES;
+        _cancelEditBtn.translatesAutoresizingMaskIntoConstraints = NO;
+        @WeakObj(self);
+        [[_cancelEditBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(__kindof UIControl * _Nullable x) {
+            @StrongObj(self);
+            [self cancelEditBtnTo:NO];
+            [self handleFirstResponder];
+        }];
+        [self.view addSubview:_cancelEditBtn];
+        NSLayoutConstraint *top = JH_Layout(_cancelEditBtn, JH_Top, self.view, JH_Top, 0);
+        NSLayoutConstraint *left = JH_Layout(_cancelEditBtn, JH_Leading, JH_SafeArea(self.view), JH_Leading, 0);
+        NSLayoutConstraint *right = JH_Layout(_cancelEditBtn, JH_Trailing, JH_SafeArea(self.view), JH_Trailing, 0);
+        NSLayoutConstraint *bottom = JH_Layout(_cancelEditBtn, JH_Bottom, JH_SafeArea(self.view), JH_Bottom, 0);
+        NSArray *arr = @[top,left,right,bottom];
+        JH_AddLayouts(self.view, arr);
     }
-    if (alpha==0) {
-        self.navigationController.navigationBar.clipsToBounds = YES;
-    }else if(alpha==1){
-        self.navigationController.navigationBar.clipsToBounds = NO;
-    }
+    return _cancelEditBtn;
 }
--(void)configNavigationBarBgImage:(UIImage* _Nonnull)bgImage{
-    //self.navigationController.navigationBar.translucent = NO;
-    [self.navigationController.navigationBar setBackgroundImage:[bgImage resizableImageWithCapInsets:(UIEdgeInsets){0,0,20,0} resizingMode:UIImageResizingModeStretch] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+-(void)cancelEditBtnTo:(BOOL)show{
+    self.cancelEditBtn.hidden = !show;
 }
--(void)configNavigationBarTitleStyle:(NSDictionary* _Nonnull)style{
-    self.navigationController.navigationBar.titleTextAttributes = style;
-}
--(void)configNavigationLeftBarBtnItemImage:(UIImage *)image Target:(id)target action:(SEL)action{
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:image style:UIBarButtonItemStylePlain target:target action:action];
-    
-}
--(void)configNavigationRightBarBtnItemImage:(UIImage *)image Target:(id)target action:(SEL)action{
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:image style:UIBarButtonItemStylePlain target:target action:action];
-}
--(void)hiddenNavigationBackBarBtnItem{
-    [self.navigationItem setHidesBackButton:YES];
-}
--(void)changeNavigationBackBarBtnItemWithCustomImage:(UIImage*)image{
-    image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    self.navigationController.navigationBar.backIndicatorImage = image;
-    self.navigationController.navigationBar.backIndicatorTransitionMaskImage = image;
-}
--(void)configNavigationBackBarBtnItemWithCustomImage:(UIImage*)image{
-    image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    self.navigationController.navigationBar.backIndicatorImage = image;
-    self.navigationController.navigationBar.backIndicatorTransitionMaskImage = image;
-    self.navigationItem.leftItemsSupplementBackButton = YES;
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]init];
-    self.navigationItem.backBarButtonItem.title = @"";
-}
--(void)cancelNaviBackItemTitle{
-    self.navigationItem.leftItemsSupplementBackButton = YES;
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]init];
-    self.navigationItem.backBarButtonItem.title = @"";
-}
--(void)configNavigationLeftBarBtnItemWithCustomView:(UIView*)view{
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:view];
-}
--(void)configNavigationRightBarBtnItemWithCustomView:(UIView*)view{
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:view];
-}
--(void)configNavigationLeftBarBtnItemWithCustomViews:(NSArray*)views{
-    NSMutableArray * arr = [@[]mutableCopy];
-    for (int i = 0; i<views.count; i++) {
-        if ([views[i] isKindOfClass:NSClassFromString(@"UIBarButtonItem")]) {
-            arr[i] = views[i];
-        }else{
-            UIBarButtonItem * item = [[UIBarButtonItem alloc]initWithCustomView:views[i]];
-            
-            arr[i] = item;
-        }
-    }
-    self.navigationItem.leftBarButtonItems = [arr copy];
-}
--(void)configNavigationRightBarBtnItemWithCustomViews:(NSArray*)views{
-    NSMutableArray * arr = [@[]mutableCopy];
-    for (int i = 0; i<views.count; i++) {
-        if ([views[i] isKindOfClass:NSClassFromString(@"UIBarButtonItem")]) {
-            arr[i] = views[i];
-        }else{
-            UIBarButtonItem * item = [[UIBarButtonItem alloc]initWithCustomView:views[i]];
-            
-            arr[i] = item;
-        }
-    }
-    self.navigationItem.rightBarButtonItems = [arr copy];
-    
-}
-//- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
-//    return YES;
-//}
 -(void)initCustomNavi{
-    CGRect frame = (CGRect){0,0,kSCREEN_W,kTopHeight};
-    self.customNavi = [[UIView alloc]initWithFrame:frame];
+//    CGRect frame = (CGRect){0,0,kSCREEN_W,kTopHeight};
+    self.customNavi = [UIView new];
     self.customNavi.backgroundColor = [UIColor whiteColor];
+    self.customNavi.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:self.customNavi];
+    NSLayoutConstraint *top = JH_Layout(self.customNavi, JH_Top, self.view, JH_Top, 0);
+    NSLayoutConstraint *left = JH_Layout(self.customNavi, JH_Leading, JH_SafeArea(self.view), JH_Leading, 0);
+    NSLayoutConstraint *right = JH_Layout(self.customNavi, JH_Trailing, JH_SafeArea(self.view), JH_Trailing, 0);
+    NSLayoutConstraint *height = JH_Layout(self.customNavi, JH_Height, nil, JH_NotAnAttribute, kTopHeight);
+    NSArray *arr = @[top,left,right,height];
+    JH_AddLayouts(self.view, arr);
 }
 
 -(void)hideCustomNavi{
@@ -177,9 +102,7 @@
 }
 
 -(void)handleFirstResponder{
-
     [self.view endEditing:YES];
-
 }
 +(instancetype)initFromXIB{
     return [[self alloc]initWithNibName:NSStringFromClass([self class]) bundle:nil];

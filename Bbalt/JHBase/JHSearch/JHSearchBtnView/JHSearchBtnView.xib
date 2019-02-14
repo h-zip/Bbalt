@@ -32,17 +32,17 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="7n6-mi-pe5" secondAttribute="trailing" id="Cuf-Qm-o52"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="7n6-mi-pe5" secondAttribute="bottom" constant="5" id="ECY-IY-LQi"/>
-                <constraint firstItem="7n6-mi-pe5" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="NZW-Z2-XNE"/>
-                <constraint firstItem="7n6-mi-pe5" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="dqI-zh-OM6"/>
+                <constraint firstAttribute="trailing" secondItem="7n6-mi-pe5" secondAttribute="trailing" id="Cuf-Qm-o52"/>
+                <constraint firstAttribute="bottom" secondItem="7n6-mi-pe5" secondAttribute="bottom" constant="5" id="ECY-IY-LQi"/>
+                <constraint firstItem="7n6-mi-pe5" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="NZW-Z2-XNE"/>
+                <constraint firstItem="7n6-mi-pe5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dqI-zh-OM6"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="searchBtn" destination="7n6-mi-pe5" id="GoW-Rb-mJr"/>
             </connections>
-            <point key="canvasLocation" x="106" y="91"/>
+            <point key="canvasLocation" x="104.8" y="90.854572713643179"/>
         </view>
     </objects>
     <resources>

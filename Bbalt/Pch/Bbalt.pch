@@ -22,6 +22,8 @@
 #import "BbaltConstant.h"
 #import "JHGlobal.h"
 #import "JHUIHeader.h"
+#import "JHTableViewPackage.h"
+#import "JHCollectionViewPackage.h"
 #import "JHManagerHeader.h"
 #import "JHTestRequestService.h"
 #import "JHBaseResultModel.h"

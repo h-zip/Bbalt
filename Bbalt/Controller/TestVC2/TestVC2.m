@@ -41,16 +41,23 @@
             self.str0 = x;
 //            [self performSelector:NSSelectorFromString(@"setStr1:") withObject:x];
         }];
+        [[cell0.mTF rac_signalForControlEvents:UIControlEventEditingDidBegin]subscribeNext:^(__kindof UIControl * _Nullable x) {
+            @StrongObj(self);
+            [self cancelEditBtnTo:YES];
+        }];
         self.picker = [[JHPickerVC alloc]initWithNibName:@"JHPickerVC" bundle:nil];
         self.picker.type = JHPickerTypeYMDHMS;
         [self.picker initYMDHMS];
         self.picker.cancelSelectBlock = ^{
+            @StrongObj(self);
             [cell0.mTF resignFirstResponder];
+            [self cancelEditBtnTo:NO];
         };
         self.picker.completeSelectBlock = ^(UIButton *sender, NSMutableArray *arr, NSString *text) {
             @StrongObj(self);
             self.str0 = text;
             [cell0.mTF resignFirstResponder];
+            [self cancelEditBtnTo:NO];
             NSLog(@"%@",text);
         };
 //        [self addChildViewController:self.picker];
@@ -135,7 +142,7 @@
         _tView.hidden = NO;
         _tView.frame = (CGRect){0,kTopHeight,kSCREEN_W,kSCREEN_H - 379 - kTopHeight -34};
 //        _tView.translatesAutoresizingMaskIntoConstraints = NO;
-        [self.view addSubview:_tView];
+//        [self.view addSubview:_tView];
 //        NSLayoutConstraint *top = JH_Layout(_tView, JH_Top, self.view, JH_Top, 0);
 //        NSLayoutConstraint *leading = JH_Layout(_tView, JH_Leading, JH_SafeArea(self.view), JH_Leading, 0);
 //        NSLayoutConstraint *trailing = JH_Layout(_tView, JH_Trailing, JH_SafeArea(self.view), JH_Trailing, 0);
@@ -152,6 +159,8 @@
     [super viewDidLoad];
     [self configNavi];
     self.tView.backgroundColor = [UIColor redColor];
+//    self.getdataStatus = GetDataLoading;
+//    self.getdataStatus = GetDataError;
 }
 -(void)dealloc{
 }
@@ -210,7 +219,8 @@
 -(void)configNavi{
     @WeakObj(self);
     JHSearchBtnView *view = [[NSBundle mainBundle]loadNibNamed:@"JHSearchBtnView" owner:nil options:nil][0];
-    view.frame = (CGRect){50,kTopHeight - 44,kSCREEN_W-100,44};
+//    view.frame = (CGRect){50,kTopHeight - 44,kSCREEN_W-100,44};
+    view.translatesAutoresizingMaskIntoConstraints = NO;
     view.btnTapBlock = ^(UIButton *sender) {
         @StrongObj(self);
         JHSearchVC *vc = [[JHSearchVC alloc]init];
@@ -222,17 +232,23 @@
         }];
     };
     [self.customNavi addSubview:view];
+    NSLayoutConstraint *bottom = JH_Layout(view, JH_Bottom, self.customNavi, JH_Bottom, 0);
+    NSLayoutConstraint *left = JH_Layout(view, JH_Leading, self.customNavi, JH_Leading, 50);
+    NSLayoutConstraint *right = JH_Layout(view, JH_Trailing, self.customNavi, JH_Trailing, -50);
+    NSLayoutConstraint *height = JH_Layout(view, JH_Height, nil, JH_NotAnAttribute, kNavBarHeight);
+    NSArray *arr = @[bottom,left,right,height];
+    JH_AddLayouts(self.customNavi, arr);
 }
--(void)initTableView{
+-(void)initTableViewPackage{
+    self.package = [[JHTableViewPackage alloc]initWithStyle:UITableViewStyleGrouped];
     @WeakObj(self);
-    self.tableViewStyle = UITableViewStyleGrouped;
-    self.sectionNumBlock = ^NSInteger(UITableView *tableView) {
+    self.package.sectionNumBlock = ^NSInteger(UITableView *tableView) {
         return 5;
     };
-    self.rowNumBlock = ^NSInteger(UITableView *tableView, NSInteger section) {
+    self.package.rowNumBlock = ^NSInteger(UITableView *tableView, NSInteger section) {
         return 1;
     };
-    self.rowHeightBlock = ^CGFloat(UITableView *tableView, NSIndexPath *indexPath) {
+    self.package.rowHeightBlock = ^CGFloat(UITableView *tableView, NSIndexPath *indexPath) {
         @StrongObj(self);
         BOOL b = false;
         switch (indexPath.section) {
@@ -250,12 +266,12 @@
         }
         return b ? 0 : 100.f;
     };
-    self.cellBlock = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
+    self.package.cellBlock = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
         @StrongObj(self);
         UITableViewCell *cell = self.cellArr[indexPath.section];
         return cell;
     };
-    self.rowSelectBlock = ^(UITableView *tableView, NSIndexPath *indexPath) {
+    self.package.rowSelectBlock = ^(UITableView *tableView, NSIndexPath *indexPath) {
         @StrongObj(self);
         [self.tView.mTV becomeFirstResponder];
 //        self.tView.hidden = NO;
@@ -266,18 +282,18 @@
 //        [JHHudManager mb_showWithMessage:@"123232323232123232323232123232323232123232323232123232323232123232323232123232323232" Superview:self.view];
 //        [JHHudManager mb_dismissWithDelay:2.f Superview:self.view];
     };
-    self.sectionHeaderHeightBlock = ^CGFloat(UITableView *tableView, NSInteger section) {
+    self.package.sectionHeaderHeightBlock = ^CGFloat(UITableView *tableView, NSInteger section) {
         return 200.f;
     };
-    self.sectionHeaderBlock = ^UIView *(UITableView *tableView, NSInteger section) {
+    self.package.sectionHeaderBlock = ^UIView *(UITableView *tableView, NSInteger section) {
         @StrongObj(self);
         UIView *view = self.headerArr[section];
         return view;
     };
-    self.sectionFooterHeightBlock = ^CGFloat(UITableView *tableView, NSInteger section) {
+    self.package.sectionFooterHeightBlock = ^CGFloat(UITableView *tableView, NSInteger section) {
         return section ? CGFLOAT_MIN : 200.f;
     };
-    self.sectionFooterBlock = ^UIView *(UITableView *tableView, NSInteger section) {
+    self.package.sectionFooterBlock = ^UIView *(UITableView *tableView, NSInteger section) {
 //        @StrongObj(self);
         UIView *view = [UIView new];
         return view;

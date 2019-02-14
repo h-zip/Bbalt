@@ -20,4 +20,5 @@
 #import "JHImagePickerManager.h"
 #import "JHUserManager.h"
 #import "JHUploadManager.h"
+#import "JHFactoryManager.h"
 #endif /* JHManagerHeader_h */

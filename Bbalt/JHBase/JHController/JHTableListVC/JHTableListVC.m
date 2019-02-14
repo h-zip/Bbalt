@@ -59,7 +59,7 @@
         [self.mTableView.mj_header endRefreshing];
         [self.mTableView.mj_footer endRefreshing];
         if ([JHBaseResultHandler shouldGotoSuccessCallBackBasedOnBaseResult:model]) {
-            NSArray *arr = [NSArray yy_modelArrayWithClass:[self.classModel class] json:model.R];
+            NSArray *arr = [self getArrWithJson:model.R];
             if (type==GetDataOrigin) {
                 self.dataArr = arr;
                 if (arr.count==0) {
@@ -124,7 +124,9 @@
         }
     }];
 }
-
+-(NSArray*)getArrWithJson:(id)json{
+    return [NSArray yy_modelArrayWithClass:[self.classModel class] json:json];
+}
 -(void)bindObserver{
 //    @WeakObj(self);
 //    [RACObserve(self, getdataStatus) subscribeNext:^(id x) {

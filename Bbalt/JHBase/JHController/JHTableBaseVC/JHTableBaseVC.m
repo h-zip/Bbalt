@@ -25,51 +25,45 @@
     switch (_getdataStatus) {
         case GetDataLoading:
         {
-            [self.mTableView removeFromSuperview];
-            [self.nodataView removeFromSuperview];
-            [self.errorView removeFromSuperview];
-            
-            [self.loadingView stopAnimating];
-            [self.loadingView removeFromSuperview];
+            [self.mTableView setHidden:YES];
+            [self.nodataView setHidden:YES];
+            [self.errorView setHidden:YES];
             
             [self.loadingView startAnimating];
-            [self.view addSubview:self.loadingView];
+            [self.loadingView setHidden:NO];
         }
             break;
         case GetDataNoData:
         {
-            [self.mTableView removeFromSuperview];
-            [self.nodataView removeFromSuperview];
-            [self.errorView removeFromSuperview];
+            [self.mTableView setHidden:YES];
+            [self.errorView setHidden:YES];
             
             [self.loadingView stopAnimating];
-            [self.loadingView removeFromSuperview];
+            [self.loadingView setHidden:YES];
             
-            [self.view addSubview:self.nodataView];
+            [self.nodataView setHidden:NO];
         }
             break;
         case GetDataSuccess:
         {
-            [self.mTableView removeFromSuperview];
-            [self.nodataView removeFromSuperview];
-            [self.errorView removeFromSuperview];
+            [self.nodataView setHidden:YES];
+            [self.errorView setHidden:YES];
             
             [self.loadingView stopAnimating];
-            [self.loadingView removeFromSuperview];
+            [self.loadingView setHidden:YES];
             
-            [self.view addSubview:self.mTableView];
+            [self.mTableView setHidden:NO];
         }
             break;
         case GetDataError:
         {
-            [self.mTableView removeFromSuperview];
-            [self.nodataView removeFromSuperview];
-            [self.errorView removeFromSuperview];
+            [self.mTableView setHidden:YES];
+            [self.nodataView setHidden:YES];
             
             [self.loadingView stopAnimating];
-            [self.loadingView removeFromSuperview];
+            [self.loadingView setHidden:YES];
             
-            [self.view addSubview:self.errorView];
+            [self.errorView setHidden:NO];
         }
             break;
             
@@ -80,46 +74,45 @@
 -(JHLoadingView*)loadingView{
     if (!_loadingView) {
         _loadingView = [[NSBundle mainBundle]loadNibNamed:@"JHLoadingView" owner:nil options:nil][0];
-        _loadingView.frame = _mTableView.frame;
+        _loadingView.hidden = YES;
+        [self.view addSubview:_loadingView];
+        NSArray* arr = JH_EqualLayouts(_loadingView, _mTableView);
+        JH_AddLayouts(self.view, arr);
     }
     return _loadingView;
 }
 -(JHNoDataView*)nodataView{
     if (!_nodataView) {
         _nodataView = [[NSBundle mainBundle]loadNibNamed:@"JHNoDataView" owner:nil options:nil][0];
-        _nodataView.frame = _mTableView.frame;
+        _nodataView.hidden = YES;
+        [self.view addSubview:_nodataView];
+        NSArray* arr = JH_EqualLayouts(_nodataView, _mTableView);
+        JH_AddLayouts(self.view, arr);
     }
     return _nodataView;
 }
 -(JHNoWifiView*)errorView{
     if (!_errorView) {
         _errorView = [[NSBundle mainBundle]loadNibNamed:@"JHNoWifiView" owner:nil options:nil][0];
-        _errorView.frame = _mTableView.frame;
+        _errorView.hidden = YES;
+        [self.view addSubview:_errorView];
+        NSArray* arr = JH_EqualLayouts(_errorView, _mTableView);
+        JH_AddLayouts(self.view, arr);
     }
     return _errorView;
 }
 -(JHTableView*)mTableView{
     if (!_mTableView) {
-        _mTableView = [[JHTableView alloc]initWithFrame:CGRectMake(0, kTopHeight, kSCREEN_W, kSCREEN_H-kTopHeight-kBottomHeight) style:self.tableViewStyle];
-        _mTableView.delegate = self;
-        _mTableView.dataSource = self;
-        if (@available(iOS 11.0, *)) {
-            _mTableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        }
-       _mTableView.estimatedRowHeight = 0;
-        _mTableView.estimatedSectionFooterHeight = 0;
-        _mTableView.estimatedSectionHeaderHeight = 0;
-        _mTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-//        _mTableView.backgroundView = nil;
-//        _mTableView.backgroundColor = [UIColor whiteColor];
+        _mTableView = self.package.tableView;
     }
     return _mTableView;
 }
 #pragma mark - LifeCycle
 -(void)viewDidLoad {
     [super viewDidLoad];
-    [self initTableView];
-    [self.view addSubview:self.mTableView];
+    [self initTableViewPackage];
+    [self layoutTableView];
+    
 }
 -(void)dealloc{
 }
@@ -145,111 +138,28 @@
 #pragma mark - Public Methods
 -(void)getData:(GetDataType)type{
 }
--(void)initTableView{
-    
+-(void)initTableViewPackage{
+    self.package = [[JHTableViewPackage alloc]initWithStyle:UITableViewStyleGrouped];
 }
--(void)initRefreshHeader{
-    @WeakObj(self);
-    MJRefreshNormalHeader *mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        @StrongObj(self);
-        [self getData:GetDataPullDown];
-        
-    }];
-    mj_header.lastUpdatedTimeLabel.hidden = YES;
-    
-    self.mTableView.mj_header = mj_header;
-    
-}
--(void)initRefreshFooter{
-    @WeakObj(self);
-    MJRefreshAutoNormalFooter *mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        @StrongObj(self);
-        [self getData:GetDataPullUp];
-        
-    }];
-    self.mTableView.mj_footer = mj_footer;
+-(void)layoutTableView{
+    [self.view addSubview:self.mTableView];
+    self.mTableView.translatesAutoresizingMaskIntoConstraints = NO;
+    NSLayoutConstraint *top = JH_Layout(self.mTableView, JH_Top, self.view, JH_Top, kTopHeight);
+    NSLayoutConstraint *left = JH_Layout(self.mTableView, JH_Leading, JH_SafeArea(self.view), JH_Leading, 0);
+    NSLayoutConstraint *right = JH_Layout(self.mTableView, JH_Trailing, JH_SafeArea(self.view), JH_Trailing, 0);
+    NSLayoutConstraint *bottom = JH_Layout(self.mTableView, JH_Bottom, JH_SafeArea(self.view), JH_Bottom, 0);
+    NSArray *arr = @[top,left,right,bottom];
+    JH_AddLayouts(self.view, arr);
 }
 -(void)reloadUI{
-    [self.mTableView reloadData];
-}
--(void)initTableHeader:(UIView*)header{
-    UIView *view = [[UIView alloc]initWithFrame:header.frame];
-    [view addSubview:header];
-    self.mTableView.tableHeaderView = view;
-}
--(void)initTableFooter:(UIView*)footer{
-    UIView *view = [[UIView alloc]initWithFrame:footer.frame];
-    [view addSubview:footer];
-    self.mTableView.tableFooterView = view;
+    [self.package reloadTableView];
 }
 #pragma mark - Private Methods
 
 #pragma mark - Key-Value Observer
 
 #pragma mark - UITableViewDelegate,UITableViewDataSource
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    NSInteger num = 0;
-    if (self.sectionNumBlock) {
-        num = self.sectionNumBlock(tableView);
-    }
-    return num;
-}
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSInteger num = 0;
-    if (self.rowNumBlock) {
-        num = self.rowNumBlock(tableView, section);
-    }
-    return num;
-}
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    CGFloat height = 0;
-    if (self.rowHeightBlock) {
-        height = self.rowHeightBlock(tableView, indexPath);
-    }
-    return height;
-}
--(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = nil;
-    if (self.cellBlock) {
-        cell = self.cellBlock(tableView, indexPath);
-    }
-    return cell;
-}
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    CGFloat height = 0;
-    if (self.sectionHeaderHeightBlock) {
-        height = self.sectionHeaderHeightBlock(tableView, section);
-    }
-    return height;
-}
--(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIView * header = nil;
-    if (self.sectionHeaderBlock) {
-        header = self.sectionHeaderBlock(tableView, section);
-    }
-    return header;
-}
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    CGFloat height = 0;
-    if (self.sectionFooterHeightBlock) {
-        height = self.sectionFooterHeightBlock(tableView, section);
-    }
-    return height;
-}
 
--(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    UIView * footer = nil;
-    if (self.sectionFooterBlock) {
-        footer = self.sectionFooterBlock(tableView, section);
-    }
-    return footer;
-}
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (self.rowSelectBlock) {
-        self.rowSelectBlock(tableView, indexPath);
-    }
-}
 #pragma mark - UICollectionViewDelegate,UICollectionViewDataSource
 
 #pragma mark - UIScrollViewDelegate

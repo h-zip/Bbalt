@@ -16,7 +16,7 @@
     
 }
 +(void)logoutWithDic:(NSDictionary*)dic
-                 Ret:(TestRequestBlock)ret;{
+                 Ret:(TestRequestBlock)ret{
     [self postWithURL:logoutUrl Dic:dic Ret:ret];
 }
 @end

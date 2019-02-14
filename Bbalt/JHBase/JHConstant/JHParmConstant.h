@@ -27,6 +27,21 @@ typedef void(^RowSelectBlock)(UITableView *tableView,NSIndexPath *indexPath);
 
 typedef void(^BtnTapBlock)(UIButton *sender);
 
+typedef NSInteger (^SectionNumBlock_C)(UICollectionView *collectionView);
+typedef NSInteger (^ItemNumBlock_C)(UICollectionView *collectionView,NSInteger section);
+typedef CGSize (^ItemSizeBlock_C)(UICollectionView *collectionView,UICollectionViewLayout *layout,NSIndexPath *indexPath);
+typedef UICollectionViewCell* (^CellBlock_C)(UICollectionView *collectionView,NSIndexPath *indexPath);
+
+typedef UICollectionReusableView* (^ReusableViewBlock_C)(UICollectionView *collectionView,NSIndexPath *indexPath,NSString *kind);
+typedef CGSize (^SectionHeaderSizeBlock_C)(UICollectionView *collectionView,UICollectionViewLayout *layout,NSInteger section);
+typedef CGSize (^SectionFooterSizeBlock_C)(UICollectionView *collectionView,UICollectionViewLayout *layout,NSInteger section);
+
+typedef UIEdgeInsets (^SectionInsetsBlock_C)(UICollectionView *collectionView,UICollectionViewLayout *layout,NSInteger section);
+typedef CGFloat (^SectionLineSpaceBlock_C)(UICollectionView *collectionView,UICollectionViewLayout *layout,NSInteger section);
+typedef CGFloat (^SectionInteritemSpaceBlock_C)(UICollectionView *collectionView,UICollectionViewLayout *layout,NSInteger section);
+
+typedef void(^ItemSelectBlock_C)(UICollectionView *collectionView,NSIndexPath *indexPath);
+
 #define PageIndex @"PageIndex"
 #define PageSize @"PageSize"
 

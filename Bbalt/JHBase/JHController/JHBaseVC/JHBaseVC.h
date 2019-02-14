@@ -14,49 +14,22 @@ typedef NS_ENUM(NSInteger,GetDataType) {
     GetDataRefresh
 };
 typedef NS_ENUM(NSInteger,GetDataStatus) {
+    GetDataSuccess,
     GetDataLoading,
     GetDataNoData,
-    GetDataError,
-    GetDataSuccess
+    GetDataError
 };
 @interface JHBaseVC : UIViewController
 
 @property(nonatomic,assign)NSInteger pageIndex;
 @property(nonatomic,assign)NSInteger pageSize;
 @property(nonatomic,assign)GetDataStatus getdataStatus;
-
+@property(nonatomic,strong)UIButton *cancelEditBtn;
 @property(nonatomic,strong)UIView * _Nullable customNavi;
 -(void)initCustomNavi;
 -(void)hideCustomNavi;
 -(void)showCustomNavi;
 -(void)setCustomNaviAlpha:(CGFloat)alpha;
 +(instancetype _Nullable )initFromXIB;
-
-
-
-
-
-
-
-
--(void)hideNavigationBar;
--(void)appearNavigationBar;
--(void)configNavigationBarAlpba:(float)alpha;
--(void)configNavigationBarBgImage:(UIImage* _Nonnull)bgImage;
--(void)configNavigationLeftBarBtnItemImage:( UIImage* _Nonnull )image
-                                       Target:(nullable id)target
-                                       action:(nullable SEL)action;
--(void)configNavigationRightBarBtnItemImage:( UIImage* _Nonnull )image
-                                    Target:(nullable id)target
-                                    action:(nullable SEL)action;
--(void)configNavigationBarTitleStyle:(NSDictionary* _Nonnull)style;
--(void)handleFirstResponder;
--(void)cancelNaviBackItemTitle;
--(void)hiddenNavigationBackBarBtnItem;
--(void)changeNavigationBackBarBtnItemWithCustomImage:(nullable UIImage*)image;
--(void)configNavigationBackBarBtnItemWithCustomImage:(nullable UIImage*)image;
--(void)configNavigationLeftBarBtnItemWithCustomView:(nullable UIView*)view;
--(void)configNavigationRightBarBtnItemWithCustomView:(nullable UIView*)view;
--(void)configNavigationLeftBarBtnItemWithCustomViews:(nullable NSArray*)views;
--(void)configNavigationRightBarBtnItemWithCustomViews:(nullable NSArray*)views;
+-(void)cancelEditBtnTo:(BOOL)show;
 @end

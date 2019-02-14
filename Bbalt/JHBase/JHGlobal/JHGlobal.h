@@ -9,6 +9,14 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
+@interface JHScale: NSObject
+/** 320 */
+@property(nonatomic,assign)CGFloat s_075;
+/** 375 */
+@property(nonatomic,assign)CGFloat m_1;
+/** 414 */
+@property(nonatomic,assign)CGFloat l_125;
+@end
 @interface JHFontSize: NSObject
 /** 10px */
 @property(nonatomic,assign)CGFloat ss;
@@ -47,6 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 @interface JHGlobal : NSObject
 +(instancetype)share;
+@property(nonatomic,strong)JHScale *scales;
 @property(nonatomic,strong)JHFontSize *fontsizes;
 @property(nonatomic,strong)JHColor *colors;
 @property(nonatomic,strong)JHFont *fonts;

@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		880977A92215196000320EDD /* JHCollectionBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 880977A82215196000320EDD /* JHCollectionBaseVC.m */; };
+		880977AF221548CF00320EDD /* JHTableViewPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = 880977AE221548CF00320EDD /* JHTableViewPackage.m */; };
+		880977B322154A3800320EDD /* JHCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 880977B222154A3800320EDD /* JHCollectionView.m */; };
+		880977B822154A8100320EDD /* JHCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 880977B622154A8100320EDD /* JHCollectionViewCell.m */; };
+		880977B922154A8100320EDD /* JHCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 880977B722154A8100320EDD /* JHCollectionViewCell.xib */; };
+		880977BE22154B5C00320EDD /* JHCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 880977BC22154B5C00320EDD /* JHCollectionReusableView.m */; };
+		880977BF22154B5C00320EDD /* JHCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 880977BD22154B5C00320EDD /* JHCollectionReusableView.xib */; };
+		880977C322154E8E00320EDD /* JHFactoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 880977C222154E8E00320EDD /* JHFactoryManager.m */; };
+		880977C62215577600320EDD /* JHCollectionViewPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = 880977C52215577600320EDD /* JHCollectionViewPackage.m */; };
 		882C30B521EC9591009E4436 /* TestVC1.m in Sources */ = {isa = PBXBuildFile; fileRef = 882C30B321EC9591009E4436 /* TestVC1.m */; };
 		882C30B621EC9591009E4436 /* TestVC1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 882C30B421EC9591009E4436 /* TestVC1.xib */; };
 		882C30BC21F592FD009E4436 /* JHGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 882C30BB21F592FD009E4436 /* JHGlobal.m */; };
@@ -123,6 +132,22 @@
 
 /* Begin PBXFileReference section */
 		2C39AE75A86478A17C07ACB2 /* Pods-Bbalt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bbalt.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bbalt/Pods-Bbalt.release.xcconfig"; sourceTree = "<group>"; };
+		880977A72215196000320EDD /* JHCollectionBaseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHCollectionBaseVC.h; sourceTree = "<group>"; };
+		880977A82215196000320EDD /* JHCollectionBaseVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHCollectionBaseVC.m; sourceTree = "<group>"; };
+		880977AD221548CF00320EDD /* JHTableViewPackage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHTableViewPackage.h; sourceTree = "<group>"; };
+		880977AE221548CF00320EDD /* JHTableViewPackage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHTableViewPackage.m; sourceTree = "<group>"; };
+		880977B122154A3800320EDD /* JHCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHCollectionView.h; sourceTree = "<group>"; };
+		880977B222154A3800320EDD /* JHCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHCollectionView.m; sourceTree = "<group>"; };
+		880977B522154A8100320EDD /* JHCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHCollectionViewCell.h; sourceTree = "<group>"; };
+		880977B622154A8100320EDD /* JHCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHCollectionViewCell.m; sourceTree = "<group>"; };
+		880977B722154A8100320EDD /* JHCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JHCollectionViewCell.xib; sourceTree = "<group>"; };
+		880977BB22154B5C00320EDD /* JHCollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHCollectionReusableView.h; sourceTree = "<group>"; };
+		880977BC22154B5C00320EDD /* JHCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHCollectionReusableView.m; sourceTree = "<group>"; };
+		880977BD22154B5C00320EDD /* JHCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JHCollectionReusableView.xib; sourceTree = "<group>"; };
+		880977C122154E8E00320EDD /* JHFactoryManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHFactoryManager.h; sourceTree = "<group>"; };
+		880977C222154E8E00320EDD /* JHFactoryManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHFactoryManager.m; sourceTree = "<group>"; };
+		880977C42215577600320EDD /* JHCollectionViewPackage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHCollectionViewPackage.h; sourceTree = "<group>"; };
+		880977C52215577600320EDD /* JHCollectionViewPackage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHCollectionViewPackage.m; sourceTree = "<group>"; };
 		882C30B021EC948C009E4436 /* Bbalt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bbalt.entitlements; sourceTree = "<group>"; };
 		882C30B221EC9591009E4436 /* TestVC1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestVC1.h; sourceTree = "<group>"; };
 		882C30B321EC9591009E4436 /* TestVC1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestVC1.m; sourceTree = "<group>"; };
@@ -336,6 +361,80 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		880977A62215192400320EDD /* JHCollectionBaseVC */ = {
+			isa = PBXGroup;
+			children = (
+				880977A72215196000320EDD /* JHCollectionBaseVC.h */,
+				880977A82215196000320EDD /* JHCollectionBaseVC.m */,
+			);
+			path = JHCollectionBaseVC;
+			sourceTree = "<group>";
+		};
+		880977AA221547D500320EDD /* JHPackage */ = {
+			isa = PBXGroup;
+			children = (
+				880977AC221547FF00320EDD /* JHCollectionViewPackage */,
+				880977AB221547DD00320EDD /* JHTableViewPackage */,
+			);
+			path = JHPackage;
+			sourceTree = "<group>";
+		};
+		880977AB221547DD00320EDD /* JHTableViewPackage */ = {
+			isa = PBXGroup;
+			children = (
+				880977AD221548CF00320EDD /* JHTableViewPackage.h */,
+				880977AE221548CF00320EDD /* JHTableViewPackage.m */,
+			);
+			path = JHTableViewPackage;
+			sourceTree = "<group>";
+		};
+		880977AC221547FF00320EDD /* JHCollectionViewPackage */ = {
+			isa = PBXGroup;
+			children = (
+				880977C42215577600320EDD /* JHCollectionViewPackage.h */,
+				880977C52215577600320EDD /* JHCollectionViewPackage.m */,
+			);
+			path = JHCollectionViewPackage;
+			sourceTree = "<group>";
+		};
+		880977B0221549FA00320EDD /* JHCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				880977B122154A3800320EDD /* JHCollectionView.h */,
+				880977B222154A3800320EDD /* JHCollectionView.m */,
+			);
+			path = JHCollectionView;
+			sourceTree = "<group>";
+		};
+		880977B422154A5F00320EDD /* JHCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				880977B522154A8100320EDD /* JHCollectionViewCell.h */,
+				880977B622154A8100320EDD /* JHCollectionViewCell.m */,
+				880977B722154A8100320EDD /* JHCollectionViewCell.xib */,
+			);
+			path = JHCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		880977BA22154B4800320EDD /* JHCollectionReusableView */ = {
+			isa = PBXGroup;
+			children = (
+				880977BB22154B5C00320EDD /* JHCollectionReusableView.h */,
+				880977BC22154B5C00320EDD /* JHCollectionReusableView.m */,
+				880977BD22154B5C00320EDD /* JHCollectionReusableView.xib */,
+			);
+			path = JHCollectionReusableView;
+			sourceTree = "<group>";
+		};
+		880977C022154E6E00320EDD /* JHFactoryManager */ = {
+			isa = PBXGroup;
+			children = (
+				880977C122154E8E00320EDD /* JHFactoryManager.h */,
+				880977C222154E8E00320EDD /* JHFactoryManager.m */,
+			);
+			path = JHFactoryManager;
+			sourceTree = "<group>";
+		};
 		882C30B121EC9578009E4436 /* TestVC1 */ = {
 			isa = PBXGroup;
 			children = (
@@ -584,6 +683,7 @@
 		88D9FA0F2192B26200ABFD15 /* JHBase */ = {
 			isa = PBXGroup;
 			children = (
+				880977AA221547D500320EDD /* JHPackage */,
 				88B620FF22003B1F00474022 /* JHSearch */,
 				882C30B921F5928E009E4436 /* JHGlobal */,
 				88D9FB2B2192C92600ABFD15 /* R */,
@@ -643,6 +743,7 @@
 		88D9FA1D2192B26200ABFD15 /* JHManager */ = {
 			isa = PBXGroup;
 			children = (
+				880977C022154E6E00320EDD /* JHFactoryManager */,
 				884054392202DC1400187E1F /* JHLayoutManager */,
 				88B620FB21FFF34B00474022 /* JHDecimalManager */,
 				88B620F721FF05C200474022 /* JHWebImageManager */,
@@ -794,6 +895,7 @@
 		88D9FA482192B26200ABFD15 /* JHController */ = {
 			isa = PBXGroup;
 			children = (
+				880977A62215192400320EDD /* JHCollectionBaseVC */,
 				88D9FA492192B26200ABFD15 /* JHPickerVC */,
 				88D9FA4D2192B26200ABFD15 /* JHTableBaseVC */,
 				88D9FA512192B26200ABFD15 /* JHBaseTabBarC */,
@@ -963,6 +1065,9 @@
 		88D9FAA52192BDBB00ABFD15 /* JHBaseView */ = {
 			isa = PBXGroup;
 			children = (
+				880977BA22154B4800320EDD /* JHCollectionReusableView */,
+				880977B422154A5F00320EDD /* JHCollectionViewCell */,
+				880977B0221549FA00320EDD /* JHCollectionView */,
 				88B6211C2201A82600474022 /* JHTextView */,
 				88D9FAA62192BDBB00ABFD15 /* JHTableViewCell */,
 				88D9FAAA2192BDBB00ABFD15 /* JHTextField */,
@@ -1387,6 +1492,7 @@
 				88B620F621FEAF6700474022 /* Test2Cell.xib in Resources */,
 				88D9FAC82192BDBB00ABFD15 /* JHTableViewCell.xib in Resources */,
 				88D9FA8A2192B26200ABFD15 /* JHPickerVC.xib in Resources */,
+				880977BF22154B5C00320EDD /* JHCollectionReusableView.xib in Resources */,
 				88B6211B2201A5BD00474022 /* JHInputView.xib in Resources */,
 				882C30B621EC9591009E4436 /* TestVC1.xib in Resources */,
 				88D9FA792192B26200ABFD15 /* JHRegistAVC.xib in Resources */,
@@ -1398,6 +1504,7 @@
 				88D9FA7A2192B26200ABFD15 /* JHLoginVC.xib in Resources */,
 				88D9FA772192B26200ABFD15 /* JHRegistBVC.xib in Resources */,
 				88D9F96021928E6C00ABFD15 /* LaunchScreen.storyboard in Resources */,
+				880977B922154A8100320EDD /* JHCollectionViewCell.xib in Resources */,
 				88D9FACF2192BDBB00ABFD15 /* JHLoadingView.xib in Resources */,
 				88B6210F220041E700474022 /* JHSearchTFView.xib in Resources */,
 				88D9FAD22192BDBB00ABFD15 /* JHNoDataView.xib in Resources */,
@@ -1536,6 +1643,7 @@
 				88D9FA9C2192B26200ABFD15 /* AppConfigModel.m in Sources */,
 				8840543C2202DC4300187E1F /* JHLayoutManager.m in Sources */,
 				88D9FA822192B26200ABFD15 /* AppTokenModel.m in Sources */,
+				880977C62215577600320EDD /* JHCollectionViewPackage.m in Sources */,
 				88D9FB1F2192C0AA00ABFD15 /* NSString+Verification.m in Sources */,
 				88D9FA7B2192B26200ABFD15 /* JHLoginVC.m in Sources */,
 				88D9FAD02192BDBB00ABFD15 /* JHLoadingView.m in Sources */,
@@ -1548,6 +1656,7 @@
 				88D9FB232192C0AA00ABFD15 /* UIColor+Hex.m in Sources */,
 				88D9FB262192C0AA00ABFD15 /* NSArray+Description.m in Sources */,
 				88D9FAC62192BDBB00ABFD15 /* JHNoWifiView.m in Sources */,
+				880977AF221548CF00320EDD /* JHTableViewPackage.m in Sources */,
 				88D9FACD2192BDBB00ABFD15 /* JHScrollView.m in Sources */,
 				88D9FA782192B26200ABFD15 /* JHRegistAVC.m in Sources */,
 				88D9FB282192C0AA00ABFD15 /* UILabel+Alignment.m in Sources */,
@@ -1557,14 +1666,18 @@
 				88D9FB242192C0AA00ABFD15 /* UIImage+Resize.m in Sources */,
 				88D9FAF02192C00C00ABFD15 /* JHBaseRequestService.m in Sources */,
 				88D9FA942192B26200ABFD15 /* JHTabBarC.m in Sources */,
+				880977BE22154B5C00320EDD /* JHCollectionReusableView.m in Sources */,
 				88D9FACB2192BDBB00ABFD15 /* JHButton.m in Sources */,
+				880977A92215196000320EDD /* JHCollectionBaseVC.m in Sources */,
 				88D9FA892192B26200ABFD15 /* JHUploadManager.m in Sources */,
 				88B621192201A5AA00474022 /* JHInputView.m in Sources */,
 				88D9FB252192C0AA00ABFD15 /* UIView+Frame.m in Sources */,
 				88D9FAED2192C00C00ABFD15 /* JHBaseResultHandler.m in Sources */,
+				880977B822154A8100320EDD /* JHCollectionViewCell.m in Sources */,
 				88D9FA982192B26200ABFD15 /* JHGuidePageVC.m in Sources */,
 				88D9FACE2192BDBB00ABFD15 /* JHImageView.m in Sources */,
 				88D9FA852192B26200ABFD15 /* QNTokenModel.m in Sources */,
+				880977C322154E8E00320EDD /* JHFactoryManager.m in Sources */,
 				88D9FA7D2192B26200ABFD15 /* JHNaviManager.m in Sources */,
 				88D9FA9A2192B26200ABFD15 /* JHBaseModel.m in Sources */,
 				88D9FAEF2192C00C00ABFD15 /* JHTestRequestService.m in Sources */,
@@ -1587,6 +1700,7 @@
 				88D9FA842192B26200ABFD15 /* IMTokenModel.m in Sources */,
 				88D9FA832192B26200ABFD15 /* TokenModel.m in Sources */,
 				88D9F9742192911B00ABFD15 /* AppDelegate.m in Sources */,
+				880977B322154A3800320EDD /* JHCollectionView.m in Sources */,
 				88B620FA21FF060700474022 /* JHWebImageManager.m in Sources */,
 				882C30BC21F592FD009E4436 /* JHGlobal.m in Sources */,
 				88D9FA7C2192B26200ABFD15 /* JHDebugManager.m in Sources */,

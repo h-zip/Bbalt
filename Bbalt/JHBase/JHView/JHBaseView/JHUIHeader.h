@@ -16,4 +16,7 @@
 #import "JHPageControl.h"
 #import "JHImageView.h"
 #import "JHTextView.h"
+#import "JHCollectionView.h"
+#import "JHCollectionViewCell.h"
+#import "JHCollectionReusableView.h"
 #endif /* JHUIHeader_h */

@@ -86,7 +86,13 @@
     }];
 }
 #pragma mark - Private Methods
-
+-(void)initRefreshHeader{
+    @WeakObj(self);
+    [self.package initRefreshHeaderWithBlock:^{
+        @StrongObj(self);
+        [self getData:GetDataPullDown];
+    }];
+}
 #pragma mark - Key-Value Observer
 
 #pragma mark - UITableViewDelegate,UITableViewDataSource

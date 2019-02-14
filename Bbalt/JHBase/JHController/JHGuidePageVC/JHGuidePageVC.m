@@ -51,7 +51,6 @@
         [self addChildViewController:vc];
         vc.view.frame = (CGRect){self.guidePages.count*_scrollView.frame.size.width,0,_scrollView.frame.size.width,_scrollView.frame.size.height};
         [_scrollView addSubview:vc.view];
-        
     }
     return _scrollView;
 }

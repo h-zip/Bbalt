@@ -24,7 +24,7 @@
 #define JHDecimalManagerInstance [JHDecimalManager share]
 #define JHGlobalInstance [JHGlobal share]
 #define JHLayoutInstance [JHLayoutManager share]
-
+#define JHFactoryInstance [JHFactoryManager share]
 //尺寸
 #define kSCREEN_H    [[UIScreen mainScreen] bounds].size.height
 #define kSCREEN_W    [[UIScreen mainScreen] bounds].size.width

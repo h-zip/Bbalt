@@ -7,6 +7,19 @@
 //
 
 #import "JHGlobal.h"
+@interface JHScale ()
+@end
+@implementation JHScale
+-(CGFloat)s_075{
+    return 0.85;
+}
+-(CGFloat)m_1{
+    return 1;
+}
+-(CGFloat)l_125{
+    return 1.1;
+}
+@end
 @interface JHFontSize ()
 @end
 @implementation JHFontSize
@@ -16,17 +29,17 @@
     switch (w) {
         case 320:
         {
-            s = size - 2;
+            s = size * [JHGlobal share].scales.s_075;
         }
             break;
         case 375:
         {
-            s = size;
+            s = size * [JHGlobal share].scales.m_1;
         }
             break;
         case 414:
         {
-            s = size + 1;
+            s = size * [JHGlobal share].scales.l_125;
         }
             break;
         default:
@@ -103,6 +116,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _JHGlobal = [[self alloc]init];
+        _JHGlobal.scales = [JHScale new];
         _JHGlobal.fontsizes = [JHFontSize new];
         _JHGlobal.colors = [JHColor new];
         _JHGlobal.fonts = [JHFont new];
