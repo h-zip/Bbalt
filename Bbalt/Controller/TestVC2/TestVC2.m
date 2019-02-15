@@ -159,7 +159,7 @@
     [super viewDidLoad];
     [self configNavi];
     self.tView.backgroundColor = [UIColor redColor];
-//    self.getdataStatus = GetDataLoading;
+    self.getdataStatus = GetDataLoading;
 //    self.getdataStatus = GetDataError;
 }
 -(void)dealloc{
@@ -222,6 +222,7 @@
 //    view.frame = (CGRect){50,kTopHeight - 44,kSCREEN_W-100,44};
     view.translatesAutoresizingMaskIntoConstraints = NO;
     view.btnTapBlock = ^(UIButton *sender) {
+//        NSLog(@"1111");
         @StrongObj(self);
         JHSearchVC *vc = [[JHSearchVC alloc]init];
         vc.cancelBlock = ^(UIButton *sender) {

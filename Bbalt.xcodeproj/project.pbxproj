@@ -16,6 +16,7 @@
 		880977BF22154B5C00320EDD /* JHCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 880977BD22154B5C00320EDD /* JHCollectionReusableView.xib */; };
 		880977C322154E8E00320EDD /* JHFactoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 880977C222154E8E00320EDD /* JHFactoryManager.m */; };
 		880977C62215577600320EDD /* JHCollectionViewPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = 880977C52215577600320EDD /* JHCollectionViewPackage.m */; };
+		880977CD22165BA000320EDD /* JHButton+Throttle.m in Sources */ = {isa = PBXBuildFile; fileRef = 880977CC22165BA000320EDD /* JHButton+Throttle.m */; };
 		882C30B521EC9591009E4436 /* TestVC1.m in Sources */ = {isa = PBXBuildFile; fileRef = 882C30B321EC9591009E4436 /* TestVC1.m */; };
 		882C30B621EC9591009E4436 /* TestVC1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 882C30B421EC9591009E4436 /* TestVC1.xib */; };
 		882C30BC21F592FD009E4436 /* JHGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 882C30BB21F592FD009E4436 /* JHGlobal.m */; };
@@ -148,6 +149,8 @@
 		880977C222154E8E00320EDD /* JHFactoryManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHFactoryManager.m; sourceTree = "<group>"; };
 		880977C42215577600320EDD /* JHCollectionViewPackage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHCollectionViewPackage.h; sourceTree = "<group>"; };
 		880977C52215577600320EDD /* JHCollectionViewPackage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHCollectionViewPackage.m; sourceTree = "<group>"; };
+		880977CB22165BA000320EDD /* JHButton+Throttle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JHButton+Throttle.h"; sourceTree = "<group>"; };
+		880977CC22165BA000320EDD /* JHButton+Throttle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "JHButton+Throttle.m"; sourceTree = "<group>"; };
 		882C30B021EC948C009E4436 /* Bbalt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bbalt.entitlements; sourceTree = "<group>"; };
 		882C30B221EC9591009E4436 /* TestVC1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestVC1.h; sourceTree = "<group>"; };
 		882C30B321EC9591009E4436 /* TestVC1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestVC1.m; sourceTree = "<group>"; };
@@ -433,6 +436,15 @@
 				880977C222154E8E00320EDD /* JHFactoryManager.m */,
 			);
 			path = JHFactoryManager;
+			sourceTree = "<group>";
+		};
+		880977C722165A9300320EDD /* JHButton+Throttle */ = {
+			isa = PBXGroup;
+			children = (
+				880977CB22165BA000320EDD /* JHButton+Throttle.h */,
+				880977CC22165BA000320EDD /* JHButton+Throttle.m */,
+			);
+			path = "JHButton+Throttle";
 			sourceTree = "<group>";
 		};
 		882C30B121EC9578009E4436 /* TestVC1 */ = {
@@ -1216,6 +1228,7 @@
 		88D9FAF52192C0AA00ABFD15 /* JHCategory */ = {
 			isa = PBXGroup;
 			children = (
+				880977C722165A9300320EDD /* JHButton+Throttle */,
 				88D9FAF62192C0AA00ABFD15 /* UIResponder+FirstResponder */,
 				88D9FAF92192C0AA00ABFD15 /* NSObject+PropertyTree */,
 				88D9FAFC2192C0AA00ABFD15 /* NSString+Verification */,
@@ -1707,6 +1720,7 @@
 				88D9FA922192B26200ABFD15 /* JHTableListVC.m in Sources */,
 				88B620FE21FFF36800474022 /* JHDecimalManager.m in Sources */,
 				88D9FB1D2192C0AA00ABFD15 /* UIResponder+FirstResponder.m in Sources */,
+				880977CD22165BA000320EDD /* JHButton+Throttle.m in Sources */,
 				88B6211F2201A84A00474022 /* JHTextView.m in Sources */,
 				88B620F521FEAF6700474022 /* Test2Cell.m in Sources */,
 				88D9FA952192B26200ABFD15 /* JHBaseNaviC.m in Sources */,

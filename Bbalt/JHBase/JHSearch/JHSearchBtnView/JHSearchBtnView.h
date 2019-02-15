@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JHSearchBtnView : UIView
-@property (weak, nonatomic) IBOutlet UIButton *searchBtn;
+@property (weak, nonatomic) IBOutlet JHButton *searchBtn;
 @property (nonatomic,copy)BtnTapBlock btnTapBlock;
 @end
 
