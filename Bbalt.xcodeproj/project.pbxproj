@@ -21,6 +21,9 @@
 		882C30BC21F592FD009E4436 /* JHGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 882C30BB21F592FD009E4436 /* JHGlobal.m */; };
 		8840543C2202DC4300187E1F /* JHLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8840543B2202DC4300187E1F /* JHLayoutManager.m */; };
 		88B509C522169C6600D89EB8 /* JHScrollBasePackage.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B509C422169C6600D89EB8 /* JHScrollBasePackage.m */; };
+		88B509CA2216C55200D89EB8 /* JHSingleBrowserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B509C92216C55200D89EB8 /* JHSingleBrowserView.m */; };
+		88B509CE2216CB5C00D89EB8 /* JHBrowserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B509CD2216CB5C00D89EB8 /* JHBrowserManager.m */; };
+		88B509D02216CCA200D89EB8 /* JHSingleBrowserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88B509CF2216CCA200D89EB8 /* JHSingleBrowserView.xib */; };
 		88B620ED21FAF0DC00474022 /* BaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B620EC21FAF0DC00474022 /* BaseService.m */; };
 		88B620F121FAF90B00474022 /* TestVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B620F021FAF90B00474022 /* TestVC2.m */; };
 		88B620F521FEAF6700474022 /* Test2Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B620F321FEAF6700474022 /* Test2Cell.m */; };
@@ -163,6 +166,11 @@
 		8840543D2202DD5500187E1F /* JHManagerHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHManagerHeader.h; sourceTree = "<group>"; };
 		88B509C322169C6600D89EB8 /* JHScrollBasePackage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHScrollBasePackage.h; sourceTree = "<group>"; };
 		88B509C422169C6600D89EB8 /* JHScrollBasePackage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHScrollBasePackage.m; sourceTree = "<group>"; };
+		88B509C82216C55200D89EB8 /* JHSingleBrowserView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHSingleBrowserView.h; sourceTree = "<group>"; };
+		88B509C92216C55200D89EB8 /* JHSingleBrowserView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHSingleBrowserView.m; sourceTree = "<group>"; };
+		88B509CC2216CB5C00D89EB8 /* JHBrowserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHBrowserManager.h; sourceTree = "<group>"; };
+		88B509CD2216CB5C00D89EB8 /* JHBrowserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHBrowserManager.m; sourceTree = "<group>"; };
+		88B509CF2216CCA200D89EB8 /* JHSingleBrowserView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JHSingleBrowserView.xib; sourceTree = "<group>"; };
 		88B620EB21FAF0DC00474022 /* BaseService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseService.h; sourceTree = "<group>"; };
 		88B620EC21FAF0DC00474022 /* BaseService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseService.m; sourceTree = "<group>"; };
 		88B620EF21FAF90B00474022 /* TestVC2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestVC2.h; sourceTree = "<group>"; };
@@ -498,6 +506,25 @@
 			path = "New Group";
 			sourceTree = "<group>";
 		};
+		88B509C72216C4CA00D89EB8 /* JHSingleBrowserView */ = {
+			isa = PBXGroup;
+			children = (
+				88B509C82216C55200D89EB8 /* JHSingleBrowserView.h */,
+				88B509C92216C55200D89EB8 /* JHSingleBrowserView.m */,
+				88B509CF2216CCA200D89EB8 /* JHSingleBrowserView.xib */,
+			);
+			path = JHSingleBrowserView;
+			sourceTree = "<group>";
+		};
+		88B509CB2216CB3A00D89EB8 /* JHBrowserManager */ = {
+			isa = PBXGroup;
+			children = (
+				88B509CC2216CB5C00D89EB8 /* JHBrowserManager.h */,
+				88B509CD2216CB5C00D89EB8 /* JHBrowserManager.m */,
+			);
+			path = JHBrowserManager;
+			sourceTree = "<group>";
+		};
 		88B620E721FAED2100474022 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -768,6 +795,7 @@
 		88D9FA1D2192B26200ABFD15 /* JHManager */ = {
 			isa = PBXGroup;
 			children = (
+				88B509CB2216CB3A00D89EB8 /* JHBrowserManager */,
 				880977C022154E6E00320EDD /* JHFactoryManager */,
 				884054392202DC1400187E1F /* JHLayoutManager */,
 				88B620FB21FFF34B00474022 /* JHDecimalManager */,
@@ -1064,6 +1092,7 @@
 		88D9FAA02192BDBB00ABFD15 /* JHView */ = {
 			isa = PBXGroup;
 			children = (
+				88B509C72216C4CA00D89EB8 /* JHSingleBrowserView */,
 				88B621162201A4FB00474022 /* JHInputView */,
 				88D9FAA12192BDBB00ABFD15 /* JHNoWifiView */,
 				88D9FAA52192BDBB00ABFD15 /* JHBaseView */,
@@ -1524,6 +1553,7 @@
 				88D9F97E219293F900ABFD15 /* Localizable.strings in Resources */,
 				88D9F932219289A000ABFD15 /* Assets.xcassets in Resources */,
 				88D9FA7A2192B26200ABFD15 /* JHLoginVC.xib in Resources */,
+				88B509D02216CCA200D89EB8 /* JHSingleBrowserView.xib in Resources */,
 				88D9FA772192B26200ABFD15 /* JHRegistBVC.xib in Resources */,
 				88D9F96021928E6C00ABFD15 /* LaunchScreen.storyboard in Resources */,
 				880977B922154A8100320EDD /* JHCollectionViewCell.xib in Resources */,
@@ -1666,6 +1696,7 @@
 				8840543C2202DC4300187E1F /* JHLayoutManager.m in Sources */,
 				88D9FA822192B26200ABFD15 /* AppTokenModel.m in Sources */,
 				880977C62215577600320EDD /* JHCollectionViewPackage.m in Sources */,
+				88B509CE2216CB5C00D89EB8 /* JHBrowserManager.m in Sources */,
 				88D9FB1F2192C0AA00ABFD15 /* NSString+Verification.m in Sources */,
 				88D9FA7B2192B26200ABFD15 /* JHLoginVC.m in Sources */,
 				88D9FAD02192BDBB00ABFD15 /* JHLoadingView.m in Sources */,
@@ -1719,6 +1750,7 @@
 				88D9F938219289A000ABFD15 /* main.m in Sources */,
 				88D9FAEE2192C00C00ABFD15 /* JHBaseResultModel.m in Sources */,
 				88D9FA862192B26200ABFD15 /* JHUserManager.m in Sources */,
+				88B509CA2216C55200D89EB8 /* JHSingleBrowserView.m in Sources */,
 				88D9FA842192B26200ABFD15 /* IMTokenModel.m in Sources */,
 				88D9FA832192B26200ABFD15 /* TokenModel.m in Sources */,
 				88D9F9742192911B00ABFD15 /* AppDelegate.m in Sources */,

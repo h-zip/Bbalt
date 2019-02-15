@@ -40,4 +40,19 @@
     }
     return collectionView;
 }
+-(JHScrollView *)zoomScrollViewWithMin:(CGFloat)min
+                                   Max:(CGFloat)max{
+    JHScrollView *scrollView = [[JHScrollView alloc]init];
+    if (@available(iOS 11.0, *)) {
+        scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
+    scrollView.showsHorizontalScrollIndicator = NO;
+    scrollView.showsVerticalScrollIndicator = NO;
+    scrollView.scrollEnabled = YES;
+    scrollView.pagingEnabled = YES;
+    scrollView.minimumZoomScale = min;
+    scrollView.maximumZoomScale = max;
+    scrollView.backgroundColor = [UIColor blackColor];
+    return scrollView;
+}
 @end
