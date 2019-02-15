@@ -6,11 +6,11 @@
 //  Copyright © 2018年 hans. All rights reserved.
 //
 
-#import "JHTableBaseVC.h"
+#import "JHScrollBaseVC.h"
 
 #import "JHBaseModel.h"
 
-@interface JHTableListVC : JHTableBaseVC
+@interface JHScrollListVC : JHScrollBaseVC
 
 @property(nonatomic,strong)JHBaseModel *classModel;
 @property(nonatomic,strong)NSArray *dataArr;

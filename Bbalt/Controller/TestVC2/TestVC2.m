@@ -159,8 +159,8 @@
     [super viewDidLoad];
     [self configNavi];
     self.tView.backgroundColor = [UIColor redColor];
-    self.getdataStatus = GetDataLoading;
-//    self.getdataStatus = GetDataError;
+//    self.getdataStatus = JHGetDataLoading;
+//    self.getdataStatus = JHGetDataError;
 }
 -(void)dealloc{
 }
@@ -240,16 +240,16 @@
     NSArray *arr = @[bottom,left,right,height];
     JH_AddLayouts(self.customNavi, arr);
 }
--(void)initTableViewPackage{
-    self.package = [[JHTableViewPackage alloc]initWithStyle:UITableViewStyleGrouped];
+-(void)initPackage{
+    JHTableViewPackage *package = [[JHTableViewPackage alloc]initWithStyle:JHPackageTypeTableGrouped];
     @WeakObj(self);
-    self.package.sectionNumBlock = ^NSInteger(UITableView *tableView) {
+    package.sectionNumBlock = ^NSInteger(UITableView *tableView) {
         return 5;
     };
-    self.package.rowNumBlock = ^NSInteger(UITableView *tableView, NSInteger section) {
+    package.rowNumBlock = ^NSInteger(UITableView *tableView, NSInteger section) {
         return 1;
     };
-    self.package.rowHeightBlock = ^CGFloat(UITableView *tableView, NSIndexPath *indexPath) {
+    package.rowHeightBlock = ^CGFloat(UITableView *tableView, NSIndexPath *indexPath) {
         @StrongObj(self);
         BOOL b = false;
         switch (indexPath.section) {
@@ -267,12 +267,12 @@
         }
         return b ? 0 : 100.f;
     };
-    self.package.cellBlock = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
+    package.cellBlock = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
         @StrongObj(self);
         UITableViewCell *cell = self.cellArr[indexPath.section];
         return cell;
     };
-    self.package.rowSelectBlock = ^(UITableView *tableView, NSIndexPath *indexPath) {
+    package.rowSelectBlock = ^(UITableView *tableView, NSIndexPath *indexPath) {
         @StrongObj(self);
         [self.tView.mTV becomeFirstResponder];
 //        self.tView.hidden = NO;
@@ -283,22 +283,23 @@
 //        [JHHudManager mb_showWithMessage:@"123232323232123232323232123232323232123232323232123232323232123232323232123232323232" Superview:self.view];
 //        [JHHudManager mb_dismissWithDelay:2.f Superview:self.view];
     };
-    self.package.sectionHeaderHeightBlock = ^CGFloat(UITableView *tableView, NSInteger section) {
+    package.sectionHeaderHeightBlock = ^CGFloat(UITableView *tableView, NSInteger section) {
         return 200.f;
     };
-    self.package.sectionHeaderBlock = ^UIView *(UITableView *tableView, NSInteger section) {
+    package.sectionHeaderBlock = ^UIView *(UITableView *tableView, NSInteger section) {
         @StrongObj(self);
         UIView *view = self.headerArr[section];
         return view;
     };
-    self.package.sectionFooterHeightBlock = ^CGFloat(UITableView *tableView, NSInteger section) {
+    package.sectionFooterHeightBlock = ^CGFloat(UITableView *tableView, NSInteger section) {
         return section ? CGFLOAT_MIN : 200.f;
     };
-    self.package.sectionFooterBlock = ^UIView *(UITableView *tableView, NSInteger section) {
+    package.sectionFooterBlock = ^UIView *(UITableView *tableView, NSInteger section) {
 //        @StrongObj(self);
         UIView *view = [UIView new];
         return view;
     };
+    self.package = package;
 }
 -(void)bind{
     

@@ -6,13 +6,13 @@
 //  Copyright © 2018年 hans. All rights reserved.
 //
 
-#import "JHTableDetailVC.h"
+#import "JHScrollDetailVC.h"
 
-@interface JHTableDetailVC ()
+@interface JHScrollDetailVC ()
 
 @end
 
-@implementation JHTableDetailVC
+@implementation JHScrollDetailVC
 
 #pragma mark - Setter Getter Methods
 
@@ -43,20 +43,20 @@
 }
 
 #pragma mark - Public Methods
--(void)getData:(GetDataType)type{
+-(void)getData:(JHGetDataType)type{
     [super getData:type];
     if (!self.url || !self.dic) {
         return;
     }
     if (![[AFNetworkReachabilityManager sharedManager]isReachable]) {
-        self.getdataStatus = GetDataError;
+        self.getdataStatus = JHGetDataError;
         return;
     }
-    if (type==GetDataOrigin) {
-        self.getdataStatus = GetDataLoading;
-    }else if (type == GetDataPullDown){
+    if (type==JHGetDataOrigin) {
+        self.getdataStatus = JHGetDataLoading;
+    }else if (type == JHGetDataPullDown){
         
-    }else if (type == GetDataPullUp){
+    }else if (type == JHGetDataPullUp){
         return;
     }else{
         return;
@@ -66,21 +66,21 @@
     [dic addEntriesFromDictionary:self.dic];
     [JHTestRequestService postWithURL:self.url Dic:dic Ret:^(BOOL success, id response) {
         JHBaseResultModel *model = [JHBaseResultModel modelWithJSON:response];
-        [self.mTableView.mj_header endRefreshing];
+        [self.mainView.mj_header endRefreshing];
         if ([JHBaseResultHandler shouldGotoSuccessCallBackBasedOnBaseResult:model]) {
             self.dataModel = [[self.dataModel class] modelWithJSON:model.result];
             if (self.dataModel) {
-                self.getdataStatus = GetDataSuccess;
+                self.getdataStatus = JHGetDataSuccess;
                 [self reloadUI];
             }else{
-                self.getdataStatus = GetDataNoData;
+                self.getdataStatus = JHGetDataNoData;
             }
             
         }else{
             //            if (self.dataArr.count==0) {
-            //                self.getdataStatus = GetDataNoData;
+            //                self.getdataStatus = JHGetDataNoData;
             //            }else{
-            //                self.getdataStatus = GetDataSuccess;
+            //                self.getdataStatus = JHGetDataSuccess;
             //            }
         }
     }];
@@ -90,7 +90,7 @@
     @WeakObj(self);
     [self.package initRefreshHeaderWithBlock:^{
         @StrongObj(self);
-        [self getData:GetDataPullDown];
+        [self getData:JHGetDataPullDown];
     }];
 }
 #pragma mark - Key-Value Observer

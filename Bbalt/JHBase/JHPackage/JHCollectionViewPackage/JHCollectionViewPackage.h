@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "JHScrollBasePackage.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JHCollectionViewPackage : NSObject<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface JHCollectionViewPackage : JHScrollBasePackage<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property(nonatomic,strong)JHCollectionView *collectionView;
 
@@ -29,9 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic,copy)ItemSelectBlock_C itemSelectBlock;
 
--(void)initRefreshHeaderWithBlock:(void (^)(void))block;
--(void)initRefreshFooterWithBlock:(void (^)(void))block;
--(void)reload;
+-(instancetype)initWithStyle:(JHPackageType)style;
 @end
 
 NS_ASSUME_NONNULL_END

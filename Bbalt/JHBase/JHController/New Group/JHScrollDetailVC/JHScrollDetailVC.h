@@ -6,11 +6,11 @@
 //  Copyright © 2018年 hans. All rights reserved.
 //
 
-#import "JHTableBaseVC.h"
+#import "JHScrollBaseVC.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JHTableDetailVC : JHTableBaseVC
+@interface JHScrollDetailVC : JHScrollBaseVC
 
 @property(nonatomic,strong)JHBaseModel *dataModel;
 

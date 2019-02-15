@@ -9,24 +9,18 @@
 #import "JHCollectionViewPackage.h"
 
 @implementation JHCollectionViewPackage
-
--(instancetype)initWithStyle:(UITableViewStyle)style{
+-(JHCollectionView*)collectionView {
+    return (JHCollectionView*)self.mainView;
+}
+-(instancetype)initWithStyle:(JHPackageType)style{
     self = [super init];
     if (self) {
-        self.collectionView = JH_baseCollectionView();
-        self.collectionView.delegate = self;
-        self.collectionView.dataSource = self;
+        _collectionView = JH_baseCollectionView();
+        _collectionView.delegate = self;
+        _collectionView.dataSource = self;
+        self.mainView = _collectionView;
     }
     return self;
-}
--(void)initRefreshHeaderWithBlock:(void (^)(void))block{
-    MJRefreshNormalHeader *mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:block];
-    mj_header.lastUpdatedTimeLabel.hidden = YES;
-    self.collectionView.mj_header = mj_header;
-}
--(void)initRefreshFooterWithBlock:(void (^)(void))block{
-    MJRefreshAutoNormalFooter *mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:block];
-    self.collectionView.mj_footer = mj_footer;
 }
 -(void)reload{
     [self.collectionView reloadData];

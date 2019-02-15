@@ -22,6 +22,7 @@
 #import "BbaltConstant.h"
 #import "JHGlobal.h"
 #import "JHUIHeader.h"
+#import "JHScrollBasePackage.h"
 #import "JHTableViewPackage.h"
 #import "JHCollectionViewPackage.h"
 #import "JHManagerHeader.h"

@@ -6,11 +6,11 @@
 //  Copyright © 2019年 hans. All rights reserved.
 //
 
-#import "JHTableDetailVC.h"
+#import "JHScrollDetailVC.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TestVC2 : JHTableDetailVC
+@interface TestVC2 : JHScrollDetailVC
 
 @end
 

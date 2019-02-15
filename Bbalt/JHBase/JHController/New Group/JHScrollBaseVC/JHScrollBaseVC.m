@@ -6,26 +6,25 @@
 //  Copyright © 2018年 hans. All rights reserved.
 //
 
-#import "JHTableBaseVC.h"
+#import "JHScrollBaseVC.h"
 
-@interface JHTableBaseVC ()
+@interface JHScrollBaseVC ()
 
 @end
 
-@implementation JHTableBaseVC
+@implementation JHScrollBaseVC
 
 #pragma mark - Setter Getter Methods
-@synthesize getdataStatus = _getdataStatus;
 
--(void)setGetdataStatus:(GetDataStatus)getdataStatus{
+-(void)setGetdataStatus:(JHGetDataStatus)getdataStatus{
     if (_getdataStatus == getdataStatus) {
         return;
     }
     _getdataStatus = getdataStatus;
     switch (_getdataStatus) {
-        case GetDataLoading:
+        case JHGetDataLoading:
         {
-            [self.mTableView setHidden:YES];
+            [self.mainView setHidden:YES];
             [self.nodataView setHidden:YES];
             [self.errorView setHidden:YES];
             
@@ -33,9 +32,9 @@
             [self.loadingView setHidden:NO];
         }
             break;
-        case GetDataNoData:
+        case JHGetDataNoData:
         {
-            [self.mTableView setHidden:YES];
+            [self.mainView setHidden:YES];
             [self.errorView setHidden:YES];
             
             [self.loadingView stopAnimating];
@@ -44,7 +43,7 @@
             [self.nodataView setHidden:NO];
         }
             break;
-        case GetDataSuccess:
+        case JHGetDataSuccess:
         {
             [self.nodataView setHidden:YES];
             [self.errorView setHidden:YES];
@@ -52,12 +51,12 @@
             [self.loadingView stopAnimating];
             [self.loadingView setHidden:YES];
             
-            [self.mTableView setHidden:NO];
+            [self.mainView setHidden:NO];
         }
             break;
-        case GetDataError:
+        case JHGetDataError:
         {
-            [self.mTableView setHidden:YES];
+            [self.mainView setHidden:YES];
             [self.nodataView setHidden:YES];
             
             [self.loadingView stopAnimating];
@@ -71,13 +70,20 @@
             break;
     }
 }
+-(UIScrollView*)mainView{
+    return self.package.mainView;
+}
+-(JHTableView*)mTableView{
+    return (JHTableView*)self.mainView;
+}
+-(JHCollectionView*)mCollectionView{
+    return (JHCollectionView*)self.mainView;
+}
 -(JHLoadingView*)loadingView{
     if (!_loadingView) {
         _loadingView = [[NSBundle mainBundle]loadNibNamed:@"JHLoadingView" owner:nil options:nil][0];
         _loadingView.hidden = YES;
         [self.view addSubview:_loadingView];
-        NSArray* arr = JH_EqualLayouts(_loadingView, _mTableView);
-        JH_AddLayouts(self.view, arr);
     }
     return _loadingView;
 }
@@ -86,8 +92,6 @@
         _nodataView = [[NSBundle mainBundle]loadNibNamed:@"JHNoDataView" owner:nil options:nil][0];
         _nodataView.hidden = YES;
         [self.view addSubview:_nodataView];
-        NSArray* arr = JH_EqualLayouts(_nodataView, _mTableView);
-        JH_AddLayouts(self.view, arr);
     }
     return _nodataView;
 }
@@ -96,23 +100,18 @@
         _errorView = [[NSBundle mainBundle]loadNibNamed:@"JHNoWifiView" owner:nil options:nil][0];
         _errorView.hidden = YES;
         [self.view addSubview:_errorView];
-        NSArray* arr = JH_EqualLayouts(_errorView, _mTableView);
-        JH_AddLayouts(self.view, arr);
     }
     return _errorView;
 }
--(JHTableView*)mTableView{
-    if (!_mTableView) {
-        _mTableView = self.package.tableView;
-    }
-    return _mTableView;
-}
+
 #pragma mark - LifeCycle
 -(void)viewDidLoad {
     [super viewDidLoad];
-    [self initTableViewPackage];
-    [self layoutTableView];
-    
+    self.pageSize = 6;
+    self.pageIndex = 0;
+    [self initPackage];
+    [self layoutMainView];
+    [self layoutBaseView];
 }
 -(void)dealloc{
 }
@@ -136,23 +135,34 @@
 }
 
 #pragma mark - Public Methods
--(void)getData:(GetDataType)type{
+
+#pragma mark - NeedOverRrite Methods
+-(void)getData:(JHGetDataType)type{
 }
--(void)initTableViewPackage{
-    self.package = [[JHTableViewPackage alloc]initWithStyle:UITableViewStyleGrouped];
+-(void)initPackage{
+    self.package = [[JHTableViewPackage alloc]initWithStyle:JHPackageTypeTableGrouped];
 }
--(void)layoutTableView{
-    [self.view addSubview:self.mTableView];
-    self.mTableView.translatesAutoresizingMaskIntoConstraints = NO;
-    NSLayoutConstraint *top = JH_Layout(self.mTableView, JH_Top, self.view, JH_Top, kTopHeight);
-    NSLayoutConstraint *left = JH_Layout(self.mTableView, JH_Leading, JH_SafeArea(self.view), JH_Leading, 0);
-    NSLayoutConstraint *right = JH_Layout(self.mTableView, JH_Trailing, JH_SafeArea(self.view), JH_Trailing, 0);
-    NSLayoutConstraint *bottom = JH_Layout(self.mTableView, JH_Bottom, JH_SafeArea(self.view), JH_Bottom, 0);
+#pragma mark - CanOverRrite Methods
+-(void)layoutMainView{
+    [self.view addSubview:self.mainView];
+    self.mainView.translatesAutoresizingMaskIntoConstraints = NO;
+    NSLayoutConstraint *top = JH_Layout(self.mainView, JH_Top, self.view, JH_Top, kTopHeight);
+    NSLayoutConstraint *left = JH_Layout(self.mainView, JH_Leading, JH_SafeArea(self.view), JH_Leading, 0);
+    NSLayoutConstraint *right = JH_Layout(self.mainView, JH_Trailing, JH_SafeArea(self.view), JH_Trailing, 0);
+    NSLayoutConstraint *bottom = JH_Layout(self.mainView, JH_Bottom, JH_SafeArea(self.view), JH_Bottom, 0);
     NSArray *arr = @[top,left,right,bottom];
     JH_AddLayouts(self.view, arr);
 }
+-(void)layoutBaseView{
+    NSArray* arr1 = JH_EqualLayouts(self.loadingView, self.mainView);
+    JH_AddLayouts(self.view, arr1);
+    NSArray* arr2 = JH_EqualLayouts(self.nodataView, self.mainView);
+    JH_AddLayouts(self.view, arr2);
+    NSArray* arr3 = JH_EqualLayouts(self.errorView, self.mainView);
+    JH_AddLayouts(self.view, arr3);
+}
 -(void)reloadUI{
-    [self.package reloadTableView];
+    [self.package reload];
 }
 #pragma mark - Private Methods
 

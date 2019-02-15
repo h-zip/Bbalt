@@ -13,6 +13,7 @@
 @end
 
 @implementation JHBaseVC
+
 -(UIButton*)cancelEditBtn{
     if (!_cancelEditBtn) {
         _cancelEditBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -67,8 +68,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.pageSize = 6;
-    self.pageIndex = 0;
     [self.navigationController setNavigationBarHidden:YES];
     [self initCustomNavi];
 }

@@ -6,11 +6,11 @@
 //  Copyright © 2019年 hans. All rights reserved.
 //
 
-#import "JHTableListVC.h"
+#import "JHScrollListVC.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JHSearchVC : JHTableListVC
+@interface JHSearchVC : JHScrollListVC
 @property(nonatomic,copy)BtnTapBlock cancelBlock;
 -(void)toggleTF;
 @end

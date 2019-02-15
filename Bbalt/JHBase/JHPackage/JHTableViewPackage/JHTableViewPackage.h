@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "JHScrollBasePackage.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JHTableViewPackage : NSObject<UITableViewDelegate,UITableViewDataSource>
+@interface JHTableViewPackage : JHScrollBasePackage<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,strong)JHTableView *tableView;
 
@@ -23,12 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,copy)SectionFooterHeightBlock sectionFooterHeightBlock;
 @property(nonatomic,copy)SectionFooterBlock sectionFooterBlock;
 @property(nonatomic,copy)RowSelectBlock rowSelectBlock;
--(instancetype)initWithStyle:(UITableViewStyle)style;
 -(void)initTableHeader:(UIView*)header;
 -(void)initTableFooter:(UIView*)footer;
--(void)initRefreshHeaderWithBlock:(void (^)(void))block;
--(void)initRefreshFooterWithBlock:(void (^)(void))block;
--(void)reload;
 @end
 
 NS_ASSUME_NONNULL_END
