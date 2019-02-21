@@ -21,4 +21,5 @@
 #import "JHUserManager.h"
 #import "JHUploadManager.h"
 #import "JHFactoryManager.h"
+#import "JHBrowserManager.h"
 #endif /* JHManagerHeader_h */

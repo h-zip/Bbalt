@@ -16,15 +16,16 @@
 
 //单例
 #define AppDelegateInstance [UIApplication sharedApplication].delegate
-#define JHNaviManagerInstance [JHNaviManager share]
-#define JHJPushManagerInstance [JHJPushManager share]
-#define JHShareManagerInstance [JHShareManager share]
-#define JHUserManagerInstance [JHUserManager share]
-#define JHWebImageManagerInstance [JHWebImageManager share]
-#define JHDecimalManagerInstance [JHDecimalManager share]
+#define JHNaviInstance [JHNaviManager share]
+#define JHJPushInstance [JHJPushManager share]
+#define JHShareInstance [JHShareManager share]
+#define JHUserInstance [JHUserManager share]
+#define JHWebImageInstance [JHWebImageManager share]
+#define JHDecimalInstance [JHDecimalManager share]
 #define JHGlobalInstance [JHGlobal share]
 #define JHLayoutInstance [JHLayoutManager share]
 #define JHFactoryInstance [JHFactoryManager share]
+#define JHBrowserInstance [JHBrowserManager share]
 //尺寸
 #define kSCREEN_H    [[UIScreen mainScreen] bounds].size.height
 #define kSCREEN_W    [[UIScreen mainScreen] bounds].size.width

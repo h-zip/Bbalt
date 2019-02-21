@@ -31,13 +31,20 @@ NS_ASSUME_NONNULL_BEGIN
 #define JH_AddLayouts(view, arr) [view addConstraints: arr]
 #define JH_AddLayout(view, layout) [view addConstraint: layout]
 
-#define JH_EqualLayouts(item1,item2) [[JHLayoutManager share] equalLayoutItem:item1 ToItem:item2]
-
+#define JH_EqualSizeLayouts(item1,item2) [[JHLayoutManager share] equalSizeLayoutItem:item1 ToItem:item2]
+#define JH_EqualRowLayouts(items,item) [[JHLayoutManager share] equalRowLayoutItems:items ToItem:item]
+#define JH_CenterLayouts(item1,item2,size) [[JHLayoutManager share] centerLayoutSize:size Item:item1 ToItem:item2]
 @interface JHLayoutManager : NSObject
 +(instancetype)share;
 -(nullable id)safeArea:(UIView*)view;
--(NSArray*)equalLayoutItem:(UIView*)item1
+-(NSArray*)equalSizeLayoutItem:(UIView*)item1
                 ToItem:(UIView*)item2;
+-(NSArray*)equalRowLayoutItems:(NSArray*)items
+                        ToItem:(UIView*)item;
+-(NSArray*)centerLayoutSize:(CGSize)size
+                       Item:(UIView*)item1
+                     ToItem:(UIView*)item2;
+
 @end
 
 NS_ASSUME_NONNULL_END

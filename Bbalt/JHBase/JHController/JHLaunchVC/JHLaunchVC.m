@@ -27,7 +27,7 @@
         
         if ([[JHUserManager share]needLoginHandle]) {
             
-            AppDelegateInstance.window.rootViewController = JHNaviManagerInstance.loginNavi;
+            AppDelegateInstance.window.rootViewController = JHNaviInstance.loginNavi;
         }else{
             AppDelegateInstance.window.rootViewController = [[JHTabBarC alloc]init];
         }

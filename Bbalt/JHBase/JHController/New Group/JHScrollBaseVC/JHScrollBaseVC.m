@@ -154,11 +154,11 @@
     JH_AddLayouts(self.view, arr);
 }
 -(void)layoutBaseView{
-    NSArray* arr1 = JH_EqualLayouts(self.loadingView, self.mainView);
+    NSArray* arr1 = JH_EqualSizeLayouts(self.loadingView, self.mainView);
     JH_AddLayouts(self.view, arr1);
-    NSArray* arr2 = JH_EqualLayouts(self.nodataView, self.mainView);
+    NSArray* arr2 = JH_EqualSizeLayouts(self.nodataView, self.mainView);
     JH_AddLayouts(self.view, arr2);
-    NSArray* arr3 = JH_EqualLayouts(self.errorView, self.mainView);
+    NSArray* arr3 = JH_EqualSizeLayouts(self.errorView, self.mainView);
     JH_AddLayouts(self.view, arr3);
 }
 -(void)reloadUI{

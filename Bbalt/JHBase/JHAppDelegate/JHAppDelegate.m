@@ -31,7 +31,7 @@
     [self configJPush:launchOptions];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = JHNaviManagerInstance.navi1;
+    self.window.rootViewController = JHNaviInstance.navi1;
     [self.window makeKeyAndVisible];
     [self configUShare];
     return YES;
@@ -43,21 +43,21 @@
 }
 -(void)configJPush:(NSDictionary*)launchOptions{
     if (self.config.needJPush) {
-        [JHJPushManagerInstance configJPush:launchOptions];
+        [JHJPushInstance configJPush:launchOptions];
     }
 }
 -(void)configUShare{
     if (self.config.needUShare) {
-        [JHShareManagerInstance confitUShareSettings];
-        [JHShareManagerInstance configUSharePlatforms];
+        [JHShareInstance confitUShareSettings];
+        [JHShareInstance configUSharePlatforms];
     }
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
     
     /// Required - 注册 DeviceToken
-    JHUserManagerInstance.deviceToken = deviceToken;
-    [JHJPushManagerInstance registerDeviceToken:deviceToken];
+    JHUserInstance.deviceToken = deviceToken;
+    [JHJPushInstance registerDeviceToken:deviceToken];
 }
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     //Optional
@@ -67,15 +67,15 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     
     // Required, iOS 7 Support
-    [JHJPushManagerInstance handleRemoteNotification:userInfo];
+    [JHJPushInstance handleRemoteNotification:userInfo];
     completionHandler(UIBackgroundFetchResultNewData);
-    [JHJPushManagerInstance recievePushAction:application Info:userInfo];
+    [JHJPushInstance recievePushAction:application Info:userInfo];
     
 }
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     
     // Required,For systems with less than or equal to iOS6
-    [JHJPushManagerInstance handleRemoteNotification:userInfo];
+    [JHJPushInstance handleRemoteNotification:userInfo];
 }
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options
 {
@@ -97,7 +97,7 @@
         }];
         
     }
-    if ([JHShareManagerInstance handleOpenURL:url sourceApplication:sourceApplication annotation:annotation]) {
+    if ([JHShareInstance handleOpenURL:url sourceApplication:sourceApplication annotation:annotation]) {
         
     }
     return YES;

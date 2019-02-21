@@ -29,7 +29,7 @@
         return view;
     }
 }
--(NSArray*)equalLayoutItem:(UIView*)item1
+-(NSArray*)equalSizeLayoutItem:(UIView*)item1
                 ToItem:(UIView*)item2{
     item1.translatesAutoresizingMaskIntoConstraints = NO;
     NSLayoutConstraint *top = JH_Layout(item1, JH_Top, item2, JH_Top, 0);
@@ -37,5 +37,37 @@
     NSLayoutConstraint *right = JH_Layout(item1, JH_Trailing, item2, JH_Trailing, 0);
     NSLayoutConstraint *bottom = JH_Layout(item1, JH_Bottom, item2, JH_Bottom, 0);
     return @[top,left,right,bottom];
+}
+-(NSArray*)equalRowLayoutItems:(NSArray*)items
+                        ToItem:(UIView*)item{
+    NSMutableArray *arr = [@[]mutableCopy];
+    UIView *last = nil;
+    for (int i = 0; i<items.count; i++) {
+        UIView *v = items[i];
+        v.translatesAutoresizingMaskIntoConstraints = NO;
+        NSLayoutConstraint *top = JH_Layout(v, JH_Top, item, JH_Top, 0);
+        NSLayoutConstraint *left = i == 0 ? JH_Layout(v, JH_Leading, item, JH_Leading, 0) : JH_Layout(v, JH_Leading, last, JH_Trailing, 0);
+        NSLayoutConstraint *bottom = JH_Layout(v, JH_Bottom, item, JH_Bottom, 0);
+        NSLayoutConstraint *width = JH_Layout(v, JH_Width, item, JH_Width, 0);
+        NSLayoutConstraint *height = JH_Layout(v, JH_Height, item, JH_Height, 0);
+        [arr addObjectsFromArray:@[top,left,bottom,width,height]];
+        if (i == items.count-1) {
+            NSLayoutConstraint *right = JH_Layout(v, JH_Trailing, item, JH_Trailing, 0);
+            [arr addObject:right];
+        }
+        last = v;
+    }
+    return [arr copy];
+}
+-(NSArray*)centerLayoutSize:(CGSize)size
+                       Item:(UIView*)item1
+                     ToItem:(UIView*)item2{
+    item1.translatesAutoresizingMaskIntoConstraints = NO;
+    NSLayoutConstraint *cx = JH_Layout(item1, JH_CenterX, item2, JH_CenterX, 0);
+    NSLayoutConstraint *cy = JH_Layout(item1, JH_CenterY, item2, JH_CenterY, 0);
+    NSLayoutConstraint *width = JH_Layout(item1, JH_Width, nil, JH_NotAnAttribute, size.width);
+    NSLayoutConstraint *height = JH_Layout(item1, JH_Height, nil, JH_NotAnAttribute, size.height);
+    NSArray *arr = @[cx,cy,width,height];
+    return arr;
 }
 @end

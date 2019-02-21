@@ -10,6 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 #define JH_baseTableView(style) [[JHFactoryManager share] baseTableViewWithStyle:style]
 #define JH_baseCollectionView() [[JHFactoryManager share] baseCollectionView]
+#define JH_baseScrollView() [[JHFactoryManager share] baseScrollView]
 #define JH_ZoomScrollView(min,max) [[JHFactoryManager share] zoomScrollViewWithMin:min Max:max]
 @interface JHFactoryManager : NSObject
 +(instancetype)share;
@@ -17,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(JHCollectionView *)baseCollectionView;
 -(JHScrollView *)zoomScrollViewWithMin:(CGFloat)min
                                    Max:(CGFloat)max;
+-(JHScrollView *)baseScrollView;
 @end
 
 NS_ASSUME_NONNULL_END

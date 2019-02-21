@@ -49,10 +49,21 @@
     scrollView.showsHorizontalScrollIndicator = NO;
     scrollView.showsVerticalScrollIndicator = NO;
     scrollView.scrollEnabled = YES;
-    scrollView.pagingEnabled = YES;
+    scrollView.pagingEnabled = NO;
     scrollView.minimumZoomScale = min;
     scrollView.maximumZoomScale = max;
     scrollView.backgroundColor = [UIColor blackColor];
+    return scrollView;
+}
+-(JHScrollView *)baseScrollView{
+    JHScrollView *scrollView = [[JHScrollView alloc]init];
+    if (@available(iOS 11.0, *)) {
+        scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
+    scrollView.showsHorizontalScrollIndicator = NO;
+    scrollView.showsVerticalScrollIndicator = NO;
+    scrollView.scrollEnabled = YES;
+    scrollView.pagingEnabled = YES;
     return scrollView;
 }
 @end

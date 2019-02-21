@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-
 NS_ASSUME_NONNULL_BEGIN
-#define JHZoom_Min 1.f
-#define JHZoom_Max 2.f
-@interface JHSingleBrowserView : UIView
+
+@interface JHSingleBrowserView : UIView<UIScrollViewDelegate>
 @property(nonatomic,strong)JHScrollView *scrollView;
+@property(nonatomic,strong)JHImageView *imageView;
+@property(nonatomic,copy)GestureBlock singleTapBlock;
+@property(nonatomic,copy)GestureBlock doubleTapBlock;
+-(instancetype)initWithMin:(CGFloat)min
+                       Max:(CGFloat)max;
+-(void)beCenter;
 @end
 
 NS_ASSUME_NONNULL_END

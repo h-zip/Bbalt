@@ -24,16 +24,16 @@
     // Do any additional setup after loading the view from its nib.
 }
 -(void)initTabBarStyle{
-    UINavigationController *navi1 = JHNaviManagerInstance.navi1;
+    UINavigationController *navi1 = JHNaviInstance.navi1;
     //navi1.navigationBar.titleTextAttributes=NormalTitleTextAttributes;
 
-    UINavigationController *navi2 = JHNaviManagerInstance.navi2;
+    UINavigationController *navi2 = JHNaviInstance.navi2;
     //navi2.navigationBar.titleTextAttributes=NormalTitleTextAttributes;
 
-    UINavigationController *navi3 = JHNaviManagerInstance.navi3;
+    UINavigationController *navi3 = JHNaviInstance.navi3;
     //navi3.navigationBar.titleTextAttributes=NormalTitleTextAttributes;
 
-    UINavigationController *navi4 = JHNaviManagerInstance.navi4;
+    UINavigationController *navi4 = JHNaviInstance.navi4;
     //navi4.navigationBar.titleTextAttributes=NormalTitleTextAttributes;
     
     self.viewControllers =@[navi1,navi2,navi3,navi4];
