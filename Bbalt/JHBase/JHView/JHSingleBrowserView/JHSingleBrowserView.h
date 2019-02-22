@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)JHImageView *imageView;
 @property(nonatomic,copy)GestureBlock singleTapBlock;
 @property(nonatomic,copy)GestureBlock doubleTapBlock;
+@property(nonatomic,copy)GestureBlock longPressBlock;
 -(instancetype)initWithMin:(CGFloat)min
                        Max:(CGFloat)max;
 -(void)beCenter;

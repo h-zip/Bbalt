@@ -16,11 +16,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)JHScrollView *containerScrollView;
 @property(nonatomic,strong)UIView *progressView;
 @property(nonatomic,strong)CAShapeLayer *progressLayer;
+@property(nonatomic,strong)JHLabel *indexLabel;
 @property(nonatomic,strong)NSArray *srcArr;
 @property(nonatomic,strong)NSMutableArray<JHSingleBrowserView*> *singleBrowserArr;
+@property(nonatomic,assign)NSInteger index;
 +(instancetype)share;
 -(void)showWithPicSrcs:(NSArray*)srcs
-                InView:(UIView*)view;
+                InVC:(UIViewController*)vc;
 -(void)dismiss;
 -(void)showWithIndex:(NSInteger)index;
 @end

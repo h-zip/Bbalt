@@ -20,6 +20,8 @@
 		882C30B621EC9591009E4436 /* TestVC1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 882C30B421EC9591009E4436 /* TestVC1.xib */; };
 		882C30BC21F592FD009E4436 /* JHGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 882C30BB21F592FD009E4436 /* JHGlobal.m */; };
 		8840543C2202DC4300187E1F /* JHLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8840543B2202DC4300187E1F /* JHLayoutManager.m */; };
+		88964F7D221F9C8800419214 /* UIAlertController+SupportedInterfaceOrientations.m in Sources */ = {isa = PBXBuildFile; fileRef = 88964F7C221F9C8800419214 /* UIAlertController+SupportedInterfaceOrientations.m */; };
+		88964F81221FD58D00419214 /* JHLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 88964F80221FD58D00419214 /* JHLabel.m */; };
 		88B509C522169C6600D89EB8 /* JHScrollBasePackage.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B509C422169C6600D89EB8 /* JHScrollBasePackage.m */; };
 		88B509CA2216C55200D89EB8 /* JHSingleBrowserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B509C92216C55200D89EB8 /* JHSingleBrowserView.m */; };
 		88B509CE2216CB5C00D89EB8 /* JHBrowserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B509CD2216CB5C00D89EB8 /* JHBrowserManager.m */; };
@@ -164,6 +166,10 @@
 		8840543A2202DC4300187E1F /* JHLayoutManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHLayoutManager.h; sourceTree = "<group>"; };
 		8840543B2202DC4300187E1F /* JHLayoutManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHLayoutManager.m; sourceTree = "<group>"; };
 		8840543D2202DD5500187E1F /* JHManagerHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHManagerHeader.h; sourceTree = "<group>"; };
+		88964F7B221F9C8800419214 /* UIAlertController+SupportedInterfaceOrientations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+SupportedInterfaceOrientations.h"; sourceTree = "<group>"; };
+		88964F7C221F9C8800419214 /* UIAlertController+SupportedInterfaceOrientations.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+SupportedInterfaceOrientations.m"; sourceTree = "<group>"; };
+		88964F7F221FD58D00419214 /* JHLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHLabel.h; sourceTree = "<group>"; };
+		88964F80221FD58D00419214 /* JHLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHLabel.m; sourceTree = "<group>"; };
 		88B509C322169C6600D89EB8 /* JHScrollBasePackage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHScrollBasePackage.h; sourceTree = "<group>"; };
 		88B509C422169C6600D89EB8 /* JHScrollBasePackage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHScrollBasePackage.m; sourceTree = "<group>"; };
 		88B509C82216C55200D89EB8 /* JHSingleBrowserView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHSingleBrowserView.h; sourceTree = "<group>"; };
@@ -483,6 +489,24 @@
 				8840543B2202DC4300187E1F /* JHLayoutManager.m */,
 			);
 			path = JHLayoutManager;
+			sourceTree = "<group>";
+		};
+		88964F7A221F9C4700419214 /* UIAlertController+SupportedInterfaceOrientations */ = {
+			isa = PBXGroup;
+			children = (
+				88964F7B221F9C8800419214 /* UIAlertController+SupportedInterfaceOrientations.h */,
+				88964F7C221F9C8800419214 /* UIAlertController+SupportedInterfaceOrientations.m */,
+			);
+			path = "UIAlertController+SupportedInterfaceOrientations";
+			sourceTree = "<group>";
+		};
+		88964F7E221FD57200419214 /* JHLabel */ = {
+			isa = PBXGroup;
+			children = (
+				88964F7F221FD58D00419214 /* JHLabel.h */,
+				88964F80221FD58D00419214 /* JHLabel.m */,
+			);
+			path = JHLabel;
 			sourceTree = "<group>";
 		};
 		88B509C222169C3D00D89EB8 /* JHScrollBasePackage */ = {
@@ -1115,6 +1139,7 @@
 		88D9FAA52192BDBB00ABFD15 /* JHBaseView */ = {
 			isa = PBXGroup;
 			children = (
+				88964F7E221FD57200419214 /* JHLabel */,
 				880977BA22154B4800320EDD /* JHCollectionReusableView */,
 				880977B422154A5F00320EDD /* JHCollectionViewCell */,
 				880977B0221549FA00320EDD /* JHCollectionView */,
@@ -1267,6 +1292,7 @@
 		88D9FAF52192C0AA00ABFD15 /* JHCategory */ = {
 			isa = PBXGroup;
 			children = (
+				88964F7A221F9C4700419214 /* UIAlertController+SupportedInterfaceOrientations */,
 				88D9FAF62192C0AA00ABFD15 /* UIResponder+FirstResponder */,
 				88D9FAF92192C0AA00ABFD15 /* NSObject+PropertyTree */,
 				88D9FAFC2192C0AA00ABFD15 /* NSString+Verification */,
@@ -1762,10 +1788,12 @@
 				88B620FE21FFF36800474022 /* JHDecimalManager.m in Sources */,
 				88D9FB1D2192C0AA00ABFD15 /* UIResponder+FirstResponder.m in Sources */,
 				880977CD22165BA000320EDD /* JHButton+Throttle.m in Sources */,
+				88964F7D221F9C8800419214 /* UIAlertController+SupportedInterfaceOrientations.m in Sources */,
 				88B6211F2201A84A00474022 /* JHTextView.m in Sources */,
 				88B620F521FEAF6700474022 /* Test2Cell.m in Sources */,
 				88D9FA952192B26200ABFD15 /* JHBaseNaviC.m in Sources */,
 				88D9FA7F2192B26200ABFD15 /* JHShareManager.m in Sources */,
+				88964F81221FD58D00419214 /* JHLabel.m in Sources */,
 				88D9FB272192C0AA00ABFD15 /* NSDate+Category.m in Sources */,
 				88D9FA812192B26200ABFD15 /* JHHudManager.m in Sources */,
 				88B6210822003C2D00474022 /* JHSearchBtnView.m in Sources */,

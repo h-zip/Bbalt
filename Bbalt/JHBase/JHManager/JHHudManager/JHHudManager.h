@@ -27,4 +27,5 @@ typedef void (^CompleteBlock)(void);
 
 +(void)showAlertWithTitle:(NSString*)title Message:(NSString*)message Controller:(UIViewController*)controller;
 +(void)showAlertWithTitle:(NSString*)title Message:(NSString*)message BtnStr:(NSString*)btnStr Completeion:(void(^)(void) )completion Controller:(UIViewController*)controller;
++(void)showSheetWithTitle:(NSString*)title Message:(NSString*)message BtnStr:(NSString*)btnStr Completeion:(void(^)(void) )completion Controller:(UIViewController*)controller;
 @end

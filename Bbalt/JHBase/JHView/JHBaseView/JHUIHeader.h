@@ -10,6 +10,7 @@
 #define JHUIHeader_h
 
 #import "JHButton.h"
+#import "JHLabel.h"
 #import "JHTableView.h"
 #import "JHTextField.h"
 #import "JHScrollView.h"

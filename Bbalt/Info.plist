@@ -2,6 +2,30 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>NSAppleMusicUsageDescription</key>
+    <string>App需要您的同意,才能访问媒体资料库，用来打开或上传你的媒体</string>
+    <key>NSCalendarsUsageDescription</key>
+    <string>App需要您的同意,才能访问日历，用来访问你的日历行程</string>
+    <key>NSCameraUsageDescription</key>
+    <string>App需要您的同意,才能访问相机，用来设置头像或上传资料或扫描二维码</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>App需要您的同意,才能始终访问位置</string>
+    <key>NSLocationUsageDescription</key>
+    <string>App需要您的同意,才能访问位置</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>App需要您的同意,才能在使用期间访问位置</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>App需要您的同意,才能访问麦克风</string>
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>App需要您的同意,才能访问相册，用来上传你的头像或资料</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>App需要您的同意,才能访问相册，用来上传你的头像或资料</string>
+    <key>kTCCServiceMediaLibrary</key>
+    <string>App需要您的同意,才能播放音频，用来播放课程或直播</string>
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>remote-notification</string>
+    </array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -22,22 +46,22 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-    <key>NSAppTransportSecurity</key>
-    <dict>
-        <key>NSAllowsArbitraryLoads</key>
-        <true/>
-        <key>NSExceptionDomains</key>
-        <dict>
-            <key>NSExceptionAllowInsecureHTTPLoads</key>
-            <true/>
-            <key>NSExceptionMinimumTLSVersion</key>
-            <string>TLSv1.1</string>
-            <key>NSExceptionRequiresForwardSecrecy</key>
-            <false/>
-            <key>NSIncludesSubdomains</key>
-            <true/>
-        </dict>
-    </dict>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>NSExceptionAllowInsecureHTTPLoads</key>
+			<true/>
+			<key>NSExceptionMinimumTLSVersion</key>
+			<string>TLSv1.1</string>
+			<key>NSExceptionRequiresForwardSecrecy</key>
+			<false/>
+			<key>NSIncludesSubdomains</key>
+			<true/>
+		</dict>
+	</dict>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

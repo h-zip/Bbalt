@@ -162,7 +162,7 @@
 //    self.getdataStatus = JHGetDataLoading;
 //    self.getdataStatus = JHGetDataError;
     [JHBrowserInstance showWithPicSrcs:@[@"http://bbaltcdn.hanspro.cn/demand262.jpg",
-                                         @"http://bbaltcdn.hanspro.cn/demand290.jpg"] InView:self.view];
+                                         @"http://bbaltcdn.hanspro.cn/demand290.jpg"] InVC:self];
 }
 -(void)dealloc{
 }

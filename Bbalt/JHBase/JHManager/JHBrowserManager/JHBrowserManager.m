@@ -29,13 +29,19 @@
     }
     return _srcArr;
 }
+-(void)setIndex:(NSInteger)index{
+    _index = index;
+    self.indexLabel.text = [NSString stringWithFormat:@"%ld/%lu",(long)_index+1,(unsigned long)self.srcArr.count];
+}
 -(instancetype)init{
     if (self = [super init]) {
         self.containerView = [self defaultContainerView];
         self.containerScrollView = [JHFactoryInstance baseScrollView];
+        self.containerScrollView.bounces = NO;
         self.containerScrollView.delegate = self;
         self.progressLayer = [self defaultProgressLayer];
         self.progressView = [self defaultProgressView];
+        self.indexLabel = [self defaultIndexLabel];
         
         [self.progressView.layer addSublayer:self.progressLayer];
         
@@ -46,10 +52,20 @@
         [self.containerView addSubview:self.progressView];
         NSArray *arr2 = JH_CenterLayouts(self.progressView, self.containerView, CGSizeMake(40, 40));
         JH_AddLayouts(self.containerView, arr2);
+        
+        [self.containerView addSubview:self.indexLabel];
+        NSArray *arr3 = JH_CenterXLayouts(self.indexLabel, self.containerView, CGSizeZero, 100, 0);
+        JH_AddLayouts(self.containerView, arr3);
+        
     }
     return self;
 }
-
+-(JHLabel*)defaultIndexLabel{
+    JHLabel *lb = [[JHLabel alloc]init];
+    lb.textColor = [UIColor whiteColor];
+    lb.font = [UIFont systemFontOfSize:17.f];
+    return lb;
+}
 -(UIView*)defaultContainerView{
     UIView *v = [UIView new];
     return v;
@@ -75,10 +91,11 @@
     return progressLayer;
 }
 -(void)showWithPicSrcs:(NSArray*)srcs
-                InView:(UIView*)view{
+                  InVC:(UIViewController*)vc{
     [self dismiss];
     self.srcArr = srcs;
     self.singleBrowserArr = [@[]mutableCopy];
+    UIView *view = vc.view;
     for (int i = 0; i<srcs.count; i++) {
         JHSingleBrowserView *v = [[JHSingleBrowserView alloc]initWithMin:JHZoom_Min Max:JHZoom_Max];
         [self.singleBrowserArr addObject:v];
@@ -93,9 +110,23 @@
             @StrongObj(v);
             CGFloat current = v.scrollView.zoomScale;
             CGFloat d = (v.scrollView.maximumZoomScale - v.scrollView.minimumZoomScale);
-            CGFloat t = current >= d/2 ? (current - d/2) : (current + d/2);
+            CGFloat t = current >= d/2 ? 1 : (current + d/2);
             [v.scrollView setZoomScale:t animated:YES];
             
+        };
+        v.longPressBlock = ^(UIGestureRecognizer *gr) {
+//            @StrongObj(self);
+            @StrongObj(v);
+            if(gr.state == UIGestureRecognizerStateBegan){
+//                NSLog(@"开始长按");
+            }else if(gr.state == UIGestureRecognizerStateChanged){
+//                NSLog(@"长按时手指移动");
+            }else if(gr.state == UIGestureRecognizerStateEnded){
+//                NSLog(@"手指离开屏幕");
+                [JHHudManager showSheetWithTitle:nil Message:nil BtnStr:@"保存到相册" Completeion:^{
+                    UIImageWriteToSavedPhotosAlbum(v.imageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+                } Controller:vc];
+            }
         };
     }
     NSArray *arr1 = JH_EqualRowLayouts(self.singleBrowserArr, self.containerScrollView);
@@ -113,6 +144,8 @@
     }
 }
 -(void)showWithIndex:(NSInteger)index{
+    self.index = index;
+    [self.containerScrollView scrollRectToVisible:CGRectMake(index * self.containerScrollView.frame.size.width, 0, self.containerScrollView.frame.size.width, self.containerScrollView.frame.size.height) animated:NO];
     self.progressView.hidden = NO;
     [CATransaction begin];
     [CATransaction setDisableActions:YES];
@@ -141,11 +174,24 @@
         [self.singleBrowserArr[index] beCenter];
     }];
 }
+#pragma mark -- <保存到相册>
+-(void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
+    NSString *msg = nil ;
+    if(error){
+        msg = @"保存图片失败" ;
+       
+    }else{
+        msg = @"保存图片成功" ;
+    }
+    [JHHudManager sv_showInfoWithStatus:msg];
+//    [JHHudManager sv_dismissWithDelay:1.f];
+}
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
 }
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     NSInteger index = (NSInteger)(scrollView.contentOffset.x/scrollView.frame.size.width);
+    self.index = index;
     if (!self.singleBrowserArr[index].imageView.image) {
         [self showWithIndex:index];
     }

@@ -13,10 +13,11 @@
 //static int _HudType = 0;
 +(void)initialize{
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleCustom];
-    [SVProgressHUD setBackgroundColor:[UIColor colorWithRed:(10)/255.0f green:(10)/255.0f blue:(10)/255.0f alpha:(0.6)]];
-    [SVProgressHUD setFont:[UIFont systemFontOfSize:13.f]];
+    [SVProgressHUD setBackgroundColor:[[UIColor blackColor]colorWithAlphaComponent:0.7]];
+    [SVProgressHUD setFont:[UIFont systemFontOfSize:14.f]];
     [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
-    [SVProgressHUD setInfoImage:[UIImage new]];
+    [SVProgressHUD setInfoImage:[UIImage reSizeImage:[UIImage new] toSize:CGSizeZero]];
+    [SVProgressHUD setCornerRadius:5.f];
 }
 +(void)sv_show{
     [SVProgressHUD setMinimumSize:(CGSize){0,0}];
@@ -100,6 +101,34 @@
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
                                                                              message:message
                                                                       preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:btnStr style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        if (completion) {
+            completion();
+        }
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        @StrongObj(controller);
+        [controller dismissViewControllerAnimated:YES completion:nil];
+        
+    }];
+    //修改title
+    //    NSMutableAttributedString *alertControllerStr = [[NSMutableAttributedString alloc] initWithString:title];
+    //    [alertControllerStr addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"#323232"] range:NSMakeRange(0, title.length)];
+    //    [alertControllerStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:16] range:NSMakeRange(0, title.length)];
+    //    [alertController setValue:alertControllerStr forKey:@"attributedTitle"];
+    //    if ([alertController valueForKey:@"attributedTitle"]) {
+    
+    //    }
+    [alertController addAction:okAction];
+    [alertController addAction:cancelAction];  // A
+    [controller presentViewController:alertController animated:YES completion:nil];
+}
++(void)showSheetWithTitle:(NSString*)title Message:(NSString*)message BtnStr:(NSString*)btnStr Completeion:(void(^)(void) )completion Controller:(UIViewController*)controller{
+    @WeakObj(controller);
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
+                                                                             message:message
+                                                                      preferredStyle:UIAlertControllerStyleActionSheet];
     
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:btnStr style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         if (completion) {

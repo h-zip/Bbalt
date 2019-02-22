@@ -49,6 +49,9 @@
     tap2.numberOfTapsRequired = 2;
     [self.scrollView addGestureRecognizer:tap2];
     [tap1 requireGestureRecognizerToFail:tap2];
+    UILongPressGestureRecognizer *press = [[UILongPressGestureRecognizer alloc]init];
+    [self.scrollView addGestureRecognizer:press];
+    
     @WeakObj(self);
     [[tap1 rac_gestureSignal]subscribeNext:^(__kindof UIGestureRecognizer * _Nullable x) {
         @StrongObj(self);
@@ -60,6 +63,12 @@
         @StrongObj(self);
         if (self.doubleTapBlock) {
             self.doubleTapBlock(x);
+        }
+    }];
+    [[press rac_gestureSignal]subscribeNext:^(__kindof UIGestureRecognizer * _Nullable x) {
+        @StrongObj(self);
+        if (self.longPressBlock) {
+            self.longPressBlock(x);
         }
     }];
 }

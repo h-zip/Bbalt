@@ -65,9 +65,68 @@
     item1.translatesAutoresizingMaskIntoConstraints = NO;
     NSLayoutConstraint *cx = JH_Layout(item1, JH_CenterX, item2, JH_CenterX, 0);
     NSLayoutConstraint *cy = JH_Layout(item1, JH_CenterY, item2, JH_CenterY, 0);
-    NSLayoutConstraint *width = JH_Layout(item1, JH_Width, nil, JH_NotAnAttribute, size.width);
-    NSLayoutConstraint *height = JH_Layout(item1, JH_Height, nil, JH_NotAnAttribute, size.height);
-    NSArray *arr = @[cx,cy,width,height];
-    return arr;
+    NSMutableArray *arr = [@[cx,cy]mutableCopy];
+    if (size.width != 0) {
+        NSLayoutConstraint *width = JH_Layout(item1, JH_Width, nil, JH_NotAnAttribute, size.width);
+        [arr addObject:width];
+    }
+    if (size.height != 0) {
+        NSLayoutConstraint *height = JH_Layout(item1, JH_Height, nil, JH_NotAnAttribute, size.height);
+        [arr addObject:height];
+    }
+    return [arr copy];
+}
+-(NSArray*)centerYLayoutSize:(CGSize)size
+                     Leading:(CGFloat)leading
+                    Trailing:(CGFloat)trailing
+                        Item:(UIView*)item1
+                      ToItem:(UIView*)item2{
+    item1.translatesAutoresizingMaskIntoConstraints = NO;
+    NSLayoutConstraint *cy = JH_Layout(item1, JH_CenterY, item2, JH_CenterY, 0);
+    NSMutableArray *arr = [@[cy]mutableCopy];
+    if (size.width != 0) {
+        NSLayoutConstraint *width = JH_Layout(item1, JH_Width, nil, JH_NotAnAttribute, size.width);
+        [arr addObject:width];
+    }
+    if (size.height != 0) {
+        NSLayoutConstraint *height = JH_Layout(item1, JH_Height, nil, JH_NotAnAttribute, size.height);
+        [arr addObject:height];
+    }
+    if (leading) {
+        NSLayoutConstraint *l = JH_Layout(item1, JH_Leading, item2, JH_Leading, leading);
+        [arr addObject:l];
+    }
+    if (trailing) {
+        NSLayoutConstraint *t = JH_Layout(item1, JH_Trailing, item2, JH_Trailing, trailing);
+        [arr addObject:t];
+    }
+    return [arr copy];
+}
+
+-(NSArray*)centerXLayoutSize:(CGSize)size
+                         Top:(CGFloat)top
+                      Bottom:(CGFloat)bottom
+                        Item:(UIView*)item1
+                      ToItem:(UIView*)item2{
+    item1.translatesAutoresizingMaskIntoConstraints = NO;
+    NSLayoutConstraint *cx = JH_Layout(item1, JH_CenterX, item2, JH_CenterX, 0);
+    NSMutableArray *arr = [@[cx]mutableCopy];
+    if (size.width != 0) {
+        NSLayoutConstraint *width = JH_Layout(item1, JH_Width, nil, JH_NotAnAttribute, size.width);
+        [arr addObject:width];
+    }
+    if (size.height != 0) {
+        NSLayoutConstraint *height = JH_Layout(item1, JH_Height, nil, JH_NotAnAttribute, size.height);
+        [arr addObject:height];
+    }
+    if (top) {
+        NSLayoutConstraint *t = JH_Layout(item1, JH_Top, item2, JH_Top, top);
+        [arr addObject:t];
+    }
+    if (bottom) {
+        NSLayoutConstraint *b = JH_Layout(item1, JH_Bottom, item2, JH_Bottom, bottom);
+        [arr addObject:b];
+    }
+    return [arr copy];
 }
 @end
