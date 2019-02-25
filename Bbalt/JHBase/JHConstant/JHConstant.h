@@ -58,5 +58,6 @@ DEFER_STRINGIFY(__FILE__) " line " DEFER_STRINGIFY(__LINE__)
 #define RString(string) [[[R string]localizable]string]
 
 //MutableString
-#define MutableString(string) [NSMutableAttributedString alloc]initWithString:string]
+#define MutableString(string) [[NSMutableAttributedString alloc]initWithString:string]
+#define MutableStringAttr(string,attr) [[NSMutableAttributedString alloc]initWithString:string attributes:attr]
 #endif /* JHConstant_h */

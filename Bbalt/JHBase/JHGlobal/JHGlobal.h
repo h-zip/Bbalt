@@ -38,6 +38,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)UIColor *red_dark_0;
 /** #00d0cc-alpha 1 */
 @property(nonatomic,strong)UIColor *red_dark_1;
+/** #00d0cc-alpha 1 */
+@property(nonatomic,strong)UIColor *black_dark_0;
 @end
 @interface JHFont: NSObject
 /** system-ss-regular */
@@ -49,6 +51,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface JHAttributes: NSObject
 /** PingFang-ss-semibold-#00d0cc-alpha 1 */
 @property(nonatomic,strong)NSDictionary *pingfang_red_light_0;
+/** PingFang-ss-semibold-#00d0cc-alpha 1 */
+@property(nonatomic,strong)NSDictionary *pingfang_black_dark_0;
 @end
 @interface JHSafeArea: NSObject
 @property(nonatomic,assign)UIEdgeInsets insets;

@@ -27,6 +27,7 @@ typedef void(^RowSelectBlock)(UITableView *tableView,NSIndexPath *indexPath);
 
 typedef void(^BtnTapBlock)(UIButton *sender);
 typedef void(^GestureBlock)(UIGestureRecognizer *gr);
+typedef void(^TabTapBlock)(UIButton *sender, NSInteger index);
 
 typedef NSInteger (^SectionNumBlock_C)(UICollectionView *collectionView);
 typedef NSInteger (^ItemNumBlock_C)(UICollectionView *collectionView,NSInteger section);

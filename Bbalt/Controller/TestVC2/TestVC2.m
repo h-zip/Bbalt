@@ -161,8 +161,13 @@
     self.tView.backgroundColor = [UIColor redColor];
 //    self.getdataStatus = JHGetDataLoading;
 //    self.getdataStatus = JHGetDataError;
-    [JHBrowserInstance showWithPicSrcs:@[@"http://bbaltcdn.hanspro.cn/demand262.jpg",
-                                         @"http://bbaltcdn.hanspro.cn/demand290.jpg"] InVC:self];
+//    [JHBrowserInstance showWithPicSrcs:@[@"http://bbaltcdn.hanspro.cn/demand262.jpg",
+//                                         @"http://bbaltcdn.hanspro.cn/demand290.jpg"] InVC:self];
+    NSArray *titles = @[@"夏方",@"订单",@"地方",@"快递"];
+    JHTabsView *tabs = [JHFactoryInstance baseTabsViewWithTitles:titles];
+    tabs.frame = (CGRect){0,kTopHeight,kSCREEN_W,30};
+    [self.view addSubview:tabs];
+//    self.mTableView.hidden = YES;
 }
 -(void)dealloc{
 }

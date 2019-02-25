@@ -20,6 +20,8 @@
 		882C30B621EC9591009E4436 /* TestVC1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 882C30B421EC9591009E4436 /* TestVC1.xib */; };
 		882C30BC21F592FD009E4436 /* JHGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 882C30BB21F592FD009E4436 /* JHGlobal.m */; };
 		8840543C2202DC4300187E1F /* JHLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8840543B2202DC4300187E1F /* JHLayoutManager.m */; };
+		887ED18222238C1100A30E51 /* JHTabsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 887ED18122238C1100A30E51 /* JHTabsView.m */; };
+		887ED1862224026900A30E51 /* JHAnimateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 887ED1852224026900A30E51 /* JHAnimateManager.m */; };
 		88964F7D221F9C8800419214 /* UIAlertController+SupportedInterfaceOrientations.m in Sources */ = {isa = PBXBuildFile; fileRef = 88964F7C221F9C8800419214 /* UIAlertController+SupportedInterfaceOrientations.m */; };
 		88964F81221FD58D00419214 /* JHLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 88964F80221FD58D00419214 /* JHLabel.m */; };
 		88B509C522169C6600D89EB8 /* JHScrollBasePackage.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B509C422169C6600D89EB8 /* JHScrollBasePackage.m */; };
@@ -166,6 +168,10 @@
 		8840543A2202DC4300187E1F /* JHLayoutManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHLayoutManager.h; sourceTree = "<group>"; };
 		8840543B2202DC4300187E1F /* JHLayoutManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHLayoutManager.m; sourceTree = "<group>"; };
 		8840543D2202DD5500187E1F /* JHManagerHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHManagerHeader.h; sourceTree = "<group>"; };
+		887ED18022238C1100A30E51 /* JHTabsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHTabsView.h; sourceTree = "<group>"; };
+		887ED18122238C1100A30E51 /* JHTabsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHTabsView.m; sourceTree = "<group>"; };
+		887ED1842224026900A30E51 /* JHAnimateManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHAnimateManager.h; sourceTree = "<group>"; };
+		887ED1852224026900A30E51 /* JHAnimateManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHAnimateManager.m; sourceTree = "<group>"; };
 		88964F7B221F9C8800419214 /* UIAlertController+SupportedInterfaceOrientations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+SupportedInterfaceOrientations.h"; sourceTree = "<group>"; };
 		88964F7C221F9C8800419214 /* UIAlertController+SupportedInterfaceOrientations.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+SupportedInterfaceOrientations.m"; sourceTree = "<group>"; };
 		88964F7F221FD58D00419214 /* JHLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHLabel.h; sourceTree = "<group>"; };
@@ -489,6 +495,24 @@
 				8840543B2202DC4300187E1F /* JHLayoutManager.m */,
 			);
 			path = JHLayoutManager;
+			sourceTree = "<group>";
+		};
+		887ED17E22238BE000A30E51 /* JHTabsView */ = {
+			isa = PBXGroup;
+			children = (
+				887ED18022238C1100A30E51 /* JHTabsView.h */,
+				887ED18122238C1100A30E51 /* JHTabsView.m */,
+			);
+			path = JHTabsView;
+			sourceTree = "<group>";
+		};
+		887ED1832224024D00A30E51 /* JHAnimateManager */ = {
+			isa = PBXGroup;
+			children = (
+				887ED1842224026900A30E51 /* JHAnimateManager.h */,
+				887ED1852224026900A30E51 /* JHAnimateManager.m */,
+			);
+			path = JHAnimateManager;
 			sourceTree = "<group>";
 		};
 		88964F7A221F9C4700419214 /* UIAlertController+SupportedInterfaceOrientations */ = {
@@ -819,6 +843,7 @@
 		88D9FA1D2192B26200ABFD15 /* JHManager */ = {
 			isa = PBXGroup;
 			children = (
+				887ED1832224024D00A30E51 /* JHAnimateManager */,
 				88B509CB2216CB3A00D89EB8 /* JHBrowserManager */,
 				880977C022154E6E00320EDD /* JHFactoryManager */,
 				884054392202DC1400187E1F /* JHLayoutManager */,
@@ -1116,6 +1141,7 @@
 		88D9FAA02192BDBB00ABFD15 /* JHView */ = {
 			isa = PBXGroup;
 			children = (
+				887ED17E22238BE000A30E51 /* JHTabsView */,
 				88B509C72216C4CA00D89EB8 /* JHSingleBrowserView */,
 				88B621162201A4FB00474022 /* JHInputView */,
 				88D9FAA12192BDBB00ABFD15 /* JHNoWifiView */,
@@ -1139,6 +1165,7 @@
 		88D9FAA52192BDBB00ABFD15 /* JHBaseView */ = {
 			isa = PBXGroup;
 			children = (
+				88D9FAAD2192BDBB00ABFD15 /* JHUIHeader.h */,
 				88964F7E221FD57200419214 /* JHLabel */,
 				880977BA22154B4800320EDD /* JHCollectionReusableView */,
 				880977B422154A5F00320EDD /* JHCollectionViewCell */,
@@ -1146,7 +1173,6 @@
 				88B6211C2201A82600474022 /* JHTextView */,
 				88D9FAA62192BDBB00ABFD15 /* JHTableViewCell */,
 				88D9FAAA2192BDBB00ABFD15 /* JHTextField */,
-				88D9FAAD2192BDBB00ABFD15 /* JHUIHeader.h */,
 				88D9FAAE2192BDBB00ABFD15 /* JHPageControl */,
 				88D9FAB12192BDBB00ABFD15 /* JHButton */,
 				88D9FAB42192BDBB00ABFD15 /* JHTableView */,
@@ -1762,6 +1788,7 @@
 				88D9FAEF2192C00C00ABFD15 /* JHTestRequestService.m in Sources */,
 				88D9FAC72192BDBB00ABFD15 /* JHTableViewCell.m in Sources */,
 				88D9FACA2192BDBB00ABFD15 /* JHPageControl.m in Sources */,
+				887ED18222238C1100A30E51 /* JHTabsView.m in Sources */,
 				88D9FB1E2192C0AA00ABFD15 /* NSObject+PropertyTree.m in Sources */,
 				88D9FA9B2192B26200ABFD15 /* JHAppDelegate.m in Sources */,
 				88D9FA802192B26200ABFD15 /* JHImagePickerManager.m in Sources */,
@@ -1783,6 +1810,7 @@
 				880977B322154A3800320EDD /* JHCollectionView.m in Sources */,
 				88B620FA21FF060700474022 /* JHWebImageManager.m in Sources */,
 				882C30BC21F592FD009E4436 /* JHGlobal.m in Sources */,
+				887ED1862224026900A30E51 /* JHAnimateManager.m in Sources */,
 				88D9FA7C2192B26200ABFD15 /* JHDebugManager.m in Sources */,
 				88D9FA922192B26200ABFD15 /* JHScrollListVC.m in Sources */,
 				88B620FE21FFF36800474022 /* JHDecimalManager.m in Sources */,

@@ -67,7 +67,7 @@
 @end
 @implementation JHColor
 -(UIColor*)red_light_0{
-    return [UIColor colorWithHexString:@""];
+    return [UIColor colorWithHexString:@"#FF3333"];
 }
 -(UIColor*)red_light_1{
     return [UIColor colorWithHexString:@""];
@@ -77,6 +77,9 @@
 }
 -(UIColor*)red_dark_1{
     return [UIColor colorWithHexString:@""];
+}
+-(UIColor*)black_dark_0{
+    return [UIColor colorWithHexString:@"#FFFFFF"];
 }
 @end
 @interface JHFont ()
@@ -95,6 +98,12 @@
 -(NSDictionary*)pingfang_red_light_0{
     return @{
              NSForegroundColorAttributeName: [JHGlobal share].colors.red_light_0,
+             NSFontAttributeName: [JHGlobal share].fonts.pingfang_ss_semibold
+             };
+}
+-(NSDictionary*)pingfang_black_dark_0{
+    return @{
+             NSForegroundColorAttributeName: [JHGlobal share].colors.black_dark_0,
              NSFontAttributeName: [JHGlobal share].fonts.pingfang_ss_semibold
              };
 }
