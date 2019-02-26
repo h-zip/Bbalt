@@ -92,7 +92,7 @@
     NSMutableArray *dArr = [@[]mutableCopy];
     NSInteger range = [self getSumOfDaysInYear:[NSString stringWithFormat:@"%d",year] Month:@"01"];
     for (int i = 0; i<range; i++) {
-        if(i<10){
+        if(i<9){
             dArr[i] = [NSString stringWithFormat:@"0%d日",i+1];
         }else{
             dArr[i] = [NSString stringWithFormat:@"%d日",i+1];
@@ -118,7 +118,7 @@
     NSMutableArray *dArr = [@[]mutableCopy];
     NSInteger range = [self getSumOfDaysInYear:[NSString stringWithFormat:@"%d",year] Month:@"01"];
     for (int i = 0; i<range; i++) {
-        if(i<10){
+        if(i<9){
             dArr[i] = [NSString stringWithFormat:@"0%d日",i+1];
         }else{
             dArr[i] = [NSString stringWithFormat:@"%d日",i+1];
@@ -172,7 +172,7 @@
         NSString *month = [m substringToIndex:m.length-1];
         NSInteger range = [self getSumOfDaysInYear:year Month:month];
         for (int i = 0; i<range; i++) {
-            if(i<10){
+            if(i<9){
                 dArr[i] = [NSString stringWithFormat:@"0%d日",i+1];
             }else{
                 dArr[i] = [NSString stringWithFormat:@"%d日",i+1];
@@ -202,7 +202,7 @@
         NSString *month = [m substringToIndex:m.length-1];
         NSInteger range = [self getSumOfDaysInYear:year Month:month];
         for (int i = 0; i<range; i++) {
-            if(i<10){
+            if(i<9){
                 dArr[i] = [NSString stringWithFormat:@"0%d日",i+1];
             }else{
                 dArr[i] = [NSString stringWithFormat:@"%d日",i+1];

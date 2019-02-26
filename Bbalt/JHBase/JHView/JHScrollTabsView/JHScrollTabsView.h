@@ -1,16 +1,17 @@
 //
-//  JHTabsView.h
+//  JHScrollTabsView.h
 //  Bbalt
 //
-//  Created by bory on 2019/2/25.
+//  Created by bory on 2019/2/26.
 //  Copyright © 2019年 hans. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-#define JH_Tabs(titles,margin,lineColor,lineHeight,selectedAttr,unSelectedAttr) [[JHTabsView alloc]initWithTitles:titles Margin:margin LineColor:lineColor LineHeight:lineHeight SelectedAttr:selectedAttr UnSelectedAttr:unSelectedAttr]
-@interface JHTabsView : UIView
+#define JH_ScrollTabs(titles,margin,spacing,lineColor,lineHeight,selectedAttr,unSelectedAttr) [[JHScrollTabsView alloc]initWithTitles:titles Margin:margin Spacing:spacing LineColor:lineColor LineHeight:lineHeight SelectedAttr:selectedAttr UnSelectedAttr:unSelectedAttr]
+@interface JHScrollTabsView : UIView
+@property(nonatomic,strong)JHScrollView *containerScrollView;
 @property(nonatomic,strong)NSMutableArray<JHButton*> *tabs;
 @property(nonatomic,strong)NSArray *titles;
 @property(nonatomic,strong)UIView *line;
@@ -31,12 +32,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(instancetype)initWithTitles:(NSArray*)titles
                        Margin:(CGFloat)margin
+                      Spacing:(CGFloat)spacing
                     LineColor:(UIColor*)lineColor
                    LineHeight:(CGFloat)lineHeight
                  SelectedAttr:(NSDictionary*)selectedAttr
                UnSelectedAttr:(NSDictionary*)unSelectedAttr;
 
--(void)scrollChangeToIndex:(NSInteger)index;
+//-(void)scrollChangeToIndex:(NSInteger)index;
 @end
 
 NS_ASSUME_NONNULL_END

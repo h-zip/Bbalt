@@ -20,6 +20,7 @@
 		882C30B621EC9591009E4436 /* TestVC1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 882C30B421EC9591009E4436 /* TestVC1.xib */; };
 		882C30BC21F592FD009E4436 /* JHGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 882C30BB21F592FD009E4436 /* JHGlobal.m */; };
 		8840543C2202DC4300187E1F /* JHLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8840543B2202DC4300187E1F /* JHLayoutManager.m */; };
+		887780AE22250FCC0067B8B3 /* JHScrollTabsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 887780AD22250FCC0067B8B3 /* JHScrollTabsView.m */; };
 		887ED18222238C1100A30E51 /* JHTabsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 887ED18122238C1100A30E51 /* JHTabsView.m */; };
 		887ED1862224026900A30E51 /* JHAnimateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 887ED1852224026900A30E51 /* JHAnimateManager.m */; };
 		88964F7D221F9C8800419214 /* UIAlertController+SupportedInterfaceOrientations.m in Sources */ = {isa = PBXBuildFile; fileRef = 88964F7C221F9C8800419214 /* UIAlertController+SupportedInterfaceOrientations.m */; };
@@ -168,6 +169,8 @@
 		8840543A2202DC4300187E1F /* JHLayoutManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHLayoutManager.h; sourceTree = "<group>"; };
 		8840543B2202DC4300187E1F /* JHLayoutManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHLayoutManager.m; sourceTree = "<group>"; };
 		8840543D2202DD5500187E1F /* JHManagerHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHManagerHeader.h; sourceTree = "<group>"; };
+		887780AC22250FCC0067B8B3 /* JHScrollTabsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHScrollTabsView.h; sourceTree = "<group>"; };
+		887780AD22250FCC0067B8B3 /* JHScrollTabsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHScrollTabsView.m; sourceTree = "<group>"; };
 		887ED18022238C1100A30E51 /* JHTabsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHTabsView.h; sourceTree = "<group>"; };
 		887ED18122238C1100A30E51 /* JHTabsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHTabsView.m; sourceTree = "<group>"; };
 		887ED1842224026900A30E51 /* JHAnimateManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHAnimateManager.h; sourceTree = "<group>"; };
@@ -495,6 +498,15 @@
 				8840543B2202DC4300187E1F /* JHLayoutManager.m */,
 			);
 			path = JHLayoutManager;
+			sourceTree = "<group>";
+		};
+		887780AB22250FAD0067B8B3 /* JHScrollTabsView */ = {
+			isa = PBXGroup;
+			children = (
+				887780AC22250FCC0067B8B3 /* JHScrollTabsView.h */,
+				887780AD22250FCC0067B8B3 /* JHScrollTabsView.m */,
+			);
+			path = JHScrollTabsView;
 			sourceTree = "<group>";
 		};
 		887ED17E22238BE000A30E51 /* JHTabsView */ = {
@@ -1141,6 +1153,7 @@
 		88D9FAA02192BDBB00ABFD15 /* JHView */ = {
 			isa = PBXGroup;
 			children = (
+				887780AB22250FAD0067B8B3 /* JHScrollTabsView */,
 				887ED17E22238BE000A30E51 /* JHTabsView */,
 				88B509C72216C4CA00D89EB8 /* JHSingleBrowserView */,
 				88B621162201A4FB00474022 /* JHInputView */,
@@ -1741,6 +1754,7 @@
 				88D9FA882192B26200ABFD15 /* JPushRegistrationModel.m in Sources */,
 				88D9FA8D2192B26200ABFD15 /* JHScrollBaseVC.m in Sources */,
 				88B620ED21FAF0DC00474022 /* BaseService.m in Sources */,
+				887780AE22250FCC0067B8B3 /* JHScrollTabsView.m in Sources */,
 				88D9FAD12192BDBB00ABFD15 /* JHNoDataView.m in Sources */,
 				88D9FB212192C0AA00ABFD15 /* NSDictionary+Description.m in Sources */,
 				88D9FA8E2192B26200ABFD15 /* JHBaseTabBarC.m in Sources */,

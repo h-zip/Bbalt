@@ -75,4 +75,14 @@
     JHTabsView *v = JH_Tabs(titles, margin, lineColor, lineHeight, selected, unSelected);
     return v;
 }
+-(JHScrollTabsView *)baseScrollTabsViewWithTitles:(NSArray*)titles{
+    CGFloat lineHeight = 2.f;
+    CGFloat margin = 5.f;
+    CGFloat spacing = 10.f;
+    UIColor *lineColor = JHGlobalInstance.colors.red_light_0;
+    NSDictionary *selected = JHGlobalInstance.attributes.pingfang_red_light_0;
+    NSDictionary *unSelected = JHGlobalInstance.attributes.pingfang_black_dark_0;
+    JHScrollTabsView *v = JH_ScrollTabs(titles, margin, spacing, lineColor, lineHeight, selected, unSelected);
+    return v;
+}
 @end

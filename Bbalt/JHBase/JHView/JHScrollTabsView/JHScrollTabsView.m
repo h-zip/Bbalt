@@ -1,16 +1,17 @@
 //
-//  JHTabsView.m
+//  JHScrollTabsView.m
 //  Bbalt
 //
-//  Created by bory on 2019/2/25.
+//  Created by bory on 2019/2/26.
 //  Copyright © 2019年 hans. All rights reserved.
 //
 
-#import "JHTabsView.h"
+#import "JHScrollTabsView.h"
 
-@implementation JHTabsView
+@implementation JHScrollTabsView
 -(instancetype)initWithTitles:(NSArray*)titles
                        Margin:(CGFloat)margin
+                      Spacing:(CGFloat)spacing
                     LineColor:(UIColor*)lineColor
                    LineHeight:(CGFloat)lineHeight
                  SelectedAttr:(NSDictionary*)selectedAttr
@@ -19,6 +20,7 @@
     if (self) {
         self.titles = titles;
         self.margin = margin;
+        self.spacing = spacing;
         self.lineColor = lineColor;
         self.lineHeight = lineHeight;
         self.selectedAttr = selectedAttr;
@@ -27,10 +29,19 @@
         self.tabs = [@[]mutableCopy];
         self.line = [UIView new];
         self.line.backgroundColor = self.lineColor;
-        CGFloat space = kSCREEN_W - 2 * margin;
-        for (int i = 0; i < titles.count; i++) {
+        self.containerScrollView = [JHFactoryInstance baseScrollView];
+        self.containerScrollView.pagingEnabled = NO;
+        self.containerScrollView.translatesAutoresizingMaskIntoConstraints = NO;
+        [self addSubview:self.containerScrollView];
+        NSArray *arr1 = JH_EqualSizeLayouts(self.containerScrollView, self);
+        JH_AddLayouts(self, arr1);
+        CGFloat contentWidth = margin * 2;
+        NSMutableArray *arr2 = [@[]mutableCopy];
+        UIView *last = nil;
+        for (int i = 0; i < self.titles.count; i++) {
             NSDictionary *attr = i==0 ? self.selectedAttr : self.unSelectedAttr;
             JHButton *btn = [JHButton buttonWithType:UIButtonTypeCustom];
+            btn.translatesAutoresizingMaskIntoConstraints = NO;
             if(i==0) {btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;btn.titleEdgeInsets = (UIEdgeInsets){0,margin,0,0};}
             if(i==titles.count-1) {btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;btn.titleEdgeInsets = (UIEdgeInsets){0,0,0,margin};}
             @WeakObj(self);
@@ -42,6 +53,7 @@
                     [JHAnimateManager defaultAnimate_1_WithAnimations:^{
                         [self changeToIndex:i];
                         [self layoutIfNeeded];
+                        [self fixScrollPositionToIndex:i];
                     } Completion:^(BOOL finished) {
                         [self changeTitleColorToIndex:i];
                     }];
@@ -52,38 +64,32 @@
             CGSize size = [btn.titleLabel sizeThatFits:CGSizeZero];
             [self.widthArr addObject:@(size.width)];
             [self.tabs addObject:btn];
-            space = space - size.width;
-        }
-        space = space / (titles.count -1) / 2;
-        self.spacing = space;
-        UIView *last = nil;
-        NSMutableArray * arr = [@[]mutableCopy];
-        for (int i = 0; i < titles.count; i++) {
-            CGFloat w = (i==0 || i==titles.count-1) ? (space + margin  + [self.widthArr[i]floatValue]) : (2 * space  + [self.widthArr[i]floatValue]);
-            JHButton *v = self.tabs[i];
-            v.translatesAutoresizingMaskIntoConstraints = NO;
-            [self addSubview:v];
-            NSLayoutConstraint *top = JH_Layout(v, JH_Top, self, JH_Top, 0);
-            NSLayoutConstraint *left = i == 0 ? JH_Layout(v, JH_Leading, self, JH_Leading, 0) : JH_Layout(v, JH_Leading, last, JH_Trailing, 0);
-            NSLayoutConstraint *bottom = JH_Layout(v, JH_Bottom, self, JH_Bottom, lineHeight);
-            NSLayoutConstraint *width = JH_Layout(v, JH_Width, nil, JH_NotAnAttribute, w);
-            [arr addObjectsFromArray:@[top,left,bottom,width]];
-            if (i == titles.count-1) {
-                NSLayoutConstraint *right = JH_Layout(v, JH_Trailing, self, JH_Trailing, 0);
-                [arr addObject:right];
+            [self.containerScrollView addSubview:btn];
+            contentWidth = contentWidth + size.width;
+            NSLayoutConstraint *t = JH_Layout(btn, JH_Top, self.containerScrollView, JH_Top, 0);
+            NSLayoutConstraint *b = JH_Layout(btn, JH_Bottom, self.containerScrollView, JH_Bottom, self.lineHeight);
+            CGFloat _w = (i==0 || i==titles.count-1) ? (self.spacing + self.margin  + size.width) : (2 * self.spacing  + size.width);
+            NSLayoutConstraint *w = JH_Layout(btn, JH_Width, nil, JH_NotAnAttribute, _w);
+            NSLayoutConstraint *l = (i == 0) ? JH_Layout(btn, JH_Leading, self.containerScrollView, JH_Leading, 0) : JH_Layout(btn, JH_Leading, last, JH_Trailing, 0);
+            if (i == self.titles.count-1) {
+                NSLayoutConstraint *r = JH_Layout(btn, JH_Trailing, self.containerScrollView, JH_Trailing, 0);
+                [arr2 addObject:r];
             }
-            last = v;
+            [arr2 addObjectsFromArray:@[t,b,w,l]];
+            last = btn;
         }
-        JH_AddLayouts(self, arr);
+        JH_AddLayouts(self.containerScrollView, arr2);
+        contentWidth = contentWidth + self.spacing * (self.titles.count - 1);
+//        self.containerScrollView.contentSize = (CGSize){contentWidth,30};
         self.line.translatesAutoresizingMaskIntoConstraints = NO;
-        [self addSubview:self.line];
-        NSLayoutConstraint *b = JH_Layout( self.line, JH_Bottom, self, JH_Bottom, 0);
+        [self.containerScrollView addSubview:self.line];
+        NSLayoutConstraint *b = JH_Layout( self.line, JH_Bottom, self.containerScrollView, JH_Bottom, 0);
         NSLayoutConstraint *h = JH_Layout( self.line, JH_Height, nil, JH_NotAnAttribute, lineHeight);
         NSLayoutConstraint *w = JH_Layout( self.line, JH_Width, nil, JH_NotAnAttribute, [self.widthArr[0] floatValue]);
         CGFloat _l = [self calLeftLayout:0];
-        NSLayoutConstraint *l = JH_Layout( self.line, JH_Leading, self, JH_Leading, _l);
-        NSArray *arr1 = @[b,h,w,l];
-        JH_AddLayouts(self, arr1);
+        NSLayoutConstraint *l = JH_Layout( self.line, JH_Leading, self.containerScrollView, JH_Leading, _l);
+        NSArray *arr3 = @[b,h,w,l];
+        JH_AddLayouts(self, arr3);
         self.lineLeft = l;
         self.lineWidth = w;
     }
@@ -94,7 +100,7 @@
     if (index == 0) {
         left = self.margin;
     }else if (index == self.titles.count - 1) {
-        left = kSCREEN_W - self.margin - [self.widthArr[self.titles.count -1]floatValue];
+        left = self.containerScrollView.contentSize.width - self.margin - [self.widthArr[self.titles.count -1]floatValue];
     }else {
         for (int i = 0; i< index+1; i++) {
             CGFloat _l = (i == 0) ? self.margin : 2 * self.spacing + [self.widthArr[i-1]floatValue];
@@ -118,7 +124,18 @@
 }
 -(void)scrollChangeToIndex:(NSInteger)index{
     [self changeToIndex:index];
+    [self fixScrollPositionToIndex:index];
     [self changeTitleColorToIndex:index];
+}
+-(void)fixScrollPositionToIndex:(NSInteger)index{
+    CGFloat x = [self.containerScrollView convertPoint:self.tabs[index].frame.origin toView:self.superview].x;
+    CGFloat left = [self calLeftLayout:index];
+    CGFloat m = index == 0 ? self.margin : self.spacing;
+    if(x<0){
+        [self.containerScrollView setContentOffset:(CGPoint){left-m,0} animated:YES];
+    }else if (x+[self.widthArr[index]floatValue] > self.width){
+        [self.containerScrollView setContentOffset:(CGPoint){left + [self.widthArr[index]floatValue] - self.width + m,0} animated:YES];
+    }
 }
 /*
 // Only override drawRect: if you perform custom drawing.
