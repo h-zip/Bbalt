@@ -7,7 +7,7 @@
 //
 
 #import "BaseService.h"
-#define loginUrl @""
+#define loginUrl @"/user"
 #define logoutUrl @""
 @implementation BaseService
 +(void)loginWithDic:(NSDictionary*)dic

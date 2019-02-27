@@ -21,6 +21,10 @@
 		882C30BC21F592FD009E4436 /* JHGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 882C30BB21F592FD009E4436 /* JHGlobal.m */; };
 		8840543C2202DC4300187E1F /* JHLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8840543B2202DC4300187E1F /* JHLayoutManager.m */; };
 		887780AE22250FCC0067B8B3 /* JHScrollTabsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 887780AD22250FCC0067B8B3 /* JHScrollTabsView.m */; };
+		887780B222266F8D0067B8B3 /* JHRequestLogModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 887780B122266F8D0067B8B3 /* JHRequestLogModel.m */; };
+		887780B6222682840067B8B3 /* JHRequestLogVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 887780B5222682840067B8B3 /* JHRequestLogVC.m */; };
+		887780BB2226845C0067B8B3 /* JHRequestLogCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 887780B92226845C0067B8B3 /* JHRequestLogCell.m */; };
+		887780BC2226845C0067B8B3 /* JHRequestLogCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 887780BA2226845C0067B8B3 /* JHRequestLogCell.xib */; };
 		887ED18222238C1100A30E51 /* JHTabsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 887ED18122238C1100A30E51 /* JHTabsView.m */; };
 		887ED1862224026900A30E51 /* JHAnimateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 887ED1852224026900A30E51 /* JHAnimateManager.m */; };
 		88964F7D221F9C8800419214 /* UIAlertController+SupportedInterfaceOrientations.m in Sources */ = {isa = PBXBuildFile; fileRef = 88964F7C221F9C8800419214 /* UIAlertController+SupportedInterfaceOrientations.m */; };
@@ -171,6 +175,13 @@
 		8840543D2202DD5500187E1F /* JHManagerHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHManagerHeader.h; sourceTree = "<group>"; };
 		887780AC22250FCC0067B8B3 /* JHScrollTabsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHScrollTabsView.h; sourceTree = "<group>"; };
 		887780AD22250FCC0067B8B3 /* JHScrollTabsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHScrollTabsView.m; sourceTree = "<group>"; };
+		887780B022266F8D0067B8B3 /* JHRequestLogModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHRequestLogModel.h; sourceTree = "<group>"; };
+		887780B122266F8D0067B8B3 /* JHRequestLogModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHRequestLogModel.m; sourceTree = "<group>"; };
+		887780B4222682840067B8B3 /* JHRequestLogVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHRequestLogVC.h; sourceTree = "<group>"; };
+		887780B5222682840067B8B3 /* JHRequestLogVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHRequestLogVC.m; sourceTree = "<group>"; };
+		887780B82226845C0067B8B3 /* JHRequestLogCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHRequestLogCell.h; sourceTree = "<group>"; };
+		887780B92226845C0067B8B3 /* JHRequestLogCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHRequestLogCell.m; sourceTree = "<group>"; };
+		887780BA2226845C0067B8B3 /* JHRequestLogCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JHRequestLogCell.xib; sourceTree = "<group>"; };
 		887ED18022238C1100A30E51 /* JHTabsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHTabsView.h; sourceTree = "<group>"; };
 		887ED18122238C1100A30E51 /* JHTabsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHTabsView.m; sourceTree = "<group>"; };
 		887ED1842224026900A30E51 /* JHAnimateManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHAnimateManager.h; sourceTree = "<group>"; };
@@ -507,6 +518,35 @@
 				887780AD22250FCC0067B8B3 /* JHScrollTabsView.m */,
 			);
 			path = JHScrollTabsView;
+			sourceTree = "<group>";
+		};
+		887780AF22266F080067B8B3 /* JHRequestLogModel */ = {
+			isa = PBXGroup;
+			children = (
+				887780B022266F8D0067B8B3 /* JHRequestLogModel.h */,
+				887780B122266F8D0067B8B3 /* JHRequestLogModel.m */,
+			);
+			path = JHRequestLogModel;
+			sourceTree = "<group>";
+		};
+		887780B3222682340067B8B3 /* JHRequestLogVC */ = {
+			isa = PBXGroup;
+			children = (
+				887780B7222683B80067B8B3 /* JHRequestLogCell */,
+				887780B4222682840067B8B3 /* JHRequestLogVC.h */,
+				887780B5222682840067B8B3 /* JHRequestLogVC.m */,
+			);
+			path = JHRequestLogVC;
+			sourceTree = "<group>";
+		};
+		887780B7222683B80067B8B3 /* JHRequestLogCell */ = {
+			isa = PBXGroup;
+			children = (
+				887780B82226845C0067B8B3 /* JHRequestLogCell.h */,
+				887780B92226845C0067B8B3 /* JHRequestLogCell.m */,
+				887780BA2226845C0067B8B3 /* JHRequestLogCell.xib */,
+			);
+			path = JHRequestLogCell;
 			sourceTree = "<group>";
 		};
 		887ED17E22238BE000A30E51 /* JHTabsView */ = {
@@ -877,6 +917,8 @@
 		88D9FA1E2192B26200ABFD15 /* JHDebugManager */ = {
 			isa = PBXGroup;
 			children = (
+				887780B3222682340067B8B3 /* JHRequestLogVC */,
+				887780AF22266F080067B8B3 /* JHRequestLogModel */,
 				88D9FA1F2192B26200ABFD15 /* JHDebugManager.h */,
 				88D9FA202192B26200ABFD15 /* JHDebugManager.m */,
 			);
@@ -1619,6 +1661,7 @@
 				88D9F932219289A000ABFD15 /* Assets.xcassets in Resources */,
 				88D9FA7A2192B26200ABFD15 /* JHLoginVC.xib in Resources */,
 				88B509D02216CCA200D89EB8 /* JHSingleBrowserView.xib in Resources */,
+				887780BC2226845C0067B8B3 /* JHRequestLogCell.xib in Resources */,
 				88D9FA772192B26200ABFD15 /* JHRegistBVC.xib in Resources */,
 				88D9F96021928E6C00ABFD15 /* LaunchScreen.storyboard in Resources */,
 				880977B922154A8100320EDD /* JHCollectionViewCell.xib in Resources */,
@@ -1752,6 +1795,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88D9FA882192B26200ABFD15 /* JPushRegistrationModel.m in Sources */,
+				887780BB2226845C0067B8B3 /* JHRequestLogCell.m in Sources */,
 				88D9FA8D2192B26200ABFD15 /* JHScrollBaseVC.m in Sources */,
 				88B620ED21FAF0DC00474022 /* BaseService.m in Sources */,
 				887780AE22250FCC0067B8B3 /* JHScrollTabsView.m in Sources */,
@@ -1812,6 +1856,7 @@
 				88D9FA762192B26200ABFD15 /* JHRegistBVC.m in Sources */,
 				88D9FB202192C0AA00ABFD15 /* UITabBarController+Rotation.m in Sources */,
 				88B6210D220041D500474022 /* JHSearchTFView.m in Sources */,
+				887780B6222682840067B8B3 /* JHRequestLogVC.m in Sources */,
 				88D9FA872192B26200ABFD15 /* TokenInfoModel.m in Sources */,
 				88D9FB222192C0AA00ABFD15 /* NSString+PinYin.m in Sources */,
 				88D9F938219289A000ABFD15 /* main.m in Sources */,
@@ -1825,6 +1870,7 @@
 				88B620FA21FF060700474022 /* JHWebImageManager.m in Sources */,
 				882C30BC21F592FD009E4436 /* JHGlobal.m in Sources */,
 				887ED1862224026900A30E51 /* JHAnimateManager.m in Sources */,
+				887780B222266F8D0067B8B3 /* JHRequestLogModel.m in Sources */,
 				88D9FA7C2192B26200ABFD15 /* JHDebugManager.m in Sources */,
 				88D9FA922192B26200ABFD15 /* JHScrollListVC.m in Sources */,
 				88B620FE21FFF36800474022 /* JHDecimalManager.m in Sources */,

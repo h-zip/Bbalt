@@ -8,10 +8,20 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-typedef void (^DebugCallback)(void);
+#import "JHRequestLogModel.h"
+#import "JHRequestLogVC.h"
+#define JH_DebugRequest(url,header,body,response) [[JHDebugManager share]storeRequestInfo:url Header:header Body:body Response:response]
 @interface JHDebugManager : NSObject
-+(instancetype)shareInstance;
--(BOOL)debugMode;
--(UIAlertController*)chooseHostAlertViewController;
--(void)configDebugCallback:(DebugCallback)debugCallback;
+@property(nonatomic,assign)BOOL requestDebug;
+@property(nonatomic,strong)NSMutableArray<JHRequestLogModel*> *logArr;
+@property(nonatomic,strong)JHButton *bugBtn;
+@property(nonatomic,strong)JHRequestLogVC *logVC;
++(instancetype)share;
+-(void)storeRequestInfo:(NSString*)url
+                 Header:(NSDictionary*)header
+                   Body:(NSDictionary*)body
+               Response:(id)response;
+-(void)resetLogs;
+-(NSString *)convertToJsonData:(NSDictionary *)dict;
+-(void)showLogs;
 @end

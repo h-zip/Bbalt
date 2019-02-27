@@ -21,8 +21,8 @@ static NSSet* _cerSet = nil;
 }
 +(NSDictionary*)requestHeaderDic{
     NSMutableDictionary* headerDic = [@{
-//                                        @"AppId":@"",
-//                                        @"AppSecret":@"",
+                                        @"AppId":@"21322",
+                                        @"AppSecret":@"212121"
 //                                        @"AppToken":[JHUserManager share].appTokenModel.AppToken,
 //                                        @"Token":[JHUserManager share].tokenModel.Token,
 //                                        @"AppVersion":[NSString stringWithFormat:@"%@.%@",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"],[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]],
@@ -76,15 +76,16 @@ static NSSet* _cerSet = nil;
             [self checkUserTokenAvailableWithCallback:^{
                 NSString *turl = CombileUrl(url);
                 NSMutableDictionary *body = [[self requestBodyDic]mutableCopy];
+                NSDictionary *header = [self requestHeaderDic];
                 [body addEntriesFromDictionary:dic];
                 JHBaseRequestService *request = nil;
                 if ([turl containsString:@"https"]) {
-                    request = [[JHBaseRequestService alloc]initWithCerSet:[self cerSet] RequestHeaderDic:[self requestHeaderDic]];
+                    request = [[JHBaseRequestService alloc]initWithCerSet:[self cerSet] RequestHeaderDic:header];
                 }else{
-                    request = [[JHBaseRequestService alloc]initWithRequestHeaderDic:[self requestHeaderDic]];
+                    request = [[JHBaseRequestService alloc]initWithRequestHeaderDic:header];
                 }
                 [request postRequestWithUrl:turl Params:body NeedHandle:YES RequestBlock:^(BOOL requestSuccess, id response) {
-                    
+                    JH_DebugRequest(turl, header, body, response);
                     ret(requestSuccess,response);
                 }];
             } Group:nil];

@@ -12,6 +12,7 @@
 #import "JHSearchVC.h"
 #import "JHPickerVC.h"
 #import "JHInputView.h"
+#import "BaseService.h"
 @interface TestVC2 ()
 @property(nonatomic,strong)NSArray *cellArr;
 @property(nonatomic,strong)NSArray *headerArr;
@@ -169,6 +170,9 @@
     tabs.frame = (CGRect){0,kTopHeight,kSCREEN_W,30};
     [self.view addSubview:tabs];
 //    self.mTableView.hidden = YES;
+    JHDebugInstance.requestDebug = YES;
+    [self testDebugLog];
+    
 }
 -(void)dealloc{
 }
@@ -197,6 +201,15 @@
 }
 
 #pragma mark - ------------------Public Methods------------------
+-(void)testDebugLog{
+    [BaseService loginWithDic:@{@"aaa":@"dsdsd",@"dsd":@"qwewwe"} Ret:^(BOOL success, id response) {
+            JHBaseResultModel* m = [JHBaseResultModel modelWithJSON:response];
+            NSLog(@"%@",m);
+//            NSError *error = m.R;
+//            NSHTTPURLResponse * r = [m.R userInfo][@"com.alamofire.serialization.response.error.response"];
+//            NSLog(@"%ld-%@",(long)r.statusCode,[NSHTTPURLResponse localizedStringForStatusCode:r.statusCode]);
+        }];
+}
 -(void)onKeyboardShow:(NSNotification*)notification{
 //    NSDictionary *userInfo = [notification userInfo];
 //    //DLog(@"%@",userInfo);
