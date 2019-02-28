@@ -20,7 +20,12 @@
     return [self yy_modelToJSONObject];
 }
 +(NSDictionary*)dicWithJSON:(id)json{
-    return [NSJSONSerialization JSONObjectWithData:json options:kNilOptions error:NULL];
+    if ([json isKindOfClass:NSError.class]) {
+        NSError *error = json;
+        return @{@"errorcode":@(error.code),@"errorinfo":error.localizedDescription};
+    }else{
+        return [NSJSONSerialization JSONObjectWithData:json options:kNilOptions error:NULL];
+    }
 }
 -(NSString*)description{
     NSMutableString *mStr = [NSMutableString string];

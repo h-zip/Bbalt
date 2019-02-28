@@ -13,6 +13,7 @@
 #import "JHPickerVC.h"
 #import "JHInputView.h"
 #import "BaseService.h"
+#import <WebKit/WKWebView.h>
 @interface TestVC2 ()
 @property(nonatomic,strong)NSArray *cellArr;
 @property(nonatomic,strong)NSArray *headerArr;
@@ -25,6 +26,7 @@
 @property(nonatomic,strong)JHPickerVC *picker;
 @property(nonatomic,strong)JHInputView *tView;
 @property(nonatomic,strong)NSLayoutConstraint *height;
+@property (nonatomic,strong)WKWebView *webView;
 @end
 
 @implementation TestVC2
@@ -170,8 +172,12 @@
     tabs.frame = (CGRect){0,kTopHeight,kSCREEN_W,30};
     [self.view addSubview:tabs];
 //    self.mTableView.hidden = YES;
-    JHDebugInstance.requestDebug = YES;
-    [self testDebugLog];
+//    [self testDebugLog];
+    self.webView = [[WKWebView alloc]init];
+    [self.view addSubview:self.webView];
+    NSArray *arr = JH_EqualVCWithNavi(self.webView, self.view);
+    JH_AddLayouts(self.view, arr);
+    [self testDownload];
     
 }
 -(void)dealloc{
@@ -201,7 +207,16 @@
 }
 
 #pragma mark - ------------------Public Methods------------------
+-(void)testDownload{
+    [JHH5Instance downloadH5FileWithURL:loginUrl completionHandler:^{
+//        [self.webView reload];
+        NSLog(@"%@",JH_H5IndexPath);
+        NSString * urlString1 = [[NSString stringWithFormat:@"%@",JH_H5IndexPath] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]];
+        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString1 relativeToURL:[NSURL fileURLWithPath:JH_H5IndexPath]] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20.f]];
+    }];
+}
 -(void)testDebugLog{
+    JHDebugInstance.requestDebug = YES;
     [BaseService loginWithDic:@{@"aaa":@"dsdsd",@"dsd":@"qwewwe"} Ret:^(BOOL success, id response) {
             JHBaseResultModel* m = [JHBaseResultModel modelWithJSON:response];
             NSLog(@"%@",m);

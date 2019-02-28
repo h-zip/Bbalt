@@ -30,7 +30,7 @@
     }
 }
 -(NSArray*)equalSizeLayoutItem:(UIView*)item1
-                ToItem:(UIView*)item2{
+                        ToItem:(UIView*)item2{
     item1.translatesAutoresizingMaskIntoConstraints = NO;
     NSLayoutConstraint *top = JH_Layout(item1, JH_Top, item2, JH_Top, 0);
     NSLayoutConstraint *left = JH_Layout(item1, JH_Leading, item2, JH_Leading, 0);
@@ -128,5 +128,14 @@
         [arr addObject:b];
     }
     return [arr copy];
+}
+-(NSArray*)equalVCLayoutWithNaviItem:(UIView*)item1
+                              ToItem:(UIView*)item2{
+    item1.translatesAutoresizingMaskIntoConstraints = NO;
+    NSLayoutConstraint *top = JH_Layout(item1, JH_Top, item2, JH_Top, kTopHeight);
+    NSLayoutConstraint *left = JH_Layout(item1, JH_Leading, JH_SafeArea(item2), JH_Leading, 0);
+    NSLayoutConstraint *right = JH_Layout(item1, JH_Trailing, JH_SafeArea(item2), JH_Trailing, 0);
+    NSLayoutConstraint *bottom = JH_Layout(item1, JH_Bottom, JH_SafeArea(item2), JH_Bottom, 0);
+    return @[top,left,right,bottom];
 }
 @end

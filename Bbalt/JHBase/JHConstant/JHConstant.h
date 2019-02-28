@@ -27,6 +27,7 @@
 #define JHFactoryInstance [JHFactoryManager share]
 #define JHBrowserInstance [JHBrowserManager share]
 #define JHDebugInstance [JHDebugManager share]
+#define JHH5Instance [JHH5Manager share]
 //尺寸
 #define kSCREEN_H    [[UIScreen mainScreen] bounds].size.height
 #define kSCREEN_W    [[UIScreen mainScreen] bounds].size.width

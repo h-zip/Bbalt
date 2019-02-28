@@ -36,11 +36,12 @@ NS_ASSUME_NONNULL_BEGIN
 #define JH_CenterLayouts(item1,item2,size) [[JHLayoutManager share] centerLayoutSize:size Item:item1 ToItem:item2]
 #define JH_CenterYLayouts(item1,item2,size,leading,trailing) [[JHLayoutManager share] centerYLayoutSize:size Leading:leading Trailing:trailing Item:item1 ToItem:item2]
 #define JH_CenterXLayouts(item1,item2,size,top,bottom) [[JHLayoutManager share] centerXLayoutSize:size Top:top Bottom:bottom Item:item1 ToItem:item2]
+#define JH_EqualVCWithNavi(item1,item2) [[JHLayoutManager share] equalVCLayoutWithNaviItem:item1 ToItem:item2]
 @interface JHLayoutManager : NSObject
 +(instancetype)share;
 -(nullable id)safeArea:(UIView*)view;
 -(NSArray*)equalSizeLayoutItem:(UIView*)item1
-                ToItem:(UIView*)item2;
+                        ToItem:(UIView*)item2;
 
 -(NSArray*)equalRowLayoutItems:(NSArray*)items
                         ToItem:(UIView*)item;
@@ -60,6 +61,9 @@ NS_ASSUME_NONNULL_BEGIN
                       Bottom:(CGFloat)bottom
                         Item:(UIView*)item1
                       ToItem:(UIView*)item2;
+
+-(NSArray*)equalVCLayoutWithNaviItem:(UIView*)item1
+                              ToItem:(UIView*)item2;
 
 
 @end

@@ -145,12 +145,7 @@
 #pragma mark - CanOverRrite Methods
 -(void)layoutMainView{
     [self.view addSubview:self.mainView];
-    self.mainView.translatesAutoresizingMaskIntoConstraints = NO;
-    NSLayoutConstraint *top = JH_Layout(self.mainView, JH_Top, self.view, JH_Top, kTopHeight);
-    NSLayoutConstraint *left = JH_Layout(self.mainView, JH_Leading, JH_SafeArea(self.view), JH_Leading, 0);
-    NSLayoutConstraint *right = JH_Layout(self.mainView, JH_Trailing, JH_SafeArea(self.view), JH_Trailing, 0);
-    NSLayoutConstraint *bottom = JH_Layout(self.mainView, JH_Bottom, JH_SafeArea(self.view), JH_Bottom, 0);
-    NSArray *arr = @[top,left,right,bottom];
+    NSArray *arr = JH_EqualVCWithNavi(self.mainView, self.view);
     JH_AddLayouts(self.view, arr);
 }
 -(void)layoutBaseView{

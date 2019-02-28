@@ -25,4 +25,5 @@ pod "JPush"
 pod "Bugly"
 pod "AlipaySDK-iOS"
 pod "R.objc"
+pod "SSZipArchive"
 end

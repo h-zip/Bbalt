@@ -7,7 +7,8 @@
 //
 
 #import "JHTestRequestService.h"
-
+#define loginUrl @"/user"
+#define logoutUrl @""
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BaseService : JHTestRequestService

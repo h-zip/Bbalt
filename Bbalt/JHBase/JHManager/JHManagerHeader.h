@@ -23,4 +23,5 @@
 #import "JHFactoryManager.h"
 #import "JHBrowserManager.h"
 #import "JHAnimateManager.h"
+#import "JHH5Manager.h"
 #endif /* JHManagerHeader_h */
