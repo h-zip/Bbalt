@@ -15,7 +15,7 @@
 #import <MJRefresh/MJRefresh.h>
 #import <YYModel/YYModel.h>
 #import "UIView+Frame.h"
-
+#import <Cordova/CDV.h>
 #import "R.h"
 #import "JHConstant.h"
 #import "JHParmConstant.h"

@@ -26,6 +26,10 @@
 		887780BB2226845C0067B8B3 /* JHRequestLogCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 887780B92226845C0067B8B3 /* JHRequestLogCell.m */; };
 		887780BC2226845C0067B8B3 /* JHRequestLogCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 887780BA2226845C0067B8B3 /* JHRequestLogCell.xib */; };
 		887780C0222793A90067B8B3 /* JHH5Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 887780BF222793A90067B8B3 /* JHH5Manager.m */; };
+		8877813B222CD58B0067B8B3 /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88778136222CD53D0067B8B3 /* libCordova.a */; };
+		88778144222D2C2F0067B8B3 /* TestPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 88778140222D2C2F0067B8B3 /* TestPlugin.m */; };
+		88778145222D2C2F0067B8B3 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 88778142222D2C2F0067B8B3 /* README */; };
+		88778146222D2C2F0067B8B3 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = 88778143222D2C2F0067B8B3 /* config.xml */; };
 		887ED18222238C1100A30E51 /* JHTabsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 887ED18122238C1100A30E51 /* JHTabsView.m */; };
 		887ED1862224026900A30E51 /* JHAnimateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 887ED1852224026900A30E51 /* JHAnimateManager.m */; };
 		88964F7D221F9C8800419214 /* UIAlertController+SupportedInterfaceOrientations.m in Sources */ = {isa = PBXBuildFile; fileRef = 88964F7C221F9C8800419214 /* UIAlertController+SupportedInterfaceOrientations.m */; };
@@ -128,6 +132,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		88778135222CD53D0067B8B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 88778130222CD53C0067B8B3 /* CordovaLib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 68A32D7114102E1C006B237C;
+			remoteInfo = CordovaLib;
+		};
+		88778137222CD53D0067B8B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 88778130222CD53C0067B8B3 /* CordovaLib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C0C01EB21E3911D50056E6CB;
+			remoteInfo = Cordova;
+		};
+		88778139222CD5840067B8B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 88778130222CD53C0067B8B3 /* CordovaLib.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = CordovaLib;
+		};
 		88D9F93E219289A000ABFD15 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 88D9F91D2192899D00ABFD15 /* Project object */;
@@ -185,6 +210,11 @@
 		887780BA2226845C0067B8B3 /* JHRequestLogCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JHRequestLogCell.xib; sourceTree = "<group>"; };
 		887780BE222793A90067B8B3 /* JHH5Manager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHH5Manager.h; sourceTree = "<group>"; };
 		887780BF222793A90067B8B3 /* JHH5Manager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHH5Manager.m; sourceTree = "<group>"; };
+		88778130222CD53C0067B8B3 /* CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CordovaLib.xcodeproj; path = CordovaLib/CordovaLib.xcodeproj; sourceTree = "<group>"; };
+		88778140222D2C2F0067B8B3 /* TestPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPlugin.m; sourceTree = "<group>"; };
+		88778141222D2C2F0067B8B3 /* TestPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPlugin.h; sourceTree = "<group>"; };
+		88778142222D2C2F0067B8B3 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		88778143222D2C2F0067B8B3 /* config.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = config.xml; sourceTree = "<group>"; };
 		887ED18022238C1100A30E51 /* JHTabsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHTabsView.h; sourceTree = "<group>"; };
 		887ED18122238C1100A30E51 /* JHTabsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHTabsView.m; sourceTree = "<group>"; };
 		887ED1842224026900A30E51 /* JHAnimateManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHAnimateManager.h; sourceTree = "<group>"; };
@@ -380,6 +410,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8877813B222CD58B0067B8B3 /* libCordova.a in Frameworks */,
 				F13D3F885030A97757DF808D /* Pods_Bbalt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -559,6 +590,43 @@
 				887780BF222793A90067B8B3 /* JHH5Manager.m */,
 			);
 			path = JHH5Manager;
+			sourceTree = "<group>";
+		};
+		88778131222CD53C0067B8B3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				88778136222CD53D0067B8B3 /* libCordova.a */,
+				88778138222CD53D0067B8B3 /* Cordova.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8877813D222D2C2E0067B8B3 /* CordovaPlugins */ = {
+			isa = PBXGroup;
+			children = (
+				8877813E222D2C2F0067B8B3 /* Plugins */,
+				88778143222D2C2F0067B8B3 /* config.xml */,
+			);
+			name = CordovaPlugins;
+			path = CordovaLib/CordovaPlugins;
+			sourceTree = "<group>";
+		};
+		8877813E222D2C2F0067B8B3 /* Plugins */ = {
+			isa = PBXGroup;
+			children = (
+				8877813F222D2C2F0067B8B3 /* cordova-plugin-test */,
+				88778142222D2C2F0067B8B3 /* README */,
+			);
+			path = Plugins;
+			sourceTree = "<group>";
+		};
+		8877813F222D2C2F0067B8B3 /* cordova-plugin-test */ = {
+			isa = PBXGroup;
+			children = (
+				88778140222D2C2F0067B8B3 /* TestPlugin.m */,
+				88778141222D2C2F0067B8B3 /* TestPlugin.h */,
+			);
+			path = "cordova-plugin-test";
 			sourceTree = "<group>";
 		};
 		887ED17E22238BE000A30E51 /* JHTabsView */ = {
@@ -759,6 +827,8 @@
 		88D9F9272192899D00ABFD15 /* Bbalt */ = {
 			isa = PBXGroup;
 			children = (
+				8877813D222D2C2E0067B8B3 /* CordovaPlugins */,
+				88778130222CD53C0067B8B3 /* CordovaLib.xcodeproj */,
 				882C30B021EC948C009E4436 /* Bbalt.entitlements */,
 				88D9FA0F2192B26200ABFD15 /* JHBase */,
 				88B620E721FAED2100474022 /* Service */,
@@ -1565,6 +1635,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				8877813A222CD5840067B8B3 /* PBXTargetDependency */,
 			);
 			name = Bbalt;
 			productName = Bbalt;
@@ -1646,6 +1717,12 @@
 			mainGroup = 88D9F91C2192899D00ABFD15;
 			productRefGroup = 88D9F9262192899D00ABFD15 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 88778131222CD53C0067B8B3 /* Products */;
+					ProjectRef = 88778130222CD53C0067B8B3 /* CordovaLib.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				88D9F9242192899D00ABFD15 /* Bbalt */,
@@ -1654,6 +1731,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		88778136222CD53D0067B8B3 /* libCordova.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCordova.a;
+			remoteRef = 88778135222CD53D0067B8B3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		88778138222CD53D0067B8B3 /* Cordova.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Cordova.framework;
+			remoteRef = 88778137222CD53D0067B8B3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		88D9F9232192899D00ABFD15 /* Resources */ = {
@@ -1669,9 +1763,11 @@
 				88D9FA792192B26200ABFD15 /* JHRegistAVC.xib in Resources */,
 				88D9F96121928E6C00ABFD15 /* Main.storyboard in Resources */,
 				88B6210A22003C5400474022 /* JHSearchBtnView.xib in Resources */,
+				88778146222D2C2F0067B8B3 /* config.xml in Resources */,
 				88D9FA992192B26200ABFD15 /* JHGuidePageVC.xib in Resources */,
 				88D9F97E219293F900ABFD15 /* Localizable.strings in Resources */,
 				88D9F932219289A000ABFD15 /* Assets.xcassets in Resources */,
+				88778145222D2C2F0067B8B3 /* README in Resources */,
 				88D9FA7A2192B26200ABFD15 /* JHLoginVC.xib in Resources */,
 				88B509D02216CCA200D89EB8 /* JHSingleBrowserView.xib in Resources */,
 				887780BC2226845C0067B8B3 /* JHRequestLogCell.xib in Resources */,
@@ -1886,6 +1982,7 @@
 				88D9FA922192B26200ABFD15 /* JHScrollListVC.m in Sources */,
 				88B620FE21FFF36800474022 /* JHDecimalManager.m in Sources */,
 				88D9FB1D2192C0AA00ABFD15 /* UIResponder+FirstResponder.m in Sources */,
+				88778144222D2C2F0067B8B3 /* TestPlugin.m in Sources */,
 				880977CD22165BA000320EDD /* JHButton+Throttle.m in Sources */,
 				887780C0222793A90067B8B3 /* JHH5Manager.m in Sources */,
 				88964F7D221F9C8800419214 /* UIAlertController+SupportedInterfaceOrientations.m in Sources */,
@@ -1919,6 +2016,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		8877813A222CD5840067B8B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CordovaLib;
+			targetProxy = 88778139222CD5840067B8B3 /* PBXContainerItemProxy */;
+		};
 		88D9F93F219289A000ABFD15 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 88D9F9242192899D00ABFD15 /* Bbalt */;
